@@ -50,21 +50,40 @@ export function MailIndex() {
         setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...fieldsToUpdate }))
     }
 
-    function onSendMail(ev) {
-        ev.preventDefault()
+    function SendMail(mail) {
         console.log('mail:', mail)
     }
 
-    return <section className="mails-container">
-        <div className="unreadCount-counter">New: {unreadCount}</div>
-        <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
-        <button className="open-modal-btn"
-            onClick={() => {
-                setOpenModal(true)
-            }}>
-            Compose
-        </button>
-        {openModal && <Compose onSendMail={onSendMail} openModal={openModal} setOpenModal={setOpenModal} />}
-        <MailList mails={mails} onRemoveMail={onRemoveMail} />
-    </section>
+    return <React.Fragment>
+        <section className="searcha-container flex">
+            {openModal && <Compose SendMail={SendMail} openModal={openModal} setOpenModal={setOpenModal} />}
+            <button className="open-modal-btn"
+                onClick={() => {
+                    setOpenModal(true)
+                }}>
+                Compose
+            </button>
+            <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
+        </section>
+        <section className="flex">
+            <ul className="filter-menu clean-list">
+                <li>
+                    Inbox <span>{unreadCount}</span>
+                </li>
+                <li>
+                    Starred <span>{0}</span>
+                </li>
+                <li>
+                    Sent <span>{0}</span>
+                </li>
+                <li>
+                    Draft <span>{0}</span>
+                </li>
+                <li>
+                    Trash <span>{0}</span>
+                </li>
+            </ul>
+            <MailList mails={mails} onRemoveMail={onRemoveMail} />
+        </section>
+    </React.Fragment >
 }

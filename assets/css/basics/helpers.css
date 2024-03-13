@@ -22,6 +22,10 @@
     justify-content: flex-start;
 }
 
+.clean-list {
+    list-style: none;
+}
+
 .grid {
     display: grid;
 }

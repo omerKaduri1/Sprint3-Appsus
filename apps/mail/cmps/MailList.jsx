@@ -8,7 +8,7 @@ export function MailList({ mails, onRemoveMail }) {
         return <div className="nothing-to-show">Loading...</div>
     }
 
-    return <ul className="mail-list clean-list">
+    return <ul className="mail-list">
         {mails.map(mail => (
             <li key={mail.id} className={`flex space-between`}>
                 <div className="inputs flex">

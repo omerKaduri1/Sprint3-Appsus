@@ -1,5 +1,9 @@
 .mail-list {
+    flex-grow: 1;
+
     padding: 0 .3em;
+    margin: 0;
+
     border-top: 1px solid lightgray;
 }
 
@@ -7,14 +11,12 @@
     width: 100%;
     padding: .1em;
     font-size: .8em;
+
     border-bottom: 1px solid lightgray;
 }
 
-.mail-subject {
-}
-
-.mail-actions {
-    justify-content: flex-end;
+.mails-container {
+    display: flex;
 }
 
 .mail-actions > * {
@@ -52,7 +54,6 @@
 .fa.star {
     appearance: none;
 }
-
 
 .fa.star::before {
     content: '\f005';

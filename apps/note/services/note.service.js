@@ -59,15 +59,15 @@ function query(filterBy = getDefaultFilter()) {
   return storageService.query(NOTE_KEY).then((notes) => {
     if (filterBy.txt) {
       const regex = new RegExp(filterBy.txt, "i")
-      notes = notes.filter((note) => regex.test(note.vendor))
+      notes = notes.filter((note) => regex.test(note.info.txt))
     }
-    if (filterBy.minSpeed) {
-      notes = notes.filter((note) => note.maxSpeed >= filterBy.minSpeed)
-    }
-    if (filterBy.desc) {
-      const regex = new RegExp(filterBy.desc, "i")
-      notes = notes.filter((note) => regex.test(note.desc))
-    }
+    // if (filterBy.minSpeed) {
+    //   notes = notes.filter((note) => note.maxSpeed >= filterBy.minSpeed)
+    // }
+    // if (filterBy.desc) {
+    //   const regex = new RegExp(filterBy.desc, "i")
+    //   notes = notes.filter((note) => regex.test(note.desc))
+    // }
     return notes
   })
 }

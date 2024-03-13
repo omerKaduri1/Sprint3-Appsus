@@ -18,6 +18,7 @@ export function NoteIndex() {
   function loadNotes() {
     noteService.query().then((notes) => {
       setNotes(notes)
+      console.log(notes);
     })
   }
 
@@ -35,9 +36,8 @@ export function NoteIndex() {
   }
 
   function saveNote(note) {
-    noteService.save(note)
-    .then((savedNote) => {
-        setSelectedNote(null)
+    noteService.save(note).then((savedNote) => {
+      setSelectedNote(null)
     })
   }
 
@@ -52,6 +52,12 @@ export function NoteIndex() {
       })
   }
 
+//   function changeBackgroundColor(note, color) {
+//     const style = { backgroundColor: color }
+//     note = { ...note, style }
+//     noteService.save(note)
+//   }
+
   if (!notes) return <div>Loading...</div>
   return (
     <section className="note-index">
@@ -59,15 +65,15 @@ export function NoteIndex() {
         <section className="add-note-container">
           <NoteAdd addNote={addNote} />
         </section>
-        <NoteList notes={notes}
-        removeNote={removeNote} 
-        editNote={editNote} />
+        <NoteList
+          notes={notes}
+          removeNote={removeNote}
+          editNote={editNote}
+        //   changeBackgroundColor={changeBackgroundColor}
+        />
       </section>
 
-      {selectedNote && 
-      <NoteEdit 
-      note={selectedNote} 
-      saveNote={saveNote} />}
+      {selectedNote && <NoteEdit note={selectedNote} saveNote={saveNote} />}
     </section>
   )
 }

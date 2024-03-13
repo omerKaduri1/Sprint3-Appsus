@@ -54,7 +54,6 @@ _createNotes()
 // ]
 
 function query(filterBy = getDefaultFilter()) {
-  console.log("filterBy", filterBy)
 
   return storageService.query(NOTE_KEY).then((notes) => {
     if (filterBy.txt) {
@@ -96,7 +95,7 @@ function getEmptyNote(title = "", txt = "") {
   return {
     type: "NoteTxt",
     isPinned: false,
-    style: { backgroundColor: "white" },
+    style: { backgroundColor: "fff" },
     info: { title, txt },
   }
 }

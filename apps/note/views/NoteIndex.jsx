@@ -1,5 +1,6 @@
 const { useState, useEffect } = React
 
+import { NoteAdd } from "../cmps/NoteAdd.jsx"
 import { NoteList } from "../cmps/NoteList.jsx"
 
 import { noteService } from "../services/note.service.js"
@@ -18,6 +19,14 @@ export function NoteIndex() {
     })
   }
 
+  function addNote(note) {
+    noteService.save(note)
+    .then((savedNote) => setNotes((prevNotes) => [...prevNotes, savedNote]))
+    .catch((err) => {
+        console.log('Could not add note');
+    })
+  }
+
   function removeNote(noteId) {
     noteService.remove(noteId)
     .then(() => {
@@ -32,6 +41,9 @@ export function NoteIndex() {
   return (
     <section className="note-index">
         <section className="main-notes-container">
+            <section className='add-note-container'>
+                <NoteAdd addNote={addNote}/>
+            </section>
             <NoteList
             notes={notes}
             removeNote={removeNote}/>

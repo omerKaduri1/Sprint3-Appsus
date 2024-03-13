@@ -84,10 +84,10 @@ function remove(noteId) {
 }
 
 function save(note) {
+  console.log(note);
   if (note.id) {
     return storageService.put(NOTE_KEY, note)
   } else {
-    note = _createNote()
     return storageService.post(NOTE_KEY, note)
   }
 }

@@ -1,4 +1,5 @@
 body {
+    font-family: lato-light;
     margin: 0;
 }
 
@@ -14,6 +15,10 @@ h6 {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+button {
+    cursor: pointer;
 }
 
 img {

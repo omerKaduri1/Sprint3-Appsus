@@ -1,13 +1,13 @@
 export const utilService = {
-  makeId,
-  makeLorem,
-  getRandomIntInclusive,
-  getRandomColor,
-  padNum,
-  getDayName,
-  getMonthName,
-  loadFromStorage,
-  saveToStorage,
+    makeId,
+    makeLorem,
+    getRandomIntInclusive,
+    getRandomColor,
+    padNum,
+    getDayName,
+    getMonthName,
+    loadFromStorage,
+    saveToStorage
 }
 
 function makeId(length = 6) {
@@ -105,6 +105,15 @@ function getMonthName(date) {
     "December",
   ]
   return monthNames[date.getMonth()]
+}
+
+function saveToStorage(key, val) {
+    localStorage.setItem(key, JSON.stringify(val))
+}
+
+function loadFromStorage(key) {
+    var val = localStorage.getItem(key)
+    return JSON.parse(val)
 }
 
 function saveToStorage(key, val) {

@@ -1,13 +1,15 @@
 import { NotePreview } from "./NotePreview.jsx"
 
-export function NoteList({ notes, removeNote }) {
+export function NoteList({ notes, removeNote, editNote }) {
+    
   return (
     <section className="note-list-container">
       <ul className="note-list">
         {notes.map((note) => (
           <li key={note.id}>
             <NotePreview note={note} 
-            removeNote={removeNote} />
+            removeNote={removeNote}
+            editNote={editNote} />
           </li>
         ))}
       </ul>

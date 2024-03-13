@@ -2,7 +2,14 @@ import { utilService } from "../../../services/util.service.js"
 import { storageService } from "../../../services/async-storage.service.js"
 
 const NOTE_KEY = "noteDB"
-export const noteService = {}
+export const noteService = {
+  query,
+  get,
+  remove,
+  save,
+  getEmptyNote,
+  getDefaultFilter,
+}
 window.nt = noteService
 
 _createNotes()
@@ -85,12 +92,12 @@ function save(note) {
   }
 }
 
-function getEmptyNote(txt = "") {
+function getEmptyNote(title = "", txt = "") {
   return {
     type: "NoteTxt",
     isPinned: false,
-    style: { backgroundColor: "#00d" },
-    info: { txt },
+    style: { backgroundColor: "white" },
+    info: { title, txt },
   }
 }
 
@@ -102,16 +109,15 @@ function _createNotes() {
   let notes = utilService.loadFromStorage(NOTE_KEY)
   if (!notes || !notes.length) {
     notes = []
-    notes.push(_createNote("aaaa"))
-    notes.push(_createNote("Helloooo"))
-    notes.push(_createNote("I love javaScript"))
+    notes.push(_createNote("My note", "aaaa"))
+    notes.push(_createNote("Coding Academy", "Helloooo"))
+    notes.push(_createNote("Hello World", "I love javaScript"))
   }
   utilService.saveToStorage(NOTE_KEY, notes)
-  console.log(notes);
 }
 
-function _createNote(txt) {
-  const note = getEmptyNote(txt)
+function _createNote(title, txt) {
+  const note = getEmptyNote(title, txt)
   note.id = utilService.makeId()
   note.createdAt = 0
   return note

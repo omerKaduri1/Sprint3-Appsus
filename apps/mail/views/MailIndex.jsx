@@ -9,6 +9,7 @@ import { MailFilter } from "../cmps/MailFilter.jsx"
 
 export function MailIndex() {
     const [mails, setMails] = useState(null)
+    const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [unreadCount, setUnreadCount] = useState(0)
 
     useEffect(() => {
@@ -17,7 +18,7 @@ export function MailIndex() {
     }, [mails])
 
     function loadMails() {
-        mailService.query()
+        mailService.query(filterBy)
             .then(setMails)
     }
 
@@ -47,7 +48,8 @@ export function MailIndex() {
 
     return <section className="mails-container">
         <div className="unreadCount-counter">New: {unreadCount}</div>
-        {/* <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} /> */}
+        <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
+        <button>Compose</button>
         <MailList mails={mails} onRemoveMail={onRemoveMail} />
     </section>
 }

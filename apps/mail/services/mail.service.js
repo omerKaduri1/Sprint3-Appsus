@@ -18,17 +18,17 @@ _creatEmails()
 function query(filterBy = getDefaultFilter()) {
     return storageService.query(MAIL_KEY)
         .then(mails => {
-            // if (filterBy.txt) {
-            //     const regex = new RegExp(filterBy.txt, 'i')
-            //     mails = mails.filter(mail => regex.test(mail.vendor))
-            // }
-            // if (filterBy.minSpeed) {
-            //     mails = mails.filter(mail => mail.maxSpeed >= filterBy.minSpeed)
-            // }
-            // if (filterBy.desc) {
-            //     const regex = new RegExp(filterBy.desc, 'i')
-            //     mails = mails.filter(mail => regex.test(mail.desc))
-            // }
+            if (filterBy.txt) {
+                const regex = new RegExp(filterBy.txt, 'i')
+                mails = mails.filter(mail => regex.test(mail.subject) || regex.test(mail.from) || regex.test(mail.body) || regex.test(mail.to))
+            }
+            if (filterBy.notRead) {
+                mails = mails.filter(mail => !mail.isRead)
+            }
+            if (filterBy.desc) {
+                const regex = new RegExp(filterBy.desc, 'i')
+                mails = mails.filter(mail => regex.test(mail.desc))
+            }
             return mails
         })
 }
@@ -66,9 +66,8 @@ function getEmptyMail() {
     return email
 }
 
-//NEEDS DEFINITION
 function getDefaultFilter() {
-    return { txt: '', minSpeed: 50, desc: '' }
+    return { txt: '', isRead: false  }
 }
 
 //NEEDS DEFINITION

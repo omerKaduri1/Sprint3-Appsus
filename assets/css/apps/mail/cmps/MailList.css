@@ -4,18 +4,13 @@
 }
 
 .mail-list > * {
+    width: 100%;
     padding: .1em;
     font-size: .8em;
     border-bottom: 1px solid lightgray;
 }
 
-.mail-from {
-    width: 15em;
-    min-width: 5em;
-}
-
 .mail-subject {
-    flex-grow: 1;
 }
 
 .mail-actions {
@@ -37,6 +32,11 @@
     font-family: fa;
 }
 
+.fa:hover {
+    color: rgb(73, 73, 73);
+    transition: 0.4s;
+}
+
 .fa.envelope::before {
     content: '\f2b6';
 }
@@ -47,4 +47,14 @@
 
 .fa.forward::before {
     content: '\f1d8';
+}
+
+.fa.star {
+    appearance: none;
+}
+
+
+.fa.star::before {
+    content: '\f005';
+    color: gold;
 }

@@ -31,7 +31,8 @@ export function MailDetails() {
 
     if (isLoading) return <div>Loading...</div>
     return <section>
-        <h1>{mail.subject}</h1>
-        <h3>From: </h3>
+        <h1>Subject: {mail.subject}</h1>
+        <h5>From: {mail.from}</h5>
+        <p>{mail.body}</p>
     </section>
 }

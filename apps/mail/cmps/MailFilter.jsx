@@ -29,7 +29,7 @@ export function MailFilter({ onSetFilter, filterBy }) {
             <label htmlFor="is-read">Read</label>
             <input
                 type="checkbox"
-                name="isRead"
+                name="is-read"
                 id="is-read"
                 value={filterByToEdit.isRead}
                 onChange={handleChange} />

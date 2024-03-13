@@ -5,11 +5,17 @@ import { mailService } from "../services/mail.service.js"
 
 import { MailList } from "../cmps/MailList.jsx"
 import { MailFilter } from "../cmps/MailFilter.jsx"
+import { Compose } from "../cmps/Compose.jsx"
 
 export function MailIndex() {
     const [mails, setMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [unreadCount, setUnreadCount] = useState(0)
+    const [openModal, setOpenModal] = useState(false)
+    const [mailDetails, setMailDetails] = useState(
+        mailService.getEmptyMail()
+    )
+
 
     useEffect(() => {
         loadMails()
@@ -44,10 +50,21 @@ export function MailIndex() {
         setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...fieldsToUpdate }))
     }
 
+    function onSendMail(ev) {
+        ev.preventDefault()
+        console.log('mail:', mail)
+    }
+
     return <section className="mails-container">
         <div className="unreadCount-counter">New: {unreadCount}</div>
         <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
-        <button>Compose</button>
+        <button className="open-modal-btn"
+            onClick={() => {
+                setOpenModal(true)
+            }}>
+            Compose
+        </button>
+        {openModal && <Compose onSendMail={onSendMail} openModal={openModal} setOpenModal={setOpenModal} />}
         <MailList mails={mails} onRemoveMail={onRemoveMail} />
     </section>
 }

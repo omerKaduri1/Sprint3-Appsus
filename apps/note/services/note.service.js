@@ -80,7 +80,7 @@ function get(noteId) {
 }
 
 function remove(noteId) {
-  return storageService.remove(note_KEY, noteId)
+  return storageService.remove(NOTE_KEY, noteId)
 }
 
 function save(note) {

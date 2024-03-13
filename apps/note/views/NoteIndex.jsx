@@ -18,12 +18,23 @@ export function NoteIndex() {
     })
   }
 
-//   if (!notes) return <div>Loading...</div>
+  function removeNote(noteId) {
+    noteService.remove(noteId)
+    .then(() => {
+        setNotes((prevNotes) => prevNotes.filter(note=> note.id!== noteId))
+    })
+    .catch((err) => {
+        console.log(`Could not remove ${noteId}`);
+    })
+  }
+
+  if (!notes) return <div>Loading...</div>
   return (
     <section className="note-index">
         <section className="main-notes-container">
             <NoteList
-            notes={notes}/>
+            notes={notes}
+            removeNote={removeNote}/>
         </section>
     </section>
   )

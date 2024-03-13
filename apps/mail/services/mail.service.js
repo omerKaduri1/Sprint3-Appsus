@@ -1,10 +1,7 @@
 import { utilService } from '../../../services/util.service.js'
-import { storageService } from '../../../async-storage.service.js'
+import { storageService } from '../../../services/async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
-
-const mails = loadFromStorage()
-console.log('mails:', mails)
 
 export const mailService = {
     query,

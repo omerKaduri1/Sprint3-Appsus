@@ -67,7 +67,7 @@ function getEmptyMail() {
 }
 
 function getDefaultFilter() {
-    return { txt: '', isRead: false  }
+    return { txt: '', isRead: false }
 }
 
 //NEEDS DEFINITION

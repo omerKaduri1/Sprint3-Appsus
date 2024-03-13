@@ -1,0 +1,14 @@
+.add-note-container {
+    margin-block-start: 2em;
+}
+
+.add-note input, textarea {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 16px;
+}

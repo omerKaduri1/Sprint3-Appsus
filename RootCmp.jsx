@@ -9,7 +9,7 @@ import { NoteIndex } from "./apps/note/views/NoteIndex.jsx"
 
 
 
-export function App() {
+export function RootCmp() {
     return <Router>
         <section className="app">
             <AppHeader />

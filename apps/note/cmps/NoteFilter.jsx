@@ -7,10 +7,6 @@ export function NoteFilter({ onSetFilterBy, filterBy }) {
     onSetFilterBy(filterByToEdit)
   }, [filterByToEdit])
 
-  // function onFilter(ev) {
-  //     ev.preventDefault()
-  // }
-
   function handleChange({ target }) {
     const { value, name: field } = target
     setFilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))

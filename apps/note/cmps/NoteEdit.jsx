@@ -1,26 +1,23 @@
 const { useState, useEffect } = React
 
 export function NoteEdit({ note, saveNote }) {
-  const [editedInfo, setEditedInfo] = useState({
-    title: note.info.title,
-    txt: note.info.txt,
-  })
+  const [editedInfo, setEditedInfo] = useState(note.info.txt)
 
   function onEdit(ev) {
     ev.preventDefault()
-    note.info = { ...note.info, ...editedInfo }
+    note.info.txt = editedInfo
     saveNote(note)
   }
 
   function handleChange({ target }) {
-    const { name: field, value } = target
-    setEditedInfo({ ...editedInfo, [field]: value })
+    const { value } = target
+    setEditedInfo(value)
   }
 
   return (
     <section className="edit-container">
       <form className="note-edit" onSubmit={onEdit}>
-        <input
+        {/* <input
           className="title-input"
           required
           onChange={handleChange}
@@ -29,9 +26,9 @@ export function NoteEdit({ note, saveNote }) {
           id="title"
           placeholder="Title"
           value={editedInfo.title}
-        />
+        /> */}
 
-        <textarea
+        <input
           className="txt-input"
           onChange={handleChange}
           name="txt"

@@ -91,12 +91,12 @@ function save(note) {
   }
 }
 
-function getEmptyNote(title = "", txt = "") {
+function getEmptyNote(txt = "") {
   return {
     type: "NoteTxt",
     isPinned: false,
     style: { backgroundColor: "fff" },
-    info: { title, txt },
+    info: { txt },
   }
 }
 
@@ -108,15 +108,15 @@ function _createNotes() {
   let notes = utilService.loadFromStorage(NOTE_KEY)
   if (!notes || !notes.length) {
     notes = []
-    notes.push(_createNote("My note", "aaaa"))
-    notes.push(_createNote("Coding Academy", "Helloooo"))
-    notes.push(_createNote("Hello World", "I love javaScript"))
+    notes.push(_createNote("aaaa"))
+    notes.push(_createNote("Coding Academy"))
+    notes.push(_createNote("I love javaScript"))
   }
   utilService.saveToStorage(NOTE_KEY, notes)
 }
 
-function _createNote(title, txt) {
-  const note = getEmptyNote(title, txt)
+function _createNote(txt) {
+  const note = getEmptyNote(txt)
   note.id = utilService.makeId()
   note.createdAt = 0
   return note

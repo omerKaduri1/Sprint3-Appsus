@@ -21,8 +21,8 @@ export function NoteAdd({ addNote }) {
 
   return (
     <section className="add-note">
-      <article>
-        <form className="add-text" onSubmit={onAddNote}>
+      {/* <article> */}
+        <form className="add-text flex column" onSubmit={onAddNote}>
           <input
             className="title-input"
             required
@@ -42,7 +42,7 @@ export function NoteAdd({ addNote }) {
             onChange={handleChange}
             value={noteInfo.txt}
             cols="30"
-            rows="10"
+            rows="3"
           />
 
           <section className="actions-container">
@@ -51,7 +51,7 @@ export function NoteAdd({ addNote }) {
             </button>
           </section>
         </form>
-      </article>
+      {/* </article> */}
     </section>
   )
 }

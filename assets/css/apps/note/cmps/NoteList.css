@@ -1,1 +1,13 @@
- /* note list */
+.note-list {
+    margin: 0 auto;
+    
+}
+
+.inner-container {
+    columns: 4;
+
+}
+
+.inner-container > * {
+    break-inside: avoid;
+}

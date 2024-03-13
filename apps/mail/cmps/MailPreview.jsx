@@ -1,5 +1,5 @@
 export function MailPreview({ mail }) {
-    return <article>
+    return <article className={(mail.isRead) ? '' : 'bold'}>
         {mail.subject}
     </article>
 }

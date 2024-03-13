@@ -4,13 +4,14 @@ import { MailPreview } from './MailPreview.jsx'
 
 
 export function MailList({ mails, onRemoveMail }) {
-    console.log('mails:', mails)
     if (!mails || !mails.length)
         return <div className="nothing-to-show">Loading...</div>
 
     return <ul className="mail-list clean-list">
         {mails.map(mail => (
-            <li key={mail.id} className="flex align-center space-between">
+            <li key={mail.id} className={`flex align-center space-between 
+            ${(mail.isRead ? '' : 'bold')}`}
+            >
                 <Link to={`/mails/${mail.id}`}>
                     <MailPreview mail={mail} />
                 </Link>

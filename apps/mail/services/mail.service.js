@@ -10,8 +10,10 @@ export const mailService = {
     save,
     getEmptyMail,
     getDefaultFilter,
-    getFilterFromParams
+    getFilterFromParams,
 }
+
+_creatEmails()
 
 function query(filterBy = getDefaultFilter()) {
     return storageService.query(MAIL_KEY)
@@ -100,6 +102,7 @@ function _creatEmail() {
     const mail = getEmptyMail()
     mail.subject = utilService.makeLorem(2)
     mail.body = utilService.makeLorem(100)
+    mail.isRead = (Math.random() > 0.5)
     return mail
 }
 

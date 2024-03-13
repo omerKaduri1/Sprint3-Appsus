@@ -1,6 +1,5 @@
 const { useEffect, useState } = React
 
-
 export function MailFilter({ onSetFilter, filterBy }) {
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
 
@@ -16,8 +15,6 @@ export function MailFilter({ onSetFilter, filterBy }) {
     function handleChange({ target }) {
         let { value, name: field, type } = target
         setFilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
-
-        console.log('value:', value)
     }
 
     return <section className="mail-filter">
@@ -35,7 +32,7 @@ export function MailFilter({ onSetFilter, filterBy }) {
                 name="isRead"
                 id="is-read"
                 value={filterByToEdit.isRead}
-                onChange={handleChange}/>
+                onChange={handleChange} />
         </form>
     </section>
 }

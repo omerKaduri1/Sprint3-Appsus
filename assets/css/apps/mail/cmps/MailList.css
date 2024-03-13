@@ -1,1 +1,50 @@
- /* mail list */
+.mail-list {
+    padding: 0 .3em;
+    border-top: 1px solid lightgray;
+}
+
+.mail-list > * {
+    padding: .1em;
+    font-size: .8em;
+    border-bottom: 1px solid lightgray;
+}
+
+.mail-from {
+    width: 15em;
+    min-width: 5em;
+}
+
+.mail-subject {
+    flex-grow: 1;
+}
+
+.mail-actions {
+    justify-content: flex-end;
+}
+
+.mail-actions > * {
+    color: rgb(173, 173, 173);
+    font-size: .9em;
+
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* ICONS */
+.fa {
+    font-family: fa;
+}
+
+.fa.envelope::before {
+    content: '\f2b6';
+}
+
+.fa.trash::before {
+    content: '\f1f8';
+}
+
+.fa.forward::before {
+    content: '\f1d8';
+}

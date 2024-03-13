@@ -6,7 +6,6 @@ import { mailService } from "../services/mail.service.js"
 import { MailList } from "../cmps/MailList.jsx"
 import { MailFilter } from "../cmps/MailFilter.jsx"
 
-
 export function MailIndex() {
     const [mails, setMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
@@ -21,7 +20,6 @@ export function MailIndex() {
         mailService.query(filterBy)
             .then(setMails)
     }
-
 
     function countUnread() {
         mailService.query().then(prevMails => (

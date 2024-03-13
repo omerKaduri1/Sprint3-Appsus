@@ -18,6 +18,10 @@
     justify-content: space-between;
 }
 
+.flex-start {
+    justify-content: flex-start;
+}
+
 .grid {
     display: grid;
 }

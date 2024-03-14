@@ -1,11 +1,18 @@
+const {useState} = React
+
 import { NotePreviewButtons } from "./NotePreviewButtons.jsx"
+import { NoteEdit } from "./NoteEdit.jsx"
 
 export function NoteVideo({
   note,
   removeNote,
-  editNote,
   changeBackgroundColor,
+  saveNote
 }) {
+    const [noteBgColor, setNoteBgColor] = useState(note.style)
+    const [isOnEdit, setIsOnEdit] = useState(false)
+    const [isNotePinned, setIsNotePinned] = useState(note.isPinned)
+
   function getVideoId(url) {
     const regExp =
       /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
@@ -24,6 +31,12 @@ export function NoteVideo({
     return EmbedUrl
   }
 
+  function onSetEdit() {
+    setIsOnEdit((prevIsOnEdit) => {
+      return !prevIsOnEdit
+    })
+  }
+
   const embedUrl = getYoutubeEmbedUrl(note.info.youtubeUrl)
 
   return (
@@ -35,10 +48,14 @@ export function NoteVideo({
         <NotePreviewButtons
           note={note}
           removeNote={removeNote}
-          editNote={editNote}
           changeBackgroundColor={changeBackgroundColor}
+          onSetEdit={onSetEdit}
+          setIsNotePinned={setIsNotePinned}
         />
       </section>
+
+      {isOnEdit && <NoteEdit note={note} saveNote={saveNote} onSetEdit={onSetEdit} />}
+
     </article>
   )
 }

@@ -73,6 +73,7 @@ export function MailIndex() {
                 onClick={() => {
                     setOpenModal(true)
                 }}>
+                <span className="fa pen-icon"></span>
                 Compose
             </button>
             <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />

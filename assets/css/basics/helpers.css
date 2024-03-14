@@ -30,8 +30,8 @@
     display: grid;
 }
 
-.bold {
-    font-family: lato-bold;
+.pointer {
+    cursor: pointer;
 }
 
 .clean-list {

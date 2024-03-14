@@ -17,22 +17,15 @@ export function MailFilter({ onSetFilter, filterBy }) {
         setFilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
     }
 
-    return <section className="mail-filter">
+    return <section className="mail-filter flex align-center">
         <form onSubmit={onFilter}>
             <input type="text"
                 name="txt"
                 id="title"
                 value={filterByToEdit.txt}
                 onChange={handleChange}
-                placeholder="Search..." />
-
-            <label htmlFor="is-read">Read</label>
-            <input
-                type="checkbox"
-                name="is-read"
-                id="is-read"
-                value={filterByToEdit.isRead}
-                onChange={handleChange} />
+                placeholder="Search..."
+                className="search-input" />
         </form>
     </section>
 }

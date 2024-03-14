@@ -24,55 +24,11 @@ export function FilterMenu({ filterBy, onSetFilter }) {
 
 
     return <fieldset className="filter-menu">
-        <div>
-            <label htmlFor="inbox">Inbox</label>
-            <input
-                type="radio"
-                id="inbox"
-                name="status"
-                value="inbox"
-                onChange={handleChange}
-                defaultChecked
-            />
-        </div>
+        <div><span><span className="fa inbox-icon"></span>Inbox</span> <span>123</span></div>
+        <div><span><span className="fa sent-icon"></span>Sent</span></div>
+        <div><span><span className="fa draft-icon"></span>Draft</span></div>
+        <div><span><span className="fa trash-icon"></span>Trash</span> <span>123</span></div>
 
-        <div>
-            <label htmlFor="sent">Sent</label>
-            <input
-                type="radio"
-                id="sent"
-                name="status"
-                value="sent"
-                onChange={handleChange}
-            />
-        </div>
-
-        <div>
-            <label htmlFor="trash">Trash</label>
-            <input
-                type="radio"
-                id="trash"
-                name="status"
-                value="trash"
-                onChange={handleChange}
-            />
-        </div>
-
-
-        {/* <li onClick={setFilterByToEdit(())}>
-            Inbox <span>{unreadCount}</span>
-        </li>
-        <li>
-            Starred <span>{0}</span>
-        </li>
-        <li>
-            Sent <span>{0}</span>
-        </li>
-        <li>
-            Draft <span>{0}</span>
-        </li>
-        <li>
-            Trash <span>{0}</span>
-        </li> */}
+        <div className="lables-menu"><span><span className="fa lable-icon"></span>Labels</span></div>
     </fieldset>
 }

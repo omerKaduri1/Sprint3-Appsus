@@ -7,6 +7,7 @@ import { MailList } from "../cmps/MailList.jsx"
 import { MailFilter } from "../cmps/MailFilter.jsx"
 import { Compose } from "../cmps/Compose.jsx"
 import { utilService } from '../../../services/util.service.js'
+import { FilterMenu } from '../cmps/FilterMenu.jsx'
 
 export function MailIndex() {
     const [mails, setMails] = useState(null)
@@ -64,24 +65,30 @@ export function MailIndex() {
             <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
         </section>
         <section className="flex">
-            <ul className="filter-menu clean-list">
-                <li onClick>
-                    Inbox <span>{unreadCount}</span>
-                </li>
-                <li>
-                    Starred <span>{0}</span>
-                </li>
-                <li>
-                    Sent <span>{0}</span>
-                </li>
-                <li>
-                    Draft <span>{0}</span>
-                </li>
-                <li>
-                    Trash <span>{0}</span>
-                </li>
-            </ul>
+            <FilterMenu filterBy={filterBy} onSetFilter={onSetFilter} />
             <MailList mails={mails} onRemoveMail={onRemoveMail} />
         </section>
     </React.Fragment >
 }
+
+
+
+
+
+{/* <ul className="filter-menu clean-list">
+    <li onClick>
+        Inbox <span>{unreadCount}</span>
+    </li>
+    <li>
+        Starred <span>{0}</span>
+    </li>
+    <li>
+        Sent <span>{0}</span>
+    </li>
+    <li>
+        Draft <span>{0}</span>
+    </li>
+    <li>
+        Trash <span>{0}</span>
+    </li>
+</ul> */}

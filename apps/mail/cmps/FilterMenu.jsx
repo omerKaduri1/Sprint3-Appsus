@@ -2,37 +2,49 @@ const { useEffect } = React
 
 export function FilterMenu({ filterBy, onSetFilter }) {
 
-    useEffect(() => {
-        onSetFilter(filterByToEdit)
-    }, [filterByToEdit])
+    // useEffect(() => {
+    //     onSetFilter(filterByToEdit)
+    // }, [filterByToEdit])
 
-    function onFilter(ev) {
-        ev.preventDefault()
-        onSetFilter(filterByToEdit)
+    // function onFilter(ev) {
+    //     ev.preventDefault()
+    //     onSetFilter(filterByToEdit)
+    // }
+
+    // function handleChange({ target }) {
+    //     let { value, name: field, type } = target
+    //     setFilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
+    // }
+
+    function log({ target }) {
+        const { value } = target
+        console.log('value:', value)
     }
 
-    function handleChange({ target }) {
-        let { value, name: field, type } = target
-        setFilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
-    }
 
+    return <fieldset className="filter-menu">
+        <div>
+            <label htmlFor="inbox">Inbox</label>
+            <input
+                type="radio"
+                id="inbox"
+                name="status"
+                value="inbox"
+                onChange={log}
+                defaultChecked
+            />
+        </div>
 
-    return <ul className="filter-menu clean-list">
-        <label htmlFor="Inbox"></label>
-        <input
-        type="radio"
-        name="inbox"
-        // value={}
-        // onChange={}
-          />
-
-        <label htmlFor="sent"></label>
-        <input
-        type="radio"
-        name="sent"
-        // value={}
-        // onChange={} 
-         />
+        <div>
+            <label htmlFor="sent">Sent</label>
+            <input
+                type="radio"
+                id="sent"
+                name="status"
+                value="sent"
+                onChange={log}
+            />
+        </div>
 
 
         {/* <li onClick={setFilterByToEdit(())}>
@@ -50,5 +62,5 @@ export function FilterMenu({ filterBy, onSetFilter }) {
         <li>
             Trash <span>{0}</span>
         </li> */}
-    </ul>
+    </fieldset>
 }

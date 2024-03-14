@@ -73,21 +73,21 @@ export function NoteAdd({ addNote }) {
         /> */}
 
       {noteType && (
-        <div>
+        <React.Fragment>
           <NoteAddType addNote={addNote} type={noteType} />
-        </div>
+          <section className="note-type-btns">
+            {typeBtns.map((btn, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => onSetNoteType(btn.type)}
+              >
+                {btn.icon}
+              </button>
+            ))}
+          </section>
+        </React.Fragment>
       )}
-      <section className="note-type-btns">
-        {typeBtns.map((btn, idx) => (
-          <button
-            key={idx}
-            type="button"
-            onClick={() => onSetNoteType(btn.type)}
-          >
-            {btn.icon}
-          </button>
-        ))}
-      </section>
 
       {/* <button className="add-note-btn" type="submit">
           +

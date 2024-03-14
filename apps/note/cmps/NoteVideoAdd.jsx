@@ -1,18 +1,23 @@
 const { useState } = React
+
 import { noteService } from "../services/note.service.js"
 
-export function NoteImgAdd({ addNote, type }) {
+export function NoteVideoAdd({ addNote, type }) {
   const [noteInfo, setNoteInfo] = useState({
     title: "",
-    imgUrl: "",
+    youtubeUrl: "",
   })
 
   function onAddNote(ev) {
     ev.preventDefault()
     const emptyNote = noteService.getEmptyNote()
-    const noteToAdd = { ...emptyNote, info: { ...emptyNote.info, ...noteInfo }, type }
+    const noteToAdd = {
+      ...emptyNote,
+      info: { ...emptyNote.info, ...noteInfo },
+      type,
+    }
     addNote(noteToAdd)
-    setNoteInfo({ title: "", imgUrl: "" })
+    setNoteInfo({ title: "", youtubeUrl: "" })
   }
 
   function handleChange({ target }) {
@@ -36,11 +41,11 @@ export function NoteImgAdd({ addNote, type }) {
         <input
           onChange={handleChange}
           type="text"
-          className="imgUrl"
-          placeholder="Enter image url..."
-          name="imgUrl"
-          id="imgUrl"
-          value={noteInfo.imgUrl}
+          className="youtubeUrl"
+          placeholder="Enter  youtube url..."
+          name="youtubeUrl"
+          id="youtubeUrl"
+          value={noteInfo.youtubeUrl}
         />
         <button type="submit">+</button>
       </form>

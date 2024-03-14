@@ -60,7 +60,7 @@ _createNotes()
 //     isPinned: false,
 //     info: {
 //       title: "Fav song",
-//       url: "https://www.youtube.com/watch?v=nFjDqwtXdKw",
+//       youtubeUrl: "https://www.youtube.com/watch?v=nFjDqwtXdKw",
 //     },
 //     style: {
 //       backgroundColor: "#fff",
@@ -145,8 +145,21 @@ function _createNotes() {
         type: "NoteImg",
         isPinned: false,
         info: {
-          imgUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/330px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg",
+          imgUrl:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/330px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg",
           title: "Leo Messi",
+        },
+        style: {
+          backgroundColor: "#fff",
+        },
+      },
+      {
+        id: "n104",
+        type: "NoteVideo",
+        isPinned: false,
+        info: {
+          title: "Fav song",
+          youtubeUrl: "https://www.youtube.com/watch?v=nFjDqwtXdKw",
         },
         style: {
           backgroundColor: "#fff",

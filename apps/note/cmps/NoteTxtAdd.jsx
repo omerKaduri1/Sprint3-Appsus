@@ -7,7 +7,6 @@ export function NoteTxtAdd({ addNote, type }) {
   function handleChange({ target }) {
     const { name: field, value } = target
     setNoteInfo((prevNoteInfo) => ({ ...prevNoteInfo, [field]: value }))
-    console.log("noteInfo:", noteInfo)
   }
 
   function onAddNote(ev) {

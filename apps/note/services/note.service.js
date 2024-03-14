@@ -161,6 +161,21 @@ function _createNotes() {
           backgroundColor: "#fff",
         },
       },
+      {
+            id: "n103",
+            type: "NoteTodos",
+            isPinned: false,
+            info: {
+              title: "Get my stuff together",
+              todos: [
+                { txt: "Driving license", doneAt: null, id:utilService.makeId() },
+                { txt: "Coding power", doneAt: 187111111, id:utilService.makeId() },
+              ],
+            },
+            style: {
+              backgroundColor: "#fff",
+            },
+          },
     ]
   }
   utilService.saveToStorage(NOTE_KEY, notes)

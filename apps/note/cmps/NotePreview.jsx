@@ -1,6 +1,7 @@
 import { NoteImg } from "./NoteImg.jsx"
 import { NoteTxt } from "./NoteTxt.jsx"
 import { NoteVideo } from "./NoteVideo.jsx"
+import { NoteTodos } from "./NoteTodos.jsx"
 
 export function NotePreview({ note, removeNote, editNote, saveNote, changeBackgroundColor }) {
 

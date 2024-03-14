@@ -5,7 +5,7 @@ import { NoteEdit } from "./NoteEdit.jsx"
 
 import { noteService } from "../services/note.service.js"
 
-export function NoteImg({ note, removeNote, saveNote }) {
+export function NoteTodos({ note, removeNote, saveNote }) {
   const [noteBgColor, setNoteBgColor] = useState(note.style)
   const [isOnEdit, setIsOnEdit] = useState(false)
   const [isNotePinned, setIsNotePinned] = useState(note.isPinned)
@@ -22,11 +22,19 @@ export function NoteImg({ note, removeNote, saveNote }) {
       return !prevIsOnEdit
     })
   }
-
   return (
     <article className="note-preview" style={noteBgColor}>
       <h2>{note.info.title}</h2>
-      <img src={note.info.imgUrl} alt={note.info.title} />
+      {note.info.todos && note.info.todos.length && (
+        <ul className="clean-list">
+          {note.info.todos.map((todo) => (
+            <li key={todo.id}>
+              <span>{todo.txt}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+
       <section className="note-btns">
         <NotePreviewButtons
           note={note}

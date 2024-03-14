@@ -1,0 +1,14 @@
+.mail-list li {
+    display: inline-flex;
+}
+.mail-list li:hover {
+    box-shadow: 0px 1px 0px 0px #bababa;
+}
+.read {
+    background-color: #f2f6fc;
+}
+
+.bold {
+    font-family: lato-bold;
+    background-color: white;
+}

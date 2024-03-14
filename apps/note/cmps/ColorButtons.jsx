@@ -2,7 +2,7 @@ const { useState } = React
 
 export function ColorButtons({ note, changeBackgroundColor }) {
   const [isPaletteOpen, setIsPaletteOpen] = useState(false)
-  const colors = ["ffffff", "#efeff1", "#d3bfdb", "#d4e4ed", "#aeccdc", '#b4ddd3', '#e2f6d3', '#f39f76']
+  const colors = ["#ffffff", "#efeff1", "#d3bfdb", "#d4e4ed", "#aeccdc", '#b4ddd3', '#e2f6d3', '#f39f76']
 
   function togglePalette() {
     setIsPaletteOpen((prevIsOpen) => !prevIsOpen)

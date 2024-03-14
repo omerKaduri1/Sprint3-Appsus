@@ -2,14 +2,12 @@ const { useState, useEffect } = React
 
 import { NoteAdd } from "../cmps/NoteAdd.jsx"
 import { NoteList } from "../cmps/NoteList.jsx"
-import { NoteEdit } from "../cmps/NoteEdit.jsx"
 
 import { noteService } from "../services/note.service.js"
 import { NoteFilter } from "../cmps/NoteFilter.jsx"
 
 export function NoteIndex() {
   const [notes, setNotes] = useState(null)
-  // const [selectedNote, setSelectedNote] = useState(null)
   const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
 
   useEffect(() => {
@@ -35,10 +33,6 @@ export function NoteIndex() {
       })
   }
 
-  // function editNote(note) {
-  //   setSelectedNote(note)
-  // }
-
   function saveNote(note) {
     const noteId = note.id
     noteService.save(note).then((savedNote) => {
@@ -47,7 +41,7 @@ export function NoteIndex() {
       setNotes([...notes])
     })
   }
-
+  
   function removeNote(noteId) {
     noteService
       .remove(noteId)
@@ -58,12 +52,6 @@ export function NoteIndex() {
         console.log(`Could not remove ${noteId}`)
       })
   }
-
-  //   function changeBackgroundColor(note, color) {
-  //     const style = { backgroundColor: color }
-  //     note = { ...note, style }
-  //     noteService.save(note)
-  //   }
 
   if (!notes) return <div>Loading...</div>
   return (
@@ -77,12 +65,8 @@ export function NoteIndex() {
           notes={notes}
           removeNote={removeNote}
           saveNote={saveNote}
-          // editNote={editNote}
-          //   changeBackgroundColor={changeBackgroundColor}
         />
       </section>
-
-      {/* {selectedNote && <NoteEdit note={selectedNote} saveNote={saveNote} />} */}
     </section>
   )
 }

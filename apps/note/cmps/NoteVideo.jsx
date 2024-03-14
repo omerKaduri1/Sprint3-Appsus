@@ -1,17 +1,25 @@
-const {useState} = React
+const { useState } = React
 
 import { NotePreviewButtons } from "./NotePreviewButtons.jsx"
 import { NoteEdit } from "./NoteEdit.jsx"
 
+import { noteService } from "../services/note.service.js"
+
 export function NoteVideo({
   note,
   removeNote,
-  changeBackgroundColor,
-  saveNote
+  saveNote,
 }) {
-    const [noteBgColor, setNoteBgColor] = useState(note.style)
-    const [isOnEdit, setIsOnEdit] = useState(false)
-    const [isNotePinned, setIsNotePinned] = useState(note.isPinned)
+  const [noteBgColor, setNoteBgColor] = useState(note.style)
+  const [isOnEdit, setIsOnEdit] = useState(false)
+  const [isNotePinned, setIsNotePinned] = useState(note.isPinned)
+
+  function changeBackgroundColor(note, color) {
+    const style = { backgroundColor: color }
+    note = { ...note, style }
+    noteService.save(note)
+    setNoteBgColor({ backgroundColor: color })
+  }
 
   function getVideoId(url) {
     const regExp =
@@ -40,7 +48,7 @@ export function NoteVideo({
   const embedUrl = getYoutubeEmbedUrl(note.info.youtubeUrl)
 
   return (
-    <article className="note-preview" style={note.style}>
+    <article className="note-preview" style={noteBgColor}>
       <h2>{note.info.title}</h2>
       {embedUrl && <iframe src={embedUrl} width="200" height="200"></iframe>}
 
@@ -54,8 +62,9 @@ export function NoteVideo({
         />
       </section>
 
-      {isOnEdit && <NoteEdit note={note} saveNote={saveNote} onSetEdit={onSetEdit} />}
-
+      {isOnEdit && (
+        <NoteEdit note={note} saveNote={saveNote} onSetEdit={onSetEdit} />
+      )}
     </article>
   )
 }

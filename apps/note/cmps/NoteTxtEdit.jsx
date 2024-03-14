@@ -12,7 +12,6 @@ export function NoteTxtEdit({ note, saveNote, onSetEdit }) {
 
   function handleChange({ target }) {
     const { value } = target
-    console.log(value)
     setEditedInfo(value)
   }
 

@@ -1,4 +1,3 @@
-const { useState } = React
 import { ColorButtons } from "./ColorButtons.jsx"
 
 export function NotePreviewButtons({
@@ -9,9 +8,6 @@ export function NotePreviewButtons({
   onSetEdit,
   setIsNotePinned,
 }) {
-  // const [isOnEdit, setIsOnEdit] = useState(false)
-
-  // const [isNotePinned, setIsNotePinned] = useState(note.isPinned)
   function onRemoveNote(noteId) {
     removeNote(noteId)
   }
@@ -32,10 +28,7 @@ export function NotePreviewButtons({
       <button onClick={togglePin}>
         <i className="fa-solid fa-thumbtack"></i>
       </button>
-      <button
-        className="edit-btn"
-        onClick={onSetEdit}
-      >
+      <button className="edit-btn" onClick={onSetEdit}>
         <i className="fa-regular fa-pen-to-square"></i>
       </button>
       <ColorButtons note={note} changeBackgroundColor={changeBackgroundColor} />

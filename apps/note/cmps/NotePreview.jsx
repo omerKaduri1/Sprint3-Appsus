@@ -1,20 +1,8 @@
-const { useState } = React
-
 import { NoteImg } from "./NoteImg.jsx"
 import { NoteTxt } from "./NoteTxt.jsx"
 import { NoteVideo } from "./NoteVideo.jsx"
 
-import { noteService } from "../services/note.service.js"
-
-export function NotePreview({ note, removeNote, editNote, saveNote }) {
-  const [noteBgColor, setNoteBgColor] = useState(note.style)
-
-  function changeBackgroundColor(note, color) {
-    const style = { backgroundColor: color }
-    note = { ...note, style }
-    noteService.save(note)
-    setNoteBgColor({ backgroundColor: color })
-  }
+export function NotePreview({ note, removeNote, editNote, saveNote, changeBackgroundColor }) {
 
   {
     switch (note.type) {
@@ -23,7 +11,6 @@ export function NotePreview({ note, removeNote, editNote, saveNote }) {
           <NoteTxt
             note={note}
             removeNote={removeNote}
-            // editNote={editNote}
             saveNote={saveNote}
             changeBackgroundColor={changeBackgroundColor}
           />
@@ -33,7 +20,6 @@ export function NotePreview({ note, removeNote, editNote, saveNote }) {
           <NoteImg
             note={note}
             removeNote={removeNote}
-            editNote={editNote}
             saveNote={saveNote}
             changeBackgroundColor={changeBackgroundColor}
           />
@@ -43,7 +29,6 @@ export function NotePreview({ note, removeNote, editNote, saveNote }) {
           <NoteVideo
             note={note}
             removeNote={removeNote}
-            editNote={editNote}
             saveNote={saveNote}
             changeBackgroundColor={changeBackgroundColor}
           />
@@ -53,7 +38,6 @@ export function NotePreview({ note, removeNote, editNote, saveNote }) {
           <NoteTodos
             note={note}
             removeNote={removeNote}
-            editNote={editNote}
             saveNote={saveNote}
             changeBackgroundColor={changeBackgroundColor}
           />

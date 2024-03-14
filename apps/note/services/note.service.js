@@ -21,7 +21,7 @@ _createNotes()
 //     type: "NoteTxt",
 //     isPinned: true,
 //     style: {
-//       backgroundColor: "#00d",
+//       backgroundColor: "#fff",
 //     },
 //     info: {
 //       txt: "Fullstack Me Baby!",
@@ -32,11 +32,11 @@ _createNotes()
 //     type: "NoteImg",
 //     isPinned: false,
 //     info: {
-//       url: "http://some-img/me",
-//       title: "Bobi and Me",
+//       url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/330px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg",
+//       title: "Leo Messi",
 //     },
 //     style: {
-//       backgroundColor: "#00d",
+//       backgroundColor: "#fff",
 //     },
 //   },
 //   {
@@ -50,11 +50,25 @@ _createNotes()
 //         { txt: "Coding power", doneAt: 187111111 },
 //       ],
 //     },
+//     style: {
+//       backgroundColor: "#fff",
+//     },
+//   },
+//   {
+//     id: "n104",
+//     type: "NoteVideo",
+//     isPinned: false,
+//     info: {
+//       title: "Fav song",
+//       youtubeUrl: "https://www.youtube.com/watch?v=nFjDqwtXdKw",
+//     },
+//     style: {
+//       backgroundColor: "#fff",
+//     },
 //   },
 // ]
 
 function query(filterBy = getDefaultFilter()) {
-
   return storageService.query(NOTE_KEY).then((notes) => {
     if (filterBy.txt) {
       const regex = new RegExp(filterBy.txt, "i")
@@ -83,7 +97,7 @@ function remove(noteId) {
 }
 
 function save(note) {
-  console.log(note);
+  console.log(note)
   if (note.id) {
     return storageService.put(NOTE_KEY, note)
   } else {
@@ -91,10 +105,16 @@ function save(note) {
   }
 }
 
-function getEmptyNote(txt = "") {
+function getEmptyNote(
+  type = "NoteTxt",
+  isPinned = false,
+  createdAt = Date.now(),
+  txt = ""
+) {
   return {
-    type: "NoteTxt",
-    isPinned: false,
+    type,
+    isPinned,
+    createdAt,
     style: { backgroundColor: "fff" },
     info: { txt },
   }
@@ -107,10 +127,48 @@ function getDefaultFilter() {
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTE_KEY)
   if (!notes || !notes.length) {
-    notes = []
-    notes.push(_createNote("aaaa"))
-    notes.push(_createNote("Coding Academy"))
-    notes.push(_createNote("I love javaScript"))
+    notes = [
+      {
+        id: "n101",
+        createdAt: 1112222,
+        type: "NoteTxt",
+        isPinned: true,
+        style: {
+          backgroundColor: "#fff",
+        },
+        info: {
+          txt: "Fullstack Me Baby!",
+        },
+      },
+      {
+        id: "n102",
+        type: "NoteImg",
+        isPinned: false,
+        info: {
+          imgUrl:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/330px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg",
+          title: "Leo Messi",
+        },
+        style: {
+          backgroundColor: "#fff",
+        },
+      },
+      {
+        id: "n104",
+        type: "NoteVideo",
+        isPinned: false,
+        info: {
+          title: "Fav song",
+          youtubeUrl: "https://www.youtube.com/watch?v=nFjDqwtXdKw",
+        },
+        style: {
+          backgroundColor: "#fff",
+        },
+      },
+    ]
+    // notes.push(_createNote("aaaa"))
+    // notes.push(_createNote("Coding Academy"))
+    // notes.push(_createNote("I love javaScript"))
   }
   utilService.saveToStorage(NOTE_KEY, notes)
 }
@@ -118,6 +176,5 @@ function _createNotes() {
 function _createNote(txt) {
   const note = getEmptyNote(txt)
   note.id = utilService.makeId()
-  note.createdAt = 0
   return note
 }

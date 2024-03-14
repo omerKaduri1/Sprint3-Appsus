@@ -19,6 +19,7 @@
 /* Mail cmps */
 @import './apps/mail/cmps/MailList.css';
 @import './apps/mail/cmps/Compose.css';
+@import './apps/mail/cmps/FilterMenu.css';
 
 /* Note cmps */
 @import './apps/note/cmps/NoteAdd.css';

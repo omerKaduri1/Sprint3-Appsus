@@ -3,8 +3,6 @@
 
     padding: 0 .3em;
     margin: 0;
-
-    border-top: 1px solid lightgray;
 }
 
 .mail-list > * {
@@ -32,6 +30,22 @@
     outline: none;
     box-shadow: none;
 }
+
+.search-container {
+    background-color: #f6f8fc;
+
+}
+
+.search-input {
+    display: flex;
+    background-color: #eaf1fb;
+
+    border-radius: 1em;
+    width: 580px;
+    min-width: 184px; 
+}
+
+
 
 /* ICONS */
 .fa {
@@ -62,4 +76,34 @@
 .fa.star::before {
     content: '\f005';
     color: gold;
+}
+
+.fa.inbox-icon::before {
+    content: '\f01c';
+    margin-right: .8em;
+}
+
+.fa.sent-icon::before {
+    content: '\f1d8';
+    margin-right: .8em;
+}
+
+.fa.draft-icon::before {
+    content: '\f249';
+    margin-right: .8em;
+}
+
+.fa.trash-icon::before {
+    content: '\f2ed';
+    margin-right: .8em;
+}
+
+.fa.lable-icon::before {
+    content: '\f02c';
+    margin-right: .8em;
+}
+
+.fa.pen-icon::before {
+    content: '\f304';
+    margin-right: 1em;
 }

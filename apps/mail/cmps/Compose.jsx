@@ -1,5 +1,3 @@
-import { utilService } from "../../../services/util.service.js"
-
 const { useState } = React
 
 export function Compose({ setOpenModal, handleSubmit, handleChange }) {

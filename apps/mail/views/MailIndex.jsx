@@ -50,7 +50,6 @@ export function MailIndex() {
 
     function onSendMail(mail) {
         mailService.send(mail)
-        console.log('mail:', mail)
     }
 
     return <React.Fragment>

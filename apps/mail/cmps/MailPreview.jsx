@@ -1,19 +1,20 @@
 const { Link } = ReactRouterDOM
 const { useState } = React
 
+import { storageService } from '../../../services/async-storage.service.js'
 import { mailService } from '../services/mail.service.js'
 
 
 export function MailPreview({ mail }) {
     const [isRead, setIsRead] = useState(mail.isRead)
-
+    
     function handleIsRead() {
         setIsRead((isRead) => !isRead)
+        mail.isRead = isRead
+        console.log(mail.isRead)
     }
 
-
-
-    return <li key={mail.id} className={`flex space-between`}>
+    return <li className={`flex space-between`}>
         <div className="inputs flex">
             <input type="checkbox" className="fa star" />
             <input type="checkbox" />

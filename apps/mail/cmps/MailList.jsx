@@ -1,14 +1,8 @@
 const { Link } = ReactRouterDOM
 
-
-
 import { MailPreview } from './MailPreview.jsx'
 
-
-
-export function MailList({ mails, onRemoveMail }) {
-
-
+export function MailList({ mails }) {
 
     if (!mails || !mails.length) {
         return <div className="nothing-to-show">Loading...</div>
@@ -16,7 +10,7 @@ export function MailList({ mails, onRemoveMail }) {
 
     return <ul className="mail-list">
         {mails.map(mail => (
-            <MailPreview mail={mail}/>
+            <MailPreview key={mail.id} mail={mail}/>
         ))}
     </ul>
 }

@@ -2,7 +2,7 @@ import { utilService } from "../../../services/util.service.js"
 
 const { useState } = React
 
-export function Compose({ openModal, setOpenModal, onSendMail }) {
+export function Compose({ setOpenModal, onSendMail }) {
     const [mail, setMail] = useState({ status: 'sent' })
 
     function handleChange({ target }) {
@@ -20,46 +20,46 @@ export function Compose({ openModal, setOpenModal, onSendMail }) {
 
 
     return <div className="compose-modal">
-        <h2>New Message</h2>
         <form onSubmit={handleSubmit}>
-            <button onClick={() => setOpenModal(false)}>X</button>
-            <div className="form-container">
-                <label htmlFor="from">From</label>
-                <input
-                    type="email"
-                    id="from"
-                    name="from"
-                    value={mail.from}
-                    onChange={handleChange}
-                />
-
-                <label htmlFor="to">To</label>
-                <input
-                    type="email"
-                    id="to"
-                    name="to"
-                    value={mail.to}
-                    onChange={handleChange}
-                />
-
-                <label htmlFor="subject">Subject</label>
-                <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={mail.subject}
-                    onChange={handleChange}
-                />
-
-                <input
-                    type="text"
-                    id="content"
-                    name="content"
-                    value={mail.body}
-                    onChange={handleChange}
-                />
+            <div className="title-cotainer">
+                <h2>New Message</h2>
+                <button onClick={() => setOpenModal(false)}>X</button>
             </div>
-            <button onClick={() => setOpenModal(true)}>Send</button>
+            <div className="form-container">
+                <div className="input-container">
+                    <label htmlFor="to">To</label>
+                    <input
+                        type="email"
+                        id="to"
+                        name="to"
+                        value={mail.to}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="input-container">
+                    <label htmlFor="subject">Subject</label>
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        value={mail.subject}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        id="content"
+                        name="content"
+                        className="content"
+                        value={mail.body}
+                        onChange={handleChange}
+                    />
+                </div>
+            </div>
+            <div className="send-compose-btn-container">
+                <button className="send-compose-btn" onClick={() => setOpenModal(false)}>Send</button>
+            </div>
         </form>
     </div>
 }

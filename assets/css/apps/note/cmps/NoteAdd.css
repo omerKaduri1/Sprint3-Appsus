@@ -27,26 +27,10 @@
     color: inherit;
     box-shadow: none;
     outline: none;
-    /* border: none; */
-    /* outline: none;
-    background-color: transparent;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    border-radius: 8px;
-    width: 100%;
-    font-size: 16px; */
 }
 
 .add-note form {
     width: 77%;
-    flex-direction: row;
-}
-
-.note-type-btns {
-    /* position: absolute; */
-    /* right: 152px;
-    top: 25px;
-    transform: translate(0, -50%); */
 }
 
 .note-type-btns i {

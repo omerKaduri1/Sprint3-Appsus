@@ -2,12 +2,14 @@ import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
+// const SENT_KEY = 'sentDB'
 
 export const mailService = {
     query,
     get,
     remove,
     save,
+    send,
     getEmptyMail,
     getDefaultFilter,
     getFilterFromParams,
@@ -22,8 +24,8 @@ function query(filterBy = getDefaultFilter()) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regex.test(mail.subject) || regex.test(mail.from) || regex.test(mail.body) || regex.test(mail.to))
             }
-            if (filterBy.notRead) {
-                mails = mails.filter(mail => !mail.isRead)
+            if (filterBy.status) {
+                mails = mails.filter(mail => mail.status === filterBy.status)
             }
             if (filterBy.desc) {
                 const regex = new RegExp(filterBy.desc, 'i')
@@ -47,9 +49,15 @@ function save(mail) {
     if (mail.id) {
         return storageService.put(MAIL_KEY, mail)
     } else {
-        mail = _creatEmail(mail.vendor, mail.maxSpeed)
+        mail = _creatEmail()
         return storageService.post(MAIL_KEY, mail)
     }
+}
+
+function send(mail) {
+    mail.id = utilService.makeId()
+    mail.status = 'sent'
+    return storageService.post(MAIL_KEY, mail)
 }
 
 function getEmptyMail() {
@@ -61,13 +69,20 @@ function getEmptyMail() {
         sentAt: 0,
         removedAt: null,
         from: 'momo@momo.com',
-        to: 'user@appsus.com'
+        to: 'user@appsus.com',
+        status: 'inbox'
     }
     return email
 }
 
 function getDefaultFilter() {
-    return { txt: '', isRead: false }
+    return {
+        status: 'inbox',
+        txt: '',
+        isRead: true,
+        isStared: true,
+        lables: ['important', 'romantic']
+    }
 }
 
 //NEEDS DEFINITION

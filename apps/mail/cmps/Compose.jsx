@@ -1,9 +1,9 @@
-import { utilService } from "../../../services/util.service"
+import { utilService } from "../../../services/util.service.js"
 
 const { useState } = React
 
-export function Compose({ openModal, setOpenModal, sendMail }) {
-    const [mail, setMail] = useState({})
+export function Compose({ openModal, setOpenModal, onSendMail }) {
+    const [mail, setMail] = useState({ status: 'sent' })
 
     function handleChange({ target }) {
         let { value, name: field } = target
@@ -12,15 +12,16 @@ export function Compose({ openModal, setOpenModal, sendMail }) {
             [field]: value,
         }))
     }
-    
-    function onSendMail(ev) {
+
+    function handleSubmit(ev) {
         ev.preventDefault()
-        sendMail(mail)
+        onSendMail(mail)
     }
+
 
     return <div className="compose-modal">
         <h2>New Message</h2>
-        <form onSubmit={onSendMail}>
+        <form onSubmit={handleSubmit}>
             <button onClick={() => setOpenModal(false)}>X</button>
             <div className="form-container">
                 <label htmlFor="from">From</label>
@@ -58,7 +59,7 @@ export function Compose({ openModal, setOpenModal, sendMail }) {
                     onChange={handleChange}
                 />
             </div>
+            <button onClick={() => setOpenModal(true)}>Send</button>
         </form>
-        <button onClick={() => setOpenModal(false)}>Send</button>
     </div>
 }

@@ -6,16 +6,13 @@ import { mailService } from "../services/mail.service.js"
 import { MailList } from "../cmps/MailList.jsx"
 import { MailFilter } from "../cmps/MailFilter.jsx"
 import { Compose } from "../cmps/Compose.jsx"
+import { utilService } from '../../../services/util.service.js'
 
 export function MailIndex() {
     const [mails, setMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [unreadCount, setUnreadCount] = useState(0)
-    const [openModal, setOpenModal] = useState(false)
-    const [mailDetails, setMailDetails] = useState(
-        mailService.getEmptyMail()
-    )
-
+    const [openModal, setOpenModal] = useState(true)
 
     useEffect(() => {
         loadMails()
@@ -50,13 +47,14 @@ export function MailIndex() {
         setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...fieldsToUpdate }))
     }
 
-    function SendMail(mail) {
+    function onSendMail(mail) {
+        mailService.send(mail)
         console.log('mail:', mail)
     }
 
     return <React.Fragment>
         <section className="searcha-container flex">
-            {openModal && <Compose SendMail={SendMail} openModal={openModal} setOpenModal={setOpenModal} />}
+            {openModal && <Compose onSendMail={onSendMail} openModal={openModal} setOpenModal={setOpenModal} />}
             <button className="open-modal-btn"
                 onClick={() => {
                     setOpenModal(true)
@@ -67,7 +65,7 @@ export function MailIndex() {
         </section>
         <section className="flex">
             <ul className="filter-menu clean-list">
-                <li>
+                <li onClick>
                     Inbox <span>{unreadCount}</span>
                 </li>
                 <li>

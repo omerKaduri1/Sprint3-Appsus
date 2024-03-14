@@ -1,6 +1,6 @@
 const { useState } = React
 
-import {NoteAddType} from './NoteAddType.jsx'
+import { NoteAddType } from "./NoteAddType.jsx"
 import { noteService } from "../services/note.service.js"
 
 export function NoteAdd({ addNote }) {
@@ -47,17 +47,11 @@ export function NoteAdd({ addNote }) {
     setNoteType(type)
   }
 
-  function dynPlaceholder() {
-    if (noteType === "NoteTxt") return "Add note..."
-    else if (noteType === "NoteImg") return "Add Image url..."
-    else if (noteType === "NoteVideo") return "Add Video url..."
-    else if (noteType === "NoteTodos") return "Add Todos..."
-  }
   return (
     <section className="add-note">
       {/* <article> */}
       {/* <form className="add-text flex column" onSubmit={onAddNote}> */}
-        {/* <input
+      {/* <input
             className="title-input"
             required
             placeholder="Title"
@@ -68,7 +62,7 @@ export function NoteAdd({ addNote }) {
             type="text"
           /> */}
 
-        {/* <input
+      {/* <input
           type="text"
           className="txt-input"
           name="txt"
@@ -78,24 +72,24 @@ export function NoteAdd({ addNote }) {
           value={noteInfo.txt}
         /> */}
 
-        <section className="note-type-btns">
-          {typeBtns.map((btn, idx) => (
-            <button
-              key={idx}
-              type="button"
-              onClick={() => onSetNoteType(btn.type)}
-            >
-              {btn.icon}
-            </button>
-          ))}
-        </section>
+      {noteType && (
+        <div>
+          <NoteAddType addNote={addNote} type={noteType} />
+        </div>
+      )}
+      <section className="note-type-btns">
+        {typeBtns.map((btn, idx) => (
+          <button
+            key={idx}
+            type="button"
+            onClick={() => onSetNoteType(btn.type)}
+          >
+            {btn.icon}
+          </button>
+        ))}
+      </section>
 
-        {noteType && (
-          <div>
-            <NoteAddType addNote={addNote} type={noteType} />
-          </div>
-        )}
-        {/* <button className="add-note-btn" type="submit">
+      {/* <button className="add-note-btn" type="submit">
           +
         </button> */}
       {/* </form> */}

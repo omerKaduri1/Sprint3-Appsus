@@ -72,15 +72,13 @@ function query(filterBy = getDefaultFilter()) {
   return storageService.query(NOTE_KEY).then((notes) => {
     if (filterBy.txt) {
       const regex = new RegExp(filterBy.txt, "i")
-      notes = notes.filter((note) => regex.test(note.info.txt))
+      notes = notes.filter((note) => {
+        const textMatch = regex.test(note.info.txt)
+        const titleMatch = regex.test(note.info.title)
+
+        return textMatch || titleMatch
+      })
     }
-    // if (filterBy.minSpeed) {
-    //   notes = notes.filter((note) => note.maxSpeed >= filterBy.minSpeed)
-    // }
-    // if (filterBy.desc) {
-    //   const regex = new RegExp(filterBy.desc, "i")
-    //   notes = notes.filter((note) => regex.test(note.desc))
-    // }
     return notes
   })
 }
@@ -89,7 +87,6 @@ function get(noteId) {
   return storageService
     .get(NOTE_KEY, noteId)
     .then((note) => _setNextPrevNoteId(note))
-  // return axios.get(note_KEY, noteId)
 }
 
 function remove(noteId) {
@@ -165,9 +162,6 @@ function _createNotes() {
         },
       },
     ]
-    // notes.push(_createNote("aaaa"))
-    // notes.push(_createNote("Coding Academy"))
-    // notes.push(_createNote("I love javaScript"))
   }
   utilService.saveToStorage(NOTE_KEY, notes)
 }

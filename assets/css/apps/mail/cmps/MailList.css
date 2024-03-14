@@ -15,6 +15,10 @@
     border-bottom: 1px solid lightgray;
 }
 
+.mail-subject {
+    width: 60%;
+}
+
 .mails-container {
     display: flex;
 }

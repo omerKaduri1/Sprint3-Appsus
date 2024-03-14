@@ -13,7 +13,7 @@ export function MailFilter({ onSetFilter, filterBy }) {
     }
 
     function handleChange({ target }) {
-        let { value, name: field, type } = target
+        let { value, name: field } = target
         setFilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
     }
 

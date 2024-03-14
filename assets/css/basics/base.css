@@ -1,6 +1,7 @@
 body {
     font-family: lato-light;
     margin: 0;
+    /* overflow-y: hidden; */
 }
 
 h1,

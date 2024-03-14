@@ -1,0 +1,25 @@
+.filter-search-container{
+    display: flex;
+    justify-content: space-between;
+    outline: none;
+    background-color: transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    width: 50%;
+    font-size: 16px;
+    margin-block-start: 2em;
+}
+
+.filter-search-container input {
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    background-color: transparent;
+    color: inherit;
+    box-shadow: none;
+    outline: none;
+}

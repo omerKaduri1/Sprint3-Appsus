@@ -1,20 +1,21 @@
-const { useEffect } = React
+const { useState, useEffect } = React
 
 export function FilterMenu({ filterBy, onSetFilter }) {
+    const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
 
-    // useEffect(() => {
-    //     onSetFilter(filterByToEdit)
-    // }, [filterByToEdit])
+    useEffect(() => {
+        onSetFilter(filterByToEdit)
+    }, [filterByToEdit])
 
-    // function onFilter(ev) {
-    //     ev.preventDefault()
-    //     onSetFilter(filterByToEdit)
-    // }
+    function onFilter(ev) {
+        ev.preventDefault()
+        onSetFilter(filterByToEdit)
+    }
 
-    // function handleChange({ target }) {
-    //     let { value, name: field, type } = target
-    //     setFilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
-    // }
+    function handleChange({ target }) {
+        let { value, name: field, type } = target
+        setFilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
+    }
 
     function log({ target }) {
         const { value } = target
@@ -30,7 +31,7 @@ export function FilterMenu({ filterBy, onSetFilter }) {
                 id="inbox"
                 name="status"
                 value="inbox"
-                onChange={log}
+                onChange={handleChange}
                 defaultChecked
             />
         </div>
@@ -42,7 +43,18 @@ export function FilterMenu({ filterBy, onSetFilter }) {
                 id="sent"
                 name="status"
                 value="sent"
-                onChange={log}
+                onChange={handleChange}
+            />
+        </div>
+
+        <div>
+            <label htmlFor="trash">Trash</label>
+            <input
+                type="radio"
+                id="trash"
+                name="status"
+                value="trash"
+                onChange={handleChange}
             />
         </div>
 

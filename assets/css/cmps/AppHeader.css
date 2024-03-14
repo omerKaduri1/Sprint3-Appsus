@@ -1,5 +1,4 @@
 header {
-
     background: lightcyan;
     border-bottom: 2px solid white;
 }
@@ -7,7 +6,13 @@ header {
 .app-header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 1em;
+    height: 60px;
+    width: 120px;
 }
 
 nav a {

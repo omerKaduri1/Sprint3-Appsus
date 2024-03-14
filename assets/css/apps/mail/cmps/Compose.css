@@ -1,5 +1,7 @@
 .compose-modal {
     position: absolute;
+    font-size: .8em;
+
     background-color: rgb(253, 253, 253);
 
     width: 35%;
@@ -7,8 +9,7 @@
     top: 45vh;
     left: 0;
 
-    /* padding: 1em; */
-    font-size: .8em;
+    min-width: 250px;
 }
 
 .title-cotainer {

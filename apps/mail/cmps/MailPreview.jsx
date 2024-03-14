@@ -1,17 +1,12 @@
 const { Link } = ReactRouterDOM
 const { useState } = React
 
-import { storageService } from '../../../services/async-storage.service.js'
-import { mailService } from '../services/mail.service.js'
-
-
-export function MailPreview({ mail }) {
+export function MailPreview({ mail, handleIsRead, onRemoveMail }) {
     const [isRead, setIsRead] = useState(mail.isRead)
-    
+
     function handleIsRead() {
         setIsRead((isRead) => !isRead)
         mail.isRead = isRead
-        console.log(mail.isRead)
     }
 
     return <li className={`flex space-between`}>
@@ -20,23 +15,21 @@ export function MailPreview({ mail }) {
             <input type="checkbox" />
             <Link to={`/mails/${mail.id}`}>
                 <div className={`mail-from ${(isRead) ? '' : 'bold'}`}>
-                    {mail.from}
+                    {(mail.from) ? `${mail.from}` : 'Me'}
                 </div>
             </Link>
         </div>
-        <div className='mail-subject flex'>
-            <div className={`mail-subject ${(isRead) ? '' : 'bold'}`}>
-                {mail.subject}{mail.body.substring(0, 20)}
+        <div className={`mail-subject flex space-between`}>
+            <div className={`${(isRead) ? '' : 'bold'}`}>
+                {mail.subject}
             </div>
-            {/* <Link to={`/mails/${mail.id}`}>
-                    <MailPreview mail={mail} />
-                </Link> */}
+            {mail.body.substring(0, 50)}
+        </div>
 
-            <div className="mail-actions">
-                <button className='fa envelope' onClick={handleIsRead}></button>
-                <button className='fa forward'></button>
-                <button className='fa trash' onClick={() => onRemoveMail(mail.id)}></button>
-            </div>
-        </div >
+        <div className="mail-actions">
+            <button className='fa envelope' onClick={handleIsRead}></button>
+            <button className='fa forward'></button>
+            <button className='fa trash' onClick={() => onRemoveMail(mail.id)}></button>
+        </div>
     </li>
 }

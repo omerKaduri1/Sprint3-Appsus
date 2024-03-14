@@ -6,8 +6,12 @@ export function NotePreviewButtons({
   removeNote,
   editNote,
   changeBackgroundColor,
+  onSetEdit,
+  setIsNotePinned,
 }) {
-  const [isNotePinned, setIsNotePinned] = useState(note.isPinned)
+  // const [isOnEdit, setIsOnEdit] = useState(false)
+
+  // const [isNotePinned, setIsNotePinned] = useState(note.isPinned)
   function onRemoveNote(noteId) {
     removeNote(noteId)
   }
@@ -23,11 +27,16 @@ export function NotePreviewButtons({
   return (
     <section className="preview-btns">
       <button className="remove-btn" onClick={() => onRemoveNote(note.id)}>
-        X
+        <i className="fa-regular fa-trash-can"></i>
       </button>
-      <button onClick={togglePin}>Pin</button>
-      <button className="edit-btn" onClick={onEditNote}>
-      <i className="fa-regular fa-pen-to-square"></i>
+      <button onClick={togglePin}>
+        <i className="fa-solid fa-thumbtack"></i>
+      </button>
+      <button
+        className="edit-btn"
+        onClick={onSetEdit}
+      >
+        <i className="fa-regular fa-pen-to-square"></i>
       </button>
       <ColorButtons note={note} changeBackgroundColor={changeBackgroundColor} />
     </section>

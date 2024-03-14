@@ -1,43 +1,63 @@
 const { useState } = React
-import { ColorButtons } from "./ColorButtons.jsx"
+
+import { NoteImg } from "./NoteImg.jsx"
+import { NoteTxt } from "./NoteTxt.jsx"
+import { NoteVideo } from "./NoteVideo.jsx"
 
 import { noteService } from "../services/note.service.js"
 
-export function NotePreview({
-  note,
-  removeNote,
-  editNote,
-}) {
+export function NotePreview({ note, removeNote, editNote, saveNote }) {
   const [noteBgColor, setNoteBgColor] = useState(note.style)
-  function onRemoveNote(noteId) {
-    removeNote(noteId)
-  }
 
   function changeBackgroundColor(note, color) {
     const style = { backgroundColor: color }
     note = { ...note, style }
     noteService.save(note)
-    setNoteBgColor({backgroundColor: color})
+    setNoteBgColor({ backgroundColor: color })
   }
-  return (
-    <article
-      onClick={() => {
-        editNote(note)
-      }}
-      className="note-preview"
-      style={noteBgColor}
-    >
-      <h2>{note.info.title}</h2>
-      <p>{note.info.txt}</p>
-      <section className="note-btns">
-        <ColorButtons
-          note={note}
-          changeBackgroundColor={changeBackgroundColor}
-        />
-        <button className="remove-btn" onClick={() => onRemoveNote(note.id)}>
-          X
-        </button>
-      </section>
-    </article>
-  )
+
+  {
+    switch (note.type) {
+      case "NoteTxt":
+        return (
+          <NoteTxt
+            note={note}
+            removeNote={removeNote}
+            // editNote={editNote}
+            saveNote={saveNote}
+            changeBackgroundColor={changeBackgroundColor}
+          />
+        )
+      case "NoteImg":
+        return (
+          <NoteImg
+            note={note}
+            removeNote={removeNote}
+            editNote={editNote}
+            saveNote={saveNote}
+            changeBackgroundColor={changeBackgroundColor}
+          />
+        )
+      case "NoteVideo":
+        return (
+          <NoteVideo
+            note={note}
+            removeNote={removeNote}
+            editNote={editNote}
+            saveNote={saveNote}
+            changeBackgroundColor={changeBackgroundColor}
+          />
+        )
+      case "NoteTodos":
+        return (
+          <NoteTodos
+            note={note}
+            removeNote={removeNote}
+            editNote={editNote}
+            saveNote={saveNote}
+            changeBackgroundColor={changeBackgroundColor}
+          />
+        )
+    }
+  }
 }

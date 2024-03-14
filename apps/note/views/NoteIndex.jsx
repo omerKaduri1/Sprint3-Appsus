@@ -9,16 +9,15 @@ import { NoteFilter } from "../cmps/NoteFilter.jsx"
 
 export function NoteIndex() {
   const [notes, setNotes] = useState(null)
-  const [selectedNote, setSelectedNote] = useState(null)
+  // const [selectedNote, setSelectedNote] = useState(null)
   const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
-
 
   useEffect(() => {
     loadNotes()
   }, [filterBy])
 
   function onSetFilterBy(newTxt) {
-    setFilterBy((prevFilter) => ({...prevFilter, ...newTxt}))
+    setFilterBy((prevFilter) => ({ ...prevFilter, ...newTxt }))
   }
 
   function loadNotes() {
@@ -36,13 +35,16 @@ export function NoteIndex() {
       })
   }
 
-  function editNote(note) {
-    setSelectedNote(note)
-  }
+  // function editNote(note) {
+  //   setSelectedNote(note)
+  // }
 
   function saveNote(note) {
+    const noteId = note.id
     noteService.save(note).then((savedNote) => {
-      setSelectedNote(null)
+      const noteIdx = notes.findIndex((note) => note.id === noteId)
+      notes.splice(noteIdx, 1, savedNote)
+      setNotes([...notes])
     })
   }
 
@@ -57,29 +59,30 @@ export function NoteIndex() {
       })
   }
 
-//   function changeBackgroundColor(note, color) {
-//     const style = { backgroundColor: color }
-//     note = { ...note, style }
-//     noteService.save(note)
-//   }
+  //   function changeBackgroundColor(note, color) {
+  //     const style = { backgroundColor: color }
+  //     note = { ...note, style }
+  //     noteService.save(note)
+  //   }
 
   if (!notes) return <div>Loading...</div>
   return (
-    <section className="note-index flex align-center justify-center">
-      <section className="main-notes-container">
-        <NoteFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy}/>
+    <section className="note-index">
+      <section className="main-notes-container flex column align-center">
+        <NoteFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
         <section className="add-note-container">
           <NoteAdd addNote={addNote} />
         </section>
         <NoteList
           notes={notes}
           removeNote={removeNote}
-          editNote={editNote}
-        //   changeBackgroundColor={changeBackgroundColor}
+          saveNote={saveNote}
+          // editNote={editNote}
+          //   changeBackgroundColor={changeBackgroundColor}
         />
       </section>
 
-      {selectedNote && <NoteEdit note={selectedNote} saveNote={saveNote} />}
+      {/* {selectedNote && <NoteEdit note={selectedNote} saveNote={saveNote} />} */}
     </section>
   )
 }

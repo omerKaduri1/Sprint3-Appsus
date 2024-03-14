@@ -22,13 +22,13 @@ export function NoteImgAdd({ addNote, type }) {
 
   return (
     <React.Fragment>
-      <form onSubmit={onAddNote}>
+      <form className="flex column" onSubmit={onAddNote}>
         <input
           required
           className="title-input"
           onChange={handleChange}
           type="text"
-          placeholder="Title"
+          placeholder="Enter title..."
           name="title"
           id="title"
           value={noteInfo.title}
@@ -42,7 +42,7 @@ export function NoteImgAdd({ addNote, type }) {
           id="imgUrl"
           value={noteInfo.imgUrl}
         />
-        <button type="submit">+</button>
+        <button hidden type="submit">+</button>
       </form>
     </React.Fragment>
   )

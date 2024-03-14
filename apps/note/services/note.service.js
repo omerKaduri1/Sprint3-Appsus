@@ -46,8 +46,8 @@ _createNotes()
 //     info: {
 //       title: "Get my stuff together",
 //       todos: [
-//         { txt: "Driving license", doneAt: null },
-//         { txt: "Coding power", doneAt: 187111111 },
+//         { txt: "Driving license", doneAt: null, id: },
+//         { txt: "Coding power", doneAt: 187111111, id: },
 //       ],
 //     },
 //     style: {
@@ -97,7 +97,6 @@ function remove(noteId) {
 }
 
 function save(note) {
-  console.log(note)
   if (note.id) {
     return storageService.put(NOTE_KEY, note)
   } else {

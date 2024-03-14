@@ -1,6 +1,6 @@
 import { NotePreview } from "./NotePreview.jsx"
 
-export function NoteList({ notes, removeNote, editNote }) {
+export function NoteList({ notes, removeNote, editNote, saveNote }) {
   return (
     <section className="note-list-container flex">
       <ul className="note-list clean-list">
@@ -10,7 +10,8 @@ export function NoteList({ notes, removeNote, editNote }) {
             <NotePreview
               note={note}
               removeNote={removeNote}
-              editNote={editNote}
+              // editNote={editNote}
+              saveNote={saveNote}
               />
           </li>
         ))}

@@ -1,0 +1,27 @@
+.palette-btn{
+    position: relative;
+}
+
+.open {
+    display: flex;
+    position: absolute;
+    top: 35px;
+    left: -75px;
+    gap: 5px;
+    border: 0.5px solid rgb(207, 205, 205);
+    border-radius: 10px;
+    padding: 7px;
+    /* flex-wrap: wrap; */
+    /* flex-direction: row; */
+}
+
+.color {
+    border: 0.5px solid grey;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.closed {
+    display: none;
+}

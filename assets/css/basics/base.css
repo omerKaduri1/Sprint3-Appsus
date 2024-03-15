@@ -1,7 +1,11 @@
-body {
-    font-family: lato-light;
-    margin: auto 25px;
+html, body {
     overflow-x: hidden;
+  }
+
+body {
+    position: relative;
+    font-family: lato-light;
+    margin: 0;
 }
 
 h1,
@@ -29,5 +33,5 @@ img {
 }
 
 input {
-    cursor:text;
+    cursor: text;
 }

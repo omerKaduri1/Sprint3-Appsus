@@ -19,6 +19,7 @@
 
 .note-preview img {
     object-fit: cover;
+    /* height: 400px; */
 }
 
 .done {

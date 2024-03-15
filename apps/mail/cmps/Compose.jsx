@@ -1,6 +1,6 @@
 const { useState } = React
 
-export function Compose({ setOpenModal, handleSubmit, handleChange }) {
+export function Compose({ mail, setOpenModal, handleSubmit, handleChange }) {
 
 
     return <div className="compose-modal">

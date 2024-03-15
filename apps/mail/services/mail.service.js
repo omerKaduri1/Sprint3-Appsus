@@ -50,7 +50,6 @@ function save(mail) {
         return storageService.put(MAIL_KEY, mail)
     } else {
         mail = _creatEmail()
-        console.log('mail:', mail)
         return storageService.post(MAIL_KEY, mail)
     }
 }
@@ -60,6 +59,7 @@ function send(mail) {
     mail.mailStatus = 'sent'
     return storageService.post(MAIL_KEY, mail)
 }
+
 
 function getEmptyMail() {
     const email = {
@@ -91,7 +91,7 @@ function getFilterFromParams(searchParams = {}) {
     const defaultFilter = getDefaultFilter()
     return {
         txt: searchParams.get('txt') || defaultFilter.txt,
-        status: searchParams.get('mailStatus') || defaultFilter.mailStatus,
+        mailStatus: searchParams.get('mailStatus') || defaultFilter.mailStatus,
         isStared: searchParams.get('isStared') || defaultFilter.isStared,
         isRead: searchParams.get('isRead') || defaultFilter.isRead,
         lables: searchParams.get('lables') || defaultFilter.lables

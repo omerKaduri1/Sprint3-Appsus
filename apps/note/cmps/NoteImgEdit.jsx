@@ -2,20 +2,16 @@ const { useState } = React
 
 export function NoteImgEdit({ note, saveNote, onSetEdit }) {
   const [editedInfo, setEditedInfo] = useState(note.info)
-  console.log(editedInfo)
-  console.log(note)
 
   function onEdit(ev) {
     ev.preventDefault()
     const updatedNote = { ...note, info: { ...editedInfo } }
-    console.log(note)
     saveNote(updatedNote)
     onSetEdit()
   }
 
   function handleChange({ target }) {
     const { value, name: field } = target
-    console.log(value)
 
     setEditedInfo((prevInfo) => ({
       ...prevInfo,

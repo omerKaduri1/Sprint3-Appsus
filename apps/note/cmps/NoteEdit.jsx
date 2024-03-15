@@ -3,6 +3,7 @@ const { useState, useEffect } = React
 import { NoteTxtEdit } from "./NoteTxtEdit.jsx"
 import { NoteImgEdit } from "./NoteImgEdit.jsx"
 import { NoteVideoEdit } from "./NoteVideoEdit.jsx"
+import { NoteTodosEdit } from "./NoteTodosEdit.jsx"
 
 import { noteService } from "../services/note.service.js"
 
@@ -22,7 +23,7 @@ export function NoteEdit({ note, saveNote, onSetEdit }) {
       )
     case "NoteTodos":
       return (
-        <NoteTodoEdit note={note} saveNote={saveNote} onSetEdit={onSetEdit} />
+        <NoteTodosEdit note={note} saveNote={saveNote} onSetEdit={onSetEdit} />
       )
   }
 }

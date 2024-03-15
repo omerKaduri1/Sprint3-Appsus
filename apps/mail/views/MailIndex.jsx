@@ -31,6 +31,8 @@ export function MailIndex() {
         countUnread()
     }
 
+    console.log('unreadCount:', unreadCount)
+
     function countUnread() {
         mailService.query().then(prevMails => (
             prevMails.filter(mail => !mail.isRead)
@@ -76,7 +78,7 @@ export function MailIndex() {
         mailService.send(mail)
         setOpenModal(false)
     }
-    
+
     const { status, txt, isStared, isRead, lables } = filterBy
     return <React.Fragment>
         <section className="search-container flex">

@@ -11,6 +11,8 @@ export function NoteTxt({
   saveNote,
   setNotes,
   setPinnedNotes,
+  openPaletteNoteId,
+  setOpenPaletteNoteId,
 }) {
   const [noteBgColor, setNoteBgColor] = useState(note.style)
   const [isOnEdit, setIsOnEdit] = useState(false)
@@ -29,6 +31,13 @@ export function NoteTxt({
     })
   }
 
+  function duplicateNote(note) {
+    const duplicatedNote = { ...note, id: null }
+    noteService.save(duplicatedNote).then((savedNote) => {
+      setNotes((prevNotes) => [...prevNotes, savedNote])
+    })
+  }
+
   return (
     <article className="note-preview" style={noteBgColor}>
       <p>{note.info.txt}</p>
@@ -41,6 +50,9 @@ export function NoteTxt({
           setIsNotePinned={setIsNotePinned}
           setNotes={setNotes}
           setPinnedNotes={setPinnedNotes}
+          duplicateNote={duplicateNote}
+          openPaletteNoteId={openPaletteNoteId}
+          setOpenPaletteNoteId={setOpenPaletteNoteId}
         />
       </section>
 

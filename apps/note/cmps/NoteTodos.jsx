@@ -11,6 +11,8 @@ export function NoteTodos({
   saveNote,
   setNotes,
   setPinnedNotes,
+  openPaletteNoteId,
+  setOpenPaletteNoteId
 }) {
   const [noteBgColor, setNoteBgColor] = useState(note.style)
   const [isOnEdit, setIsOnEdit] = useState(false)
@@ -28,6 +30,14 @@ export function NoteTodos({
       return !prevIsOnEdit
     })
   }
+
+  function duplicateNote(note) {
+    const duplicatedNote = { ...note, id: null }
+    noteService.save(duplicatedNote).then((savedNote) => {
+      setNotes((prevNotes) => [...prevNotes, savedNote])
+    })
+  }
+
   return (
     <article className="note-preview" style={noteBgColor}>
       <h2>{note.info.title}</h2>
@@ -50,6 +60,9 @@ export function NoteTodos({
           setIsNotePinned={setIsNotePinned}
           setNotes={setNotes}
           setPinnedNotes={setPinnedNotes}
+          duplicateNote={duplicateNote}
+          openPaletteNoteId={openPaletteNoteId}
+          setOpenPaletteNoteId={setOpenPaletteNoteId}
         />
       </section>
 

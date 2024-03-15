@@ -1,16 +1,31 @@
 const { useState } = React
 
-export function ColorButtons({ note, changeBackgroundColor }) {
-  const [isPaletteOpen, setIsPaletteOpen] = useState(false)
-  const colors = ["#ffffff", "#efeff1", "#d3bfdb", "#d4e4ed", "#aeccdc", '#b4ddd3', '#e2f6d3', '#f39f76']
+export function ColorButtons({
+  note,
+  changeBackgroundColor,
+  openPaletteNoteId,
+  setOpenPaletteNoteId,
+}) {
+  // const [isPaletteOpen, setIsPaletteOpen] = useState(false)
+  const colors = [
+    "#ffffff",
+    "#efeff1",
+    "#d3bfdb",
+    "#d4e4ed",
+    "#aeccdc",
+    "#b4ddd3",
+    "#e2f6d3",
+    "#f39f76",
+  ]
+  const isPaletteOpen = note.id === openPaletteNoteId
 
   function togglePalette() {
-    setIsPaletteOpen((prevIsOpen) => !prevIsOpen)
+    setOpenPaletteNoteId((prevId) => (prevId === note.id ? "" : note.id))
   }
 
   function onColorClick(color) {
     changeBackgroundColor(note, color)
-    setIsPaletteOpen(false)
+    setOpenPaletteNoteId("")
   }
 
   return (
@@ -22,10 +37,10 @@ export function ColorButtons({ note, changeBackgroundColor }) {
         >
           {colors.map((color, idx) => (
             <div
-            className="color"
+              className="color"
               key={idx}
               onClick={() => onColorClick(color)}
-              style={{ backgroundColor: color}}
+              style={{ backgroundColor: color }}
             ></div>
           ))}
         </section>

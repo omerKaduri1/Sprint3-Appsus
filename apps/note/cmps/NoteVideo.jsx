@@ -10,7 +10,9 @@ export function NoteVideo({
   removeNote,
   saveNote,
   setNotes,
-  setPinnedNotes
+  setPinnedNotes,
+  openPaletteNoteId,
+  setOpenPaletteNoteId
 }) {
   const [noteBgColor, setNoteBgColor] = useState(note.style)
   const [isOnEdit, setIsOnEdit] = useState(false)
@@ -47,6 +49,13 @@ export function NoteVideo({
     })
   }
 
+  function duplicateNote(note) {
+    const duplicatedNote = { ...note, id: null }
+    noteService.save(duplicatedNote).then((savedNote) => {
+      setNotes((prevNotes) => [...prevNotes, savedNote])
+    })
+  }
+
   const embedUrl = getYoutubeEmbedUrl(note.info.youtubeUrl)
 
   return (
@@ -63,6 +72,9 @@ export function NoteVideo({
           setIsNotePinned={setIsNotePinned}
           setNotes={setNotes}
           setPinnedNotes={setPinnedNotes}
+          duplicateNote={duplicateNote}
+          openPaletteNoteId={openPaletteNoteId}
+          setOpenPaletteNoteId={setOpenPaletteNoteId}
         />
       </section>
 

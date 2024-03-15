@@ -6,11 +6,12 @@ import { NoteTodos } from "./NoteTodos.jsx"
 export function NotePreview({
   note,
   removeNote,
-  editNote,
   saveNote,
   changeBackgroundColor,
   setNotes,
   setPinnedNotes,
+  openPaletteNoteId,
+  setOpenPaletteNoteId
 }) {
   {
     switch (note.type) {
@@ -23,6 +24,8 @@ export function NotePreview({
             changeBackgroundColor={changeBackgroundColor}
             setNotes={setNotes}
             setPinnedNotes={setPinnedNotes}
+            openPaletteNoteId={openPaletteNoteId}
+            setOpenPaletteNoteId={setOpenPaletteNoteId}
           />
         )
       case "NoteImg":
@@ -34,6 +37,8 @@ export function NotePreview({
             changeBackgroundColor={changeBackgroundColor}
             setNotes={setNotes}
             setPinnedNotes={setPinnedNotes}
+            openPaletteNoteId={openPaletteNoteId}
+            setOpenPaletteNoteId={setOpenPaletteNoteId}
           />
         )
       case "NoteVideo":
@@ -45,6 +50,8 @@ export function NotePreview({
             changeBackgroundColor={changeBackgroundColor}
             setNotes={setNotes}
             setPinnedNotes={setPinnedNotes}
+            openPaletteNoteId={openPaletteNoteId}
+            setOpenPaletteNoteId={setOpenPaletteNoteId}
           />
         )
       case "NoteTodos":
@@ -56,6 +63,8 @@ export function NotePreview({
             changeBackgroundColor={changeBackgroundColor}
             setNotes={setNotes}
             setPinnedNotes={setPinnedNotes}
+            openPaletteNoteId={openPaletteNoteId}
+            setOpenPaletteNoteId={setOpenPaletteNoteId}
           />
         )
     }

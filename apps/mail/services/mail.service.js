@@ -86,7 +86,6 @@ function getDefaultFilter() {
     }
 }
 
-//NEEDS DEFINITION
 function getFilterFromParams(searchParams = {}) {
     const defaultFilter = getDefaultFilter()
     return {

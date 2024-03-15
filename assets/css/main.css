@@ -31,3 +31,6 @@
 @import './apps/note/cmps/NotePreviewButtons.css';
 @import './apps/note/cmps/ColorButtons.css';
 @import './apps/note/cmps/NoteVideo.css';
+
+/* MQ */
+@import './setup/mq.css'

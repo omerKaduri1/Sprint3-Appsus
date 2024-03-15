@@ -10,12 +10,11 @@ export function NoteList({
   openPaletteNoteId,
   setOpenPaletteNoteId
 }) {
-  // const [openPaletteNoteId, setOpenPaletteNoteId] = useState("")
   if (!notes.length)
     return <div className="no-match">There are no matching results.</div>
 
   return (
-    <section className="note-list-container flex">
+    <section className="note-list-container main-layout">
       <ul className="note-list clean-list">
         <h3>Other Notes:</h3>
         <section className="inner-container">

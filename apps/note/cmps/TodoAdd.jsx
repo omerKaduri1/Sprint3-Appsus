@@ -7,10 +7,17 @@ export function TodoAdd({ todo, onChange, onRemove, onAdd }) {
     onAdd()
   }
 
+  function handleRemoveTodo(){
+    onRemove()
+  }
+
   return (
     <section className="todo-task flex">
       <button className="add-todo" type="button" onClick={handleAddTodo}>
         <i className="fa-solid fa-plus"></i>{" "}
+      </button>
+      <button onClick={handleRemoveTodo}>
+      <i className="fa-solid fa-trash-can"></i>
       </button>
       <input
         type="text"

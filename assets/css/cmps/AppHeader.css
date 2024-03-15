@@ -1,6 +1,6 @@
 header {
-    background: lightcyan;
-    border-bottom: 2px solid white;
+    background: var(--main-bg-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .app-header {
@@ -9,10 +9,14 @@ header {
     align-items: center;
 }
 
+.app-header img:not(.logo) {
+    width: 60px;
+}
+
 .logo {
     margin-left: 1em;
-    height: 60px;
-    width: 120px;
+    height: 100px;
+    width: 130px;
 }
 
 nav a {

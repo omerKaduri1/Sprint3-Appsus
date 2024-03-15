@@ -17,7 +17,7 @@ export function PinnedNotesList({
       </div>
     )
   return (
-    <section className="pinned-notes">
+    <section className="note-list-container main-layout">
       <h3>Pinned Notes:</h3>
       <ul className="note-list clean-list">
         <section className="inner-container">

@@ -1,5 +1,11 @@
 .preview-btns {
     display: flex;
+    opacity: 0;
+}
+
+.note-preview:hover .preview-btns {
+    opacity: 1;
+    transition: opacity .6s;
 }
 
 .preview-btns i {

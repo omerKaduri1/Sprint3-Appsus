@@ -11,6 +11,8 @@ export function NoteTxt({
   saveNote,
   setNotes,
   setPinnedNotes,
+  openPaletteNoteId,
+  setOpenPaletteNoteId,
 }) {
   const [noteBgColor, setNoteBgColor] = useState(note.style)
   const [isOnEdit, setIsOnEdit] = useState(false)
@@ -49,6 +51,8 @@ export function NoteTxt({
           setNotes={setNotes}
           setPinnedNotes={setPinnedNotes}
           duplicateNote={duplicateNote}
+          openPaletteNoteId={openPaletteNoteId}
+          setOpenPaletteNoteId={setOpenPaletteNoteId}
         />
       </section>
 

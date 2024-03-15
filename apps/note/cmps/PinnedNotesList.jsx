@@ -6,6 +6,8 @@ export function PinnedNotesList({
   saveNote,
   setNotes,
   setPinnedNotes,
+  openPaletteNoteId,
+  setOpenPaletteNoteId,
 }) {
   if (!notes.length)
     return (
@@ -27,6 +29,8 @@ export function PinnedNotesList({
                 saveNote={saveNote}
                 setNotes={setNotes}
                 setPinnedNotes={setPinnedNotes}
+                openPaletteNoteId={openPaletteNoteId}
+                setOpenPaletteNoteId={setOpenPaletteNoteId}
               />
             </li>
           ))}

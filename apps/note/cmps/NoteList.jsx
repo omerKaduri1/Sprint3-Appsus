@@ -1,3 +1,4 @@
+const { useState } = React
 import { NotePreview } from "./NotePreview.jsx"
 
 export function NoteList({
@@ -6,7 +7,10 @@ export function NoteList({
   saveNote,
   setNotes,
   setPinnedNotes,
+  openPaletteNoteId,
+  setOpenPaletteNoteId
 }) {
+  // const [openPaletteNoteId, setOpenPaletteNoteId] = useState("")
   if (!notes.length)
     return <div className="no-match">There are no matching results.</div>
 
@@ -23,6 +27,8 @@ export function NoteList({
                 saveNote={saveNote}
                 setNotes={setNotes}
                 setPinnedNotes={setPinnedNotes}
+                openPaletteNoteId={openPaletteNoteId}
+                setOpenPaletteNoteId={setOpenPaletteNoteId}
               />
             </li>
           ))}

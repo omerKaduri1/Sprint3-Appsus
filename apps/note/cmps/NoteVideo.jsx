@@ -11,6 +11,8 @@ export function NoteVideo({
   saveNote,
   setNotes,
   setPinnedNotes,
+  openPaletteNoteId,
+  setOpenPaletteNoteId
 }) {
   const [noteBgColor, setNoteBgColor] = useState(note.style)
   const [isOnEdit, setIsOnEdit] = useState(false)
@@ -71,6 +73,8 @@ export function NoteVideo({
           setNotes={setNotes}
           setPinnedNotes={setPinnedNotes}
           duplicateNote={duplicateNote}
+          openPaletteNoteId={openPaletteNoteId}
+          setOpenPaletteNoteId={setOpenPaletteNoteId}
         />
       </section>
 

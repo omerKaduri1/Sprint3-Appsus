@@ -4,7 +4,6 @@ import { NotePreviewButtons } from "./NotePreviewButtons.jsx"
 import { NoteEdit } from "./NoteEdit.jsx"
 
 import { noteService } from "../services/note.service.js"
-import { utilService } from "../../../services/util.service.js"
 
 export function NoteTodos({
   note,
@@ -12,6 +11,8 @@ export function NoteTodos({
   saveNote,
   setNotes,
   setPinnedNotes,
+  openPaletteNoteId,
+  setOpenPaletteNoteId
 }) {
   const [noteBgColor, setNoteBgColor] = useState(note.style)
   const [isOnEdit, setIsOnEdit] = useState(false)
@@ -60,6 +61,8 @@ export function NoteTodos({
           setNotes={setNotes}
           setPinnedNotes={setPinnedNotes}
           duplicateNote={duplicateNote}
+          openPaletteNoteId={openPaletteNoteId}
+          setOpenPaletteNoteId={setOpenPaletteNoteId}
         />
       </section>
 

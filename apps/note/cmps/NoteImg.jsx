@@ -5,7 +5,15 @@ import { NoteEdit } from "./NoteEdit.jsx"
 
 import { noteService } from "../services/note.service.js"
 
-export function NoteImg({ note, removeNote, saveNote, setNotes, setPinnedNotes }) {
+export function NoteImg({
+  note,
+  removeNote,
+  saveNote,
+  setNotes,
+  setPinnedNotes,
+  openPaletteNoteId,
+  setOpenPaletteNoteId
+}) {
   const [noteBgColor, setNoteBgColor] = useState(note.style)
   const [isOnEdit, setIsOnEdit] = useState(false)
   const [isNotePinned, setIsNotePinned] = useState(note.isPinned)
@@ -44,6 +52,8 @@ export function NoteImg({ note, removeNote, saveNote, setNotes, setPinnedNotes }
           setNotes={setNotes}
           setPinnedNotes={setPinnedNotes}
           duplicateNote={duplicateNote}
+          openPaletteNoteId={openPaletteNoteId}
+          setOpenPaletteNoteId={setOpenPaletteNoteId}
         />
       </section>
 

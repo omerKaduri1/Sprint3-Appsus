@@ -9,7 +9,9 @@ export function NotePreviewButtons({
   setIsNotePinned,
   setNotes,
   setPinnedNotes,
-  duplicateNote
+  duplicateNote,
+  openPaletteNoteId,
+  setOpenPaletteNoteId,
 }) {
   function onRemoveNote(noteId) {
     removeNote(noteId)
@@ -47,10 +49,15 @@ export function NotePreviewButtons({
       <button className="edit-btn" onClick={onSetEdit}>
         <i className="fa-regular fa-pen-to-square"></i>
       </button>
-      <button className='duplicate-btn' onClick={onNoteDuplicate}>
-      <i className="fa-regular fa-copy"></i>
+      <button className="duplicate-btn" onClick={onNoteDuplicate}>
+        <i className="fa-regular fa-copy"></i>
       </button>
-      <ColorButtons note={note} changeBackgroundColor={changeBackgroundColor} />
+      <ColorButtons
+        note={note}
+        changeBackgroundColor={changeBackgroundColor}
+        openPaletteNoteId={openPaletteNoteId}
+        setOpenPaletteNoteId={setOpenPaletteNoteId}
+      />
     </section>
   )
 }

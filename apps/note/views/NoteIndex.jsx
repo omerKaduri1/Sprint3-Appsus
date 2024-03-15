@@ -11,6 +11,7 @@ export function NoteIndex() {
   const [notes, setNotes] = useState(null)
   const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
   const [pinnedNotes, setPinnedNotes] = useState(null)
+  const [openPaletteNoteId, setOpenPaletteNoteId] = useState("")
 
   useEffect(() => {
     loadNotes()
@@ -105,6 +106,8 @@ export function NoteIndex() {
             saveNote={saveNote}
             setNotes={setNotes}
             setPinnedNotes={setPinnedNotes}
+            openPaletteNoteId={openPaletteNoteId}
+            setOpenPaletteNoteId={setOpenPaletteNoteId}
           />
         )}
         <NoteList
@@ -113,6 +116,8 @@ export function NoteIndex() {
           saveNote={saveNote}
           setNotes={setNotes}
           setPinnedNotes={setPinnedNotes}
+          openPaletteNoteId={openPaletteNoteId}
+          setOpenPaletteNoteId={setOpenPaletteNoteId}
         />
       </section>
     </section>

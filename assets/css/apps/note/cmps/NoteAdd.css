@@ -1,5 +1,14 @@
 .add-note {
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    width: 50vw;
+    height: fit-content;
+    font-size: 1.2em;
 }
 
 .add-note-container {
@@ -7,34 +16,44 @@
 }
 
 .add-note input {
-    /* border: none; */
-    outline: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
     background-color: transparent;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
-    padding: 10px;
-    border-radius: 8px;
-    width: 100%;
-    font-size: 16px;
+    color: inherit;
 }
 
 .add-note form {
     width: 77%;
-    flex-direction: row;
-}
-
-.note-type-btns{
-    position: absolute;
-    right: 152px;
-    top: 25px;
-    transform: translate(0, -50%);
+    gap: 10px;
 }
 
 .note-type-btns i {
     font-size: 1.5em;
 }
 
-.note-type-btns button {
+.add-note button {
     background-color: transparent;
     border: none;
     border-radius: 200px;
+}
+
+.note-type-btns {
+    margin: 7px;
+}
+
+.title-input {
+    margin-block-start: 1px;
+}
+
+.imgUrl,
+.youtubeUrl,
+.todo-task {
+    margin-block-end: 1px;
+}
+
+.add-todo{
+    margin-inline-start: 0;
+    padding: 1px;
 }

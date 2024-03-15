@@ -10,7 +10,11 @@ export function NoteImgAdd({ addNote, type }) {
   function onAddNote(ev) {
     ev.preventDefault()
     const emptyNote = noteService.getEmptyNote()
-    const noteToAdd = { ...emptyNote, info: { ...emptyNote.info, ...noteInfo }, type }
+    const noteToAdd = {
+      ...emptyNote,
+      info: { ...emptyNote.info, ...noteInfo },
+      type,
+    }
     addNote(noteToAdd)
     setNoteInfo({ title: "", imgUrl: "" })
   }
@@ -22,18 +26,18 @@ export function NoteImgAdd({ addNote, type }) {
 
   return (
     <React.Fragment>
-      <form onSubmit={onAddNote}>
+      <form className="flex column" onSubmit={onAddNote}>
         <input
-          required
           className="title-input"
           onChange={handleChange}
           type="text"
-          placeholder="Title"
+          placeholder="Enter title..."
           name="title"
           id="title"
           value={noteInfo.title}
         />
         <input
+          required
           onChange={handleChange}
           type="text"
           className="imgUrl"
@@ -42,7 +46,9 @@ export function NoteImgAdd({ addNote, type }) {
           id="imgUrl"
           value={noteInfo.imgUrl}
         />
-        <button type="submit">+</button>
+        <button hidden type="submit">
+          +
+        </button>
       </form>
     </React.Fragment>
   )

@@ -1,0 +1,13 @@
+.preview-btns {
+    display: flex;
+}
+
+.preview-btns i {
+    font-size: 1.3em;
+}
+
+.preview-btns button {
+    background-color: transparent;
+    border: none;
+    border-radius: 200px;
+}

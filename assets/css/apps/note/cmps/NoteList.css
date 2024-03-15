@@ -1,6 +1,5 @@
-.note-list {
-    margin: 0 auto;
-    
+.note-list:first-child {
+    margin-block-start: 0;  
 }
 
 .inner-container {
@@ -10,4 +9,9 @@
 
 .inner-container > * {
     break-inside: avoid;
+}
+
+.no-match{
+    margin-block-start: 2em;
+    font-size: 1.3em;
 }

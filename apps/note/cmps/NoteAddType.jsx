@@ -1,7 +1,7 @@
 import {NoteTxtAdd} from './NoteTxtAdd.jsx'
 import {NoteImgAdd} from './NoteImgAdd.jsx'
 import {NoteVideoAdd} from './NoteVideoAdd.jsx'
-import {NoteTodoAdd} from './NoteTodoAdd.jsx'
+import {NoteTodosAdd} from './NoteTodosAdd.jsx'
 
 export function NoteAddType({ addNote, type }) {
   switch (type) {
@@ -12,6 +12,6 @@ export function NoteAddType({ addNote, type }) {
     case "NoteVideo":
       return <NoteVideoAdd addNote={addNote} type={type} />
     case "NoteTodos":
-      return <NoteTodoAdd addNote={addNote} type={type} />
+      return <NoteTodosAdd addNote={addNote} type={type} />
   }
 }

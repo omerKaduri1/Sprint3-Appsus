@@ -46,8 +46,8 @@ _createNotes()
 //     info: {
 //       title: "Get my stuff together",
 //       todos: [
-//         { txt: "Driving license", doneAt: null },
-//         { txt: "Coding power", doneAt: 187111111 },
+//         { txt: "Driving license", doneAt: null, id: },
+//         { txt: "Coding power", doneAt: 187111111, id: },
 //       ],
 //     },
 //     style: {
@@ -72,15 +72,19 @@ function query(filterBy = getDefaultFilter()) {
   return storageService.query(NOTE_KEY).then((notes) => {
     if (filterBy.txt) {
       const regex = new RegExp(filterBy.txt, "i")
-      notes = notes.filter((note) => regex.test(note.info.txt))
+      notes = notes.filter((note) => {
+        const textMatch = regex.test(note.info.txt)
+        const titleMatch = regex.test(note.info.title)
+
+        if (note.type === "NoteTodos") {
+          const todoMatch = note.info.todos.some((todo) => regex.test(todo.txt))
+          const titleMatch = regex.test(note.info.title)
+          return todoMatch || titleMatch
+        }
+
+        return textMatch || titleMatch
+      })
     }
-    // if (filterBy.minSpeed) {
-    //   notes = notes.filter((note) => note.maxSpeed >= filterBy.minSpeed)
-    // }
-    // if (filterBy.desc) {
-    //   const regex = new RegExp(filterBy.desc, "i")
-    //   notes = notes.filter((note) => regex.test(note.desc))
-    // }
     return notes
   })
 }
@@ -89,7 +93,6 @@ function get(noteId) {
   return storageService
     .get(NOTE_KEY, noteId)
     .then((note) => _setNextPrevNoteId(note))
-  // return axios.get(note_KEY, noteId)
 }
 
 function remove(noteId) {
@@ -97,7 +100,6 @@ function remove(noteId) {
 }
 
 function save(note) {
-  console.log(note)
   if (note.id) {
     return storageService.put(NOTE_KEY, note)
   } else {
@@ -165,10 +167,26 @@ function _createNotes() {
           backgroundColor: "#fff",
         },
       },
+      {
+        id: "n103",
+        type: "NoteTodos",
+        isPinned: false,
+        info: {
+          title: "Get my stuff together",
+          todos: [
+            { txt: "Driving license", doneAt: null, id: utilService.makeId() },
+            {
+              txt: "Coding power",
+              doneAt: 187111111,
+              id: utilService.makeId(),
+            },
+          ],
+        },
+        style: {
+          backgroundColor: "#fff",
+        },
+      },
     ]
-    // notes.push(_createNote("aaaa"))
-    // notes.push(_createNote("Coding Academy"))
-    // notes.push(_createNote("I love javaScript"))
   }
   utilService.saveToStorage(NOTE_KEY, notes)
 }

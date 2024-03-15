@@ -1,15 +1,15 @@
 const { Link } = ReactRouterDOM
 const { useState } = React
 
-export function MailPreview({ mail, handleIsRead, onRemoveMail, countUnread, toggleRead }) {
+export function MailPreview({ mail, handleIsRead, onRemoveMail, countUnread, toggleRead, onOpenMail }) {
     const [isRead, setIsRead] = useState(mail.isRead)
 
     function handleIsRead() {
         setIsRead((isRead) => !isRead)
-        // mail.isRead = isRead
         toggleRead(mail.id, mail.isRead)
         countUnread()
     }
+
 
 
     return (
@@ -17,15 +17,16 @@ export function MailPreview({ mail, handleIsRead, onRemoveMail, countUnread, tog
             <div className="inputs flex">
                 <input type="checkbox" className="fa star" />
                 <input type="checkbox" />
-                <div className={`mail-from ${(isRead) ? '' : 'bold'}`}>
+                <div className={`mail-from ${(isRead) ? '' : 'bold'}`}
+            onClick={() => onOpenMail(mail.id)}>
                     <Link to={`/mails/${mail.id}`}>
                         {(mail.from) ? `${mail.from}` : 'Me'}
                     </Link>
                 </div>
             </div>
-            <div className={`mail-subject flex space-between`}>
+            <div className={`mail-subject flex space-between`} onClick={() => onOpenMail(mail.id)}>
                 <div className={`${(isRead) ? '' : 'bold'}`}>
-                    <Link to={`/mails/${mail.id}`}>
+                    <Link to={`/mails/${mail.id}`} >
                         {mail.subject}
                     </Link>
                 </div>

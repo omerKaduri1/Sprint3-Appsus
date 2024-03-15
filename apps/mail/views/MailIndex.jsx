@@ -12,8 +12,8 @@ import { UserMsg } from '../../../cmps/UserMsg.jsx'
 import { Compose } from '../cmps/Compose.jsx'
 
 export function MailIndex() {
-    const [mail, setMail] = useState(null)
-    const [mails, setMails] = useState(null)
+    const [mail, setMail] = useState({})
+    const [mails, setMails] = useState([])
     const [unreadCount, setUnreadCount] = useState(0)
     const [openModal, setOpenModal] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
@@ -30,8 +30,6 @@ export function MailIndex() {
             .then(setMails)
         countUnread()
     }
-
-    console.log('unreadCount:', unreadCount)
 
     function countUnread() {
         mailService.query().then(prevMails => (
@@ -63,6 +61,18 @@ export function MailIndex() {
         setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...fieldsToUpdate }))
     }
 
+    function onOpenMail(mailId) {
+        console.log('mailId:', mailId)
+        mailService.get(mailId)
+            .then((res) => {
+                console.log(res)
+                res.isRead = true
+                mailService.save(res)
+            })
+            
+            .catch(err => console.log(err))
+    }
+
     function handleChange({ target }) {
         let { value, name: field } = target
         setMail(prevMailDetails => ({
@@ -79,7 +89,7 @@ export function MailIndex() {
         setOpenModal(false)
     }
 
-    const { status, txt, isStared, isRead, lables } = filterBy
+    const { mailStatus, txt, isStared, isRead, lables } = filterBy
     return <React.Fragment>
         <section className="search-container flex">
             {openModal && <Compose mail={mail} setMail={setMail} handleSubmit={handleSubmit} handleChange={handleChange} setOpenModal={setOpenModal} />}
@@ -93,12 +103,12 @@ export function MailIndex() {
             <MailFilter filterBy={{ txt, isRead }} onSetFilter={onSetFilter} />
         </section>
         <section className="flex">
-            <FilterMenu filterBy={{ status, isStared, lables }} onSetFilter={onSetFilter} unreadCount={unreadCount} />
+            <FilterMenu filterBy={{ mailStatus, isStared, lables }} onSetFilter={onSetFilter} unreadCount={unreadCount} />
             <MailList
                 mails={mails}
                 onRemoveMail={onRemoveMail}
                 countUnread={countUnread}
-
+                onOpenMail={onOpenMail}
                 toggleRead={toggleRead} />
         </section>
 

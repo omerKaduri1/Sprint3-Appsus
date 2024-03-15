@@ -4,6 +4,7 @@ import { NotePreviewButtons } from "./NotePreviewButtons.jsx"
 import { NoteEdit } from "./NoteEdit.jsx"
 
 import { noteService } from "../services/note.service.js"
+import { utilService } from "../../../services/util.service.js"
 
 export function NoteTodos({
   note,
@@ -28,6 +29,14 @@ export function NoteTodos({
       return !prevIsOnEdit
     })
   }
+
+  function duplicateNote(note) {
+    const duplicatedNote = { ...note, id: null }
+    noteService.save(duplicatedNote).then((savedNote) => {
+      setNotes((prevNotes) => [...prevNotes, savedNote])
+    })
+  }
+
   return (
     <article className="note-preview" style={noteBgColor}>
       <h2>{note.info.title}</h2>
@@ -50,6 +59,7 @@ export function NoteTodos({
           setIsNotePinned={setIsNotePinned}
           setNotes={setNotes}
           setPinnedNotes={setPinnedNotes}
+          duplicateNote={duplicateNote}
         />
       </section>
 

@@ -9,6 +9,7 @@ export function NotePreviewButtons({
   setIsNotePinned,
   setNotes,
   setPinnedNotes,
+  duplicateNote
 }) {
   function onRemoveNote(noteId) {
     removeNote(noteId)
@@ -31,6 +32,10 @@ export function NotePreviewButtons({
     noteService.save(updatedNote)
   }
 
+  function onNoteDuplicate() {
+    duplicateNote(note)
+  }
+
   return (
     <section className="preview-btns">
       <button className="remove-btn" onClick={() => onRemoveNote(note.id)}>
@@ -41,6 +46,9 @@ export function NotePreviewButtons({
       </button>
       <button className="edit-btn" onClick={onSetEdit}>
         <i className="fa-regular fa-pen-to-square"></i>
+      </button>
+      <button className='duplicate-btn' onClick={onNoteDuplicate}>
+      <i className="fa-regular fa-copy"></i>
       </button>
       <ColorButtons note={note} changeBackgroundColor={changeBackgroundColor} />
     </section>

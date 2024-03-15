@@ -23,6 +23,13 @@ export function NoteImg({ note, removeNote, saveNote, setNotes, setPinnedNotes }
     })
   }
 
+  function duplicateNote(note) {
+    const duplicatedNote = { ...note, id: null }
+    noteService.save(duplicatedNote).then((savedNote) => {
+      setNotes((prevNotes) => [...prevNotes, savedNote])
+    })
+  }
+
   return (
     <article className="note-preview" style={noteBgColor}>
       <h2>{note.info.title}</h2>
@@ -36,6 +43,7 @@ export function NoteImg({ note, removeNote, saveNote, setNotes, setPinnedNotes }
           setIsNotePinned={setIsNotePinned}
           setNotes={setNotes}
           setPinnedNotes={setPinnedNotes}
+          duplicateNote={duplicateNote}
         />
       </section>
 

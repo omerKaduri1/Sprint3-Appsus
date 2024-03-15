@@ -46,10 +46,9 @@ export function NoteTodosAdd({ addNote, type }) {
     const emptyNote = noteService.getEmptyNote()
     const noteToAdd = {
       ...emptyNote,
-      info: { ...emptyNote.info, title: noteTitle, todos},
+      info: { ...emptyNote.info, title: noteTitle, todos },
       type,
     }
-    console.log(noteToAdd.info)
     addNote(noteToAdd)
     setNoteTitle("")
     setTodos([

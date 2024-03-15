@@ -76,6 +76,12 @@ function query(filterBy = getDefaultFilter()) {
         const textMatch = regex.test(note.info.txt)
         const titleMatch = regex.test(note.info.title)
 
+        if (note.type === "NoteTodos") {
+          const todoMatch = note.info.todos.some((todo) => regex.test(todo.txt))
+          const titleMatch = regex.test(note.info.title)
+          return todoMatch || titleMatch
+        }
+
         return textMatch || titleMatch
       })
     }

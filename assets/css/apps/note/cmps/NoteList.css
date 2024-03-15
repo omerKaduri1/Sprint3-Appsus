@@ -10,3 +10,8 @@
 .inner-container > * {
     break-inside: avoid;
 }
+
+.no-match{
+    margin-block-start: 2em;
+    font-size: 1.3em;
+}

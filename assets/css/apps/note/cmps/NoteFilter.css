@@ -22,4 +22,5 @@
     color: inherit;
     box-shadow: none;
     outline: none;
+    flex-basis: 100%;
 }

@@ -33,7 +33,7 @@ export function Compose({ mail, setOpenModal, handleSubmit, handleChange }) {
                     />
                 </div>
                 <div>
-                    <input
+                    <textarea 
                         type="text"
                         id="content"
                         name="body"

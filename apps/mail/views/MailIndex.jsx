@@ -11,7 +11,7 @@ import { UserMsg } from '../../../cmps/UserMsg.jsx'
 import { Compose } from '../cmps/Compose.jsx'
 
 export function MailIndex() {
-    const [mail, setMail] = useState({})
+    const [mail, setMail] = useState(null)
     const [mails, setMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [unreadCount, setUnreadCount] = useState(0)
@@ -20,18 +20,25 @@ export function MailIndex() {
 
     useEffect(() => {
         loadMails()
-        countUnread()
     }, [mails])
-
+    
     function loadMails() {
         mailService.query(filterBy)
-            .then(setMails)
+        .then(setMails)
+        countUnread()
     }
 
     function countUnread() {
         mailService.query().then(prevMails => (
-            prevMails.filter(mail => mail.isRead === false)
+            prevMails.filter(mail => !mail.isRead)
         )).then(res => setUnreadCount(res.length))
+    }
+
+    function toggleRead(mailId, isRead) {
+        const valueToUpdate = { isRead: (isRead) ? false : true }
+        mailService.get(mailId)
+            .then(res => ({ ...res, ...valueToUpdate }))
+            .then(mailService.save)
     }
 
     function onRemoveMail(mailId) {
@@ -79,8 +86,13 @@ export function MailIndex() {
             <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
         </section>
         <section className="flex">
-            <FilterMenu filterBy={filterBy} onSetFilter={onSetFilter} />
-            <MailList mails={mails} onRemoveMail={onRemoveMail} />
+            <FilterMenu filterBy={filterBy} onSetFilter={onSetFilter} unreadCount={unreadCount} />
+            <MailList
+                mails={mails}
+                onRemoveMail={onRemoveMail}
+                countUnread={countUnread}
+                
+                toggleRead={toggleRead} />
         </section>
 
         <UserMsg />

@@ -1,12 +1,14 @@
 const { Link } = ReactRouterDOM
 const { useState } = React
 
-export function MailPreview({ mail, handleIsRead, onRemoveMail }) {
+export function MailPreview({ mail, handleIsRead, onRemoveMail, countUnread, toggleRead }) {
     const [isRead, setIsRead] = useState(mail.isRead)
 
     function handleIsRead() {
         setIsRead((isRead) => !isRead)
-        mail.isRead = isRead
+        // mail.isRead = isRead
+        toggleRead(mail.id, mail.isRead)
+        countUnread()
     }
 
 

@@ -1,6 +1,6 @@
 const { useState, useEffect } = React
 
-export function FilterMenu({ filterBy, onSetFilter }) {
+export function FilterMenu({ filterBy, onSetFilter, unreadCount }) {
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export function FilterMenu({ filterBy, onSetFilter }) {
 
 
     return <fieldset className="filter-menu">
-        <div><span><span className="fa inbox-icon"></span>Inbox</span> <span>123</span></div>
+        <div><span><span className="fa inbox-icon"></span>Inbox</span> <span>{unreadCount}</span></div>
         <div><span><span className="fa sent-icon"></span>Sent</span></div>
         <div><span><span className="fa draft-icon"></span>Draft</span></div>
         <div><span><span className="fa trash-icon"></span>Trash</span> <span>123</span></div>

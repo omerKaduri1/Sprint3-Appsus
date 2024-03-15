@@ -1,4 +1,5 @@
 const { useState, useEffect } = React
+const { useSearchParams } = ReactRouterDOM
 
 import { showSuccessMsg, showErrorMsg } from '../../../services/event-bus.service.js'
 import { utilService } from '../../../services/util.service.js'
@@ -13,18 +14,20 @@ import { Compose } from '../cmps/Compose.jsx'
 export function MailIndex() {
     const [mail, setMail] = useState(null)
     const [mails, setMails] = useState(null)
-    const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
     const [unreadCount, setUnreadCount] = useState(0)
     const [openModal, setOpenModal] = useState(false)
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [filterBy, setFilterBy] = useState(mailService.getFilterFromParams(searchParams))
 
 
     useEffect(() => {
+        setSearchParams(filterBy)
         loadMails()
-    }, [mails])
-    
+    }, [filterBy])
+
     function loadMails() {
         mailService.query(filterBy)
-        .then(setMails)
+            .then(setMails)
         countUnread()
     }
 
@@ -67,12 +70,14 @@ export function MailIndex() {
     }
 
     function handleSubmit(ev) {
-        mail.status = 'sent'
         ev.preventDefault()
+
+        mail.mailStatus = 'sent'
         mailService.send(mail)
         setOpenModal(false)
     }
-
+    
+    const { status, txt, isStared, isRead, lables } = filterBy
     return <React.Fragment>
         <section className="search-container flex">
             {openModal && <Compose mail={mail} setMail={setMail} handleSubmit={handleSubmit} handleChange={handleChange} setOpenModal={setOpenModal} />}
@@ -83,15 +88,15 @@ export function MailIndex() {
                 <span className="fa pen-icon"></span>
                 Compose
             </button>
-            <MailFilter filterBy={filterBy} onSetFilter={onSetFilter} />
+            <MailFilter filterBy={{ txt, isRead }} onSetFilter={onSetFilter} />
         </section>
         <section className="flex">
-            <FilterMenu filterBy={filterBy} onSetFilter={onSetFilter} unreadCount={unreadCount} />
+            <FilterMenu filterBy={{ status, isStared, lables }} onSetFilter={onSetFilter} unreadCount={unreadCount} />
             <MailList
                 mails={mails}
                 onRemoveMail={onRemoveMail}
                 countUnread={countUnread}
-                
+
                 toggleRead={toggleRead} />
         </section>
 

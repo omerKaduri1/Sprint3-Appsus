@@ -5,7 +5,7 @@ import { MailPreview } from './MailPreview.jsx'
 export function MailList({ mails, isRead, handleIsRead, onRemoveMail, countUnread, toggleRead }) {
 
     if (!mails || !mails.length) {
-        return <div className="nothing-to-show">Loading...</div>
+        return <div className="nothing-to-show">Inbox is empty</div>
     }
 
     return <ul className="mail-list">

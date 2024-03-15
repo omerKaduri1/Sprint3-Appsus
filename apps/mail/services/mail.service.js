@@ -24,8 +24,8 @@ function query(filterBy = getDefaultFilter()) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regex.test(mail.subject) || regex.test(mail.from) || regex.test(mail.body) || regex.test(mail.to))
             }
-            if (filterBy.status) {
-                mails = mails.filter(mail => mail.status === filterBy.status)
+            if (filterBy.mailStatus) {
+                mails = mails.filter(mail => mail.mailStatus === filterBy.mailStatus)
             }
             if (filterBy.desc) {
                 const regex = new RegExp(filterBy.desc, 'i')
@@ -57,7 +57,7 @@ function save(mail) {
 
 function send(mail) {
     mail.id = utilService.makeId()
-    mail.status = 'sent'
+    mail.mailStatus = 'sent'
     return storageService.post(MAIL_KEY, mail)
 }
 
@@ -71,17 +71,17 @@ function getEmptyMail() {
         removedAt: null,
         from: 'momo@momo.com',
         to: 'user@appsus.com',
-        status: 'inbox'
+        mailStatus: 'inbox'
     }
     return email
 }
 
 function getDefaultFilter() {
     return {
-        status: 'inbox',
+        mailStatus: 'inbox',
         txt: '',
-        isRead: true,
-        isStared: true,
+        isRead: null,
+        isStared: null,
         lables: ['important', 'romantic']
     }
 }
@@ -91,8 +91,10 @@ function getFilterFromParams(searchParams = {}) {
     const defaultFilter = getDefaultFilter()
     return {
         txt: searchParams.get('txt') || defaultFilter.txt,
-        minSpeed: searchParams.get('minSpeed') || defaultFilter.minSpeed,
-        desc: searchParams.get('desc') || defaultFilter.desc
+        status: searchParams.get('mailStatus') || defaultFilter.mailStatus,
+        isStared: searchParams.get('isStared') || defaultFilter.isStared,
+        isRead: searchParams.get('isRead') || defaultFilter.isRead,
+        lables: searchParams.get('lables') || defaultFilter.lables
     }
 }
 

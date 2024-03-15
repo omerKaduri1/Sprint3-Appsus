@@ -1,19 +1,38 @@
 .filter-menu {
-    width: 250px;
+    font-family: lato-bold;
+    
+    width: 180px;
+    height: 100vh;
+
     padding: 0;
+    margin: 0;
+
+    
+    border-top: 1px lightgrey solid;
+    border: none;
+    background-color: #f6f8fc;
+}
+
+.filter-menu > * {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: .7em;
+    padding: .6em;
+    cursor: pointer;
 }
 
 .filter-menu .div-content {
-    width: 100%;
+    width: 90%;
     padding: 0 .5em;
 }
 
 .filter-menu > *:hover {
     background-color: #eaebef;
-    border-top-right-radius: 1em;
-    border-bottom-right-radius: 1em;
+    border-top-right-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
 }
 
 .lables-menu {
-    margin: 1.5em 0 0 1em;
+    margin-top: 1.5em;
 }

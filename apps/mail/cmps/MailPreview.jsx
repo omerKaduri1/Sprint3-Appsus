@@ -11,7 +11,6 @@ export function MailPreview({ mail, handleIsRead, onRemoveMail, countUnread, tog
     }
 
 
-
     return (
         <li className={`flex space-between pointer {${(isRead) ? 'read' : ''}`}>
             <div className="inputs flex">

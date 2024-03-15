@@ -100,8 +100,9 @@ export function MailIndex() {
     }
 
     const { mailStatus, txt, isStared, isRead, lables } = filterBy
-    return <React.Fragment>
-        <section className="search-container flex">
+    return <section className="mailapp-main-layout flex column">
+
+        <section className="flex">
             {openModal && <Compose mail={mail} setMail={setMail} handleSubmit={handleSubmit} handleChange={handleChange} setOpenModal={setOpenModal} />}
             <button className="open-modal-btn"
                 onClick={() => {
@@ -110,8 +111,11 @@ export function MailIndex() {
                 <span className="fa pen-icon"></span>
                 Compose
             </button>
-            <MailFilter filterBy={{ txt, isRead }} onSetFilter={onSetFilter} />
+            <div className="search-container flex align-center">
+                <MailFilter filterBy={{ txt, isRead }} onSetFilter={onSetFilter} />
+            </div>
         </section>
+
         <section className="flex">
             <FilterMenu filterBy={{ mailStatus, isStared, lables }} onSetFilter={onSetFilter} unreadCount={unreadCount} />
             <MailList
@@ -123,5 +127,5 @@ export function MailIndex() {
         </section>
 
         <UserMsg />
-    </React.Fragment >
+    </section>
 }

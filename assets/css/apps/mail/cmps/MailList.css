@@ -1,8 +1,8 @@
 .mail-list {
-    flex-grow: 1;
-
+    width: 100%;
     padding: 0 .3em;
     margin: 0;
+    margin-top: 2em;
 }
 
 .mail-list > * {
@@ -32,8 +32,8 @@
 }
 
 .search-container {
-    background-color: #f6f8fc;
-
+    margin-left: .8em;
+    background-color: #ffffff;
 }
 
 .search-input {
@@ -43,6 +43,18 @@
     border-radius: 1em;
     width: 580px;
     min-width: 184px; 
+}
+
+.selected-line {
+    color: rgb(190, 7, 7);
+    background-color: #eaebef;
+    border-top-right-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
+}
+
+.nothing-to-show {
+    width: 100%;
+    padding: 0 .3em;
 }
 
 

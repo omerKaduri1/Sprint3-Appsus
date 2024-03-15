@@ -4,7 +4,6 @@ import { NoteAddType } from "./NoteAddType.jsx"
 import { noteService } from "../services/note.service.js"
 
 export function NoteAdd({ addNote }) {
-  // const [noteInfo, setNoteInfo] = useState({ txt: "" })
   const [noteType, setNoteType] = useState("NoteTxt")
 
   const typeBtns = [

@@ -152,13 +152,13 @@ function _createNotes() {
           title: "Leo Messi",
         },
         style: {
-          backgroundColor: "#fff",
+          backgroundColor: "#aeccdc",
         },
       },
       {
         id: "n104",
         type: "NoteVideo",
-        isPinned: false,
+        isPinned: true,
         info: {
           title: "Fav song",
           youtubeUrl: "https://www.youtube.com/watch?v=nFjDqwtXdKw",
@@ -177,13 +177,13 @@ function _createNotes() {
             { txt: "Driving license", doneAt: null, id: utilService.makeId() },
             {
               txt: "Coding power",
-              doneAt: 187111111,
+              doneAt: null,
               id: utilService.makeId(),
             },
           ],
         },
         style: {
-          backgroundColor: "#fff",
+          backgroundColor: "#efeff1",
         },
       },
     ]

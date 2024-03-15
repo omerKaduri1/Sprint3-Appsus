@@ -9,6 +9,8 @@ export function NoteTxt({
   note,
   removeNote,
   saveNote,
+  setNotes,
+  setPinnedNotes,
 }) {
   const [noteBgColor, setNoteBgColor] = useState(note.style)
   const [isOnEdit, setIsOnEdit] = useState(false)
@@ -37,6 +39,8 @@ export function NoteTxt({
           changeBackgroundColor={changeBackgroundColor}
           onSetEdit={onSetEdit}
           setIsNotePinned={setIsNotePinned}
+          setNotes={setNotes}
+          setPinnedNotes={setPinnedNotes}
         />
       </section>
 

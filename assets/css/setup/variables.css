@@ -1,3 +1,6 @@
 :root {
-    --main-bg-color: lightblue;
+    --main-bg-color: transparent;
+
+    --border-color: lightgray;
+    --user-msg-color: black;
 }

@@ -38,7 +38,7 @@ export function MailPreview({ mail, handleIsRead, onRemoveMail, countUnread, tog
             <div className="mail-actions">
                 <button className='fa envelope' onClick={handleIsRead}></button>
                 <button className='fa forward'></button>
-                <button className='fa trash' onClick={() => onRemoveMail(mail.id)}></button>
+                <button className='fa trash' onClick={() => onRemoveMail(mail)}></button>
             </div>
         </li >
     )

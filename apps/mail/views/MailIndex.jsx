@@ -2,7 +2,6 @@ const { useState, useEffect } = React
 const { useSearchParams } = ReactRouterDOM
 
 import { showSuccessMsg, showErrorMsg } from '../../../services/event-bus.service.js'
-import { utilService } from '../../../services/util.service.js'
 import { mailService } from '../services/mail.service.js'
 
 import { MailList } from '../cmps/MailList.jsx'
@@ -15,6 +14,7 @@ export function MailIndex() {
     const [mail, setMail] = useState({})
     const [mails, setMails] = useState([])
     const [unreadCount, setUnreadCount] = useState(0)
+    const [trashCount, setTrashCount] = useState(0)
     const [openModal, setOpenModal] = useState(false)
     const [searchParams, setSearchParams] = useSearchParams()
     const [filterBy, setFilterBy] = useState(mailService.getFilterFromParams(searchParams))
@@ -44,17 +44,28 @@ export function MailIndex() {
             .then(mailService.save)
     }
 
-    function onRemoveMail(mailId) {
-        mailService
-            .remove(mailId)
-            .then(() => {
-                setMails(prevMails => prevMails.filter(mail => mail.id !== mailId))
-                showSuccessMsg(`Mail removed successfully (${mailId})`)
-            })
-            .catch(err => {
-                console.log('Has issues with removing book', err)
-                showErrorMsg(`Could not remove mail (${mailId})`)
-            })
+    function onRemoveMail(currMail) {
+        if (currMail.mailStatus === 'inbox') {
+            currMail.mailStatus = 'trash'
+            mailService.save(currMail)
+                .then(() => {
+                    setMails(prevMails => prevMails.filter(mail => mail.id !== currMail.id))
+                    showSuccessMsg(`Moved to trash`)
+                })
+        }
+
+        else if (currMail.mailStatus === 'trash') {
+            mailService
+                .remove(currMail.id)
+                .then(() => {
+                    setMails(prevMails => prevMails.filter(mail => mail.id !== currMail.id))
+                    showSuccessMsg(`Mail removed successfully (${currMail.id})`)
+                })
+                .catch(err => {
+                    console.log('Has issues with removing book', err)
+                    showErrorMsg(`Could not remove mail (${currMail.id})`)
+                })
+        }
     }
 
     function onSetFilter(fieldsToUpdate) {
@@ -62,14 +73,13 @@ export function MailIndex() {
     }
 
     function onOpenMail(mailId) {
-        console.log('mailId:', mailId)
         mailService.get(mailId)
             .then((res) => {
                 console.log(res)
                 res.isRead = true
                 mailService.save(res)
             })
-            
+
             .catch(err => console.log(err))
     }
 
@@ -115,25 +125,3 @@ export function MailIndex() {
         <UserMsg />
     </React.Fragment >
 }
-
-
-
-
-
-{/* <ul className="filter-menu clean-list">
-    <li onClick>
-        Inbox <span>{unreadCount}</span>
-    </li>
-    <li>
-        Starred <span>{0}</span>
-    </li>
-    <li>
-        Sent <span>{0}</span>
-    </li>
-    <li>
-        Draft <span>{0}</span>
-    </li>
-    <li>
-        Trash <span>{0}</span>
-    </li>
-</ul> */}

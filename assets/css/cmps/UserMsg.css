@@ -1,14 +1,22 @@
 .user-msg {
-    background-color: var(--user-msg-color);
-    color: white;
-    padding: 1em;
     position: absolute;
-    bottom: 1em;
-    right: 1em;
+    text-align: center;
+    
+    font-size: .7em;
+    font-weight: 600;
+    
+    height: 1em;
+    width: fit-content;
+    top: 50%;
+    right: 50%;
+
+    color: white;
+    padding: 1.1em 1em 1.5em;
+    border-radius: 1em;
 }
 
 .user-msg.success {
-    background-color: var(--user-msg-color);
+    background-color: rgba(69, 69, 69, 0.943);
 }
 
 .user-msg.error {
@@ -16,6 +24,9 @@
 }
 
 .user-msg button{
+    display: none;
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
     float: right;
     margin-inline: 1em;
     border: none;

@@ -94,7 +94,7 @@ export function NoteIndex() {
   if (!notes) return <div>Loading...</div>
   return (
     <section className="note-index">
-      <section className="main-notes-container flex column align-center">
+      <section className="main-notes-container main-layout flex column align-center">
         <NoteFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
         <section className="add-note-container">
           <NoteAdd addNote={addNote} />

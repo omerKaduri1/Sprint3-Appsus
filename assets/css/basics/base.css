@@ -1,7 +1,7 @@
 body {
     font-family: lato-light;
-    margin: 0;
-    /* overflow-y: hidden; */
+    margin: auto 25px;
+    overflow-x: hidden;
 }
 
 h1,
@@ -26,4 +26,8 @@ img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+input {
+    cursor:text;
 }

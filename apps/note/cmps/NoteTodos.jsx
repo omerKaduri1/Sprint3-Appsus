@@ -29,7 +29,7 @@ export function NoteTodos({ note, removeNote, saveNote }) {
         <ul className="clean-list">
           {note.info.todos.map((todo) => (
             <li key={todo.id}>
-              <span>{todo.txt}</span>
+              <span className={todo.doneAt ? "done" : ""}>{todo.txt}</span>
             </li>
           ))}
         </ul>

@@ -1,4 +1,4 @@
-.edit-container{
+.edit-container {
     position: absolute;
     background-color: white;
     width: 50%;
@@ -14,11 +14,12 @@
     justify-content: space-between;
 }
 
-.note-img-edit, .note-video-edit {
+.note-img-edit,
+.note-video-edit {
     height: 200px;
 }
 
-.edit-container .txt-input{
+.edit-container .txt-input {
     margin-block-start: 10px;
     padding: 1rem;
     background-color: #f8f9fa;
@@ -34,3 +35,16 @@
     width: 32px;
     height: 32px;
 }
+
+.todos-edit {
+    height: fit-content;
+    width: fit-content;
+}
+
+.todo-container {
+    flex-direction: row-reverse;
+    margin-inline: 1.5em;
+    margin-block: 0.2em;
+}
+
+.todos-edit button {}

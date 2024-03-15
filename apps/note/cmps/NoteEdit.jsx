@@ -5,8 +5,6 @@ import { NoteImgEdit } from "./NoteImgEdit.jsx"
 import { NoteVideoEdit } from "./NoteVideoEdit.jsx"
 import { NoteTodosEdit } from "./NoteTodosEdit.jsx"
 
-import { noteService } from "../services/note.service.js"
-
 export function NoteEdit({ note, saveNote, onSetEdit }) {
   switch (note.type) {
     case "NoteTxt":

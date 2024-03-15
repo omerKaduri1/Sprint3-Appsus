@@ -1,6 +1,6 @@
 import { NotePreview } from "./NotePreview.jsx"
 
-export function NoteList({
+export function PinnedNotesList({
   notes,
   removeNote,
   saveNote,
@@ -8,12 +8,16 @@ export function NoteList({
   setPinnedNotes,
 }) {
   if (!notes.length)
-    return <div className="no-match">There are no matching results.</div>
-
+    return (
+      <div className="no-match">
+        <h3>Pinned Notes:</h3>
+        There are no pinned notes.
+      </div>
+    )
   return (
-    <section className="note-list-container flex">
+    <section className="pinned-notes">
+      <h3>Pinned Notes:</h3>
       <ul className="note-list clean-list">
-        <h3>Other Notes:</h3>
         <section className="inner-container">
           {notes.map((note) => (
             <li key={note.id}>

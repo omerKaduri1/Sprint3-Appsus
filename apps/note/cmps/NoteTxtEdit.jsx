@@ -1,12 +1,19 @@
-const { useState, useEffect } = React
+const { useState } = React
 
 export function NoteTxtEdit({ note, saveNote, onSetEdit }) {
   const [editedInfo, setEditedInfo] = useState(note.info.txt)
 
   function onEdit(ev) {
     ev.preventDefault()
-    note.info.txt = editedInfo
-    saveNote(note)
+    const updatedNote = {
+      ...note,
+      info: {
+        ...note.info,
+        txt: editedInfo,
+      },
+    }
+    // note.info.txt = editedInfo
+    saveNote(updatedNote)
     onSetEdit()
   }
 
@@ -18,7 +25,6 @@ export function NoteTxtEdit({ note, saveNote, onSetEdit }) {
   return (
     <section className="edit-container">
       <form className="note-edit flex column align-center" onSubmit={onEdit}>
-
         <input
           className="txt-input"
           onChange={handleChange}

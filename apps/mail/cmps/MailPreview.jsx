@@ -27,7 +27,7 @@ export function MailPreview({ mail, handleIsRead, onRemoveMail, countUnread, tog
                 <div className={`mail-subject flex space-between`} onClick={() => onOpenMail(mail.id)}>
                     <div className={`subject ${(isRead) ? '' : 'bold'}`}>
                         <Link to={`/mails/${mail.id}`} >
-                            {mail.subject}
+                            {mail.subject.substring(0, 35)}
                         </Link>
                     </div>
                     <Link to={`/mails/${mail.id}`} className="mail-body-preview">

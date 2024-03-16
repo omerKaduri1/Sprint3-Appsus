@@ -1,7 +1,4 @@
-const { useState } = React
-
-export function Compose({ mail, setOpenModal, handleSubmit, handleChange }) {
-
+export function Compose({ mail, setOpenModal, handleSubmit, handleChange, showSuccessMsg }) {
 
     return <div className="compose-modal">
         <form onSubmit={handleSubmit}>
@@ -45,7 +42,7 @@ export function Compose({ mail, setOpenModal, handleSubmit, handleChange }) {
                 </div>
             </div>
             <div className="send-compose-btn-container">
-                <button className="send-compose-btn">Send</button>
+                <button className="send-compose-btn" onClick={() => showSuccessMsg('Mail sent successfully')}>Send</button>
             </div>
         </form>
     </div>

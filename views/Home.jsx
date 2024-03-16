@@ -11,7 +11,7 @@ export function Home() {
       <h2>Our Features</h2>
       <section className="features flex align-center animate__animated animate__backInRight">
         <article className="feature-preview flex column align-center">
-          <Link to="/mail">
+          <Link to="/mails">
             <img
               src="assets/img/gmail-icon-home.png"
               alt="gmail-icon"

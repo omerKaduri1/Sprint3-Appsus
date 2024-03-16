@@ -27,9 +27,8 @@ function query(filterBy = getDefaultFilter()) {
             if (filterBy.mailStatus) {
                 mails = mails.filter(mail => mail.mailStatus === filterBy.mailStatus)
             }
-            if (filterBy.desc) {
-                const regex = new RegExp(filterBy.desc, 'i')
-                mails = mails.filter(mail => regex.test(mail.desc))
+            if (filterBy.isRead) {
+                // mails = mails.filter(mail => mail.isRead)
             }
             return mails
         })
@@ -38,7 +37,6 @@ function query(filterBy = getDefaultFilter()) {
 function get(mailId) {
     return storageService.get(MAIL_KEY, mailId)
         .then(mail => _setNextPrevmailId(mail))
-    // return axios.get(MAIL_KEY, mailId)
 }
 
 function remove(mailId) {
@@ -159,7 +157,7 @@ function _creatEmails() {
                 isRead: false,
                 sentAt: 0,
                 removedAt: null,
-                from: 'The Movie Database (TMDB)',
+                from: 'The Movie Database',
                 to: 'user@appsus.com',
                 mailStatus: 'inbox'
             },
@@ -198,23 +196,12 @@ function _creatEmails() {
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
+                subject: 'New login to Spotify',
+                body: utilService.makeLorem(120),
                 isRead: false,
                 sentAt: 0,
                 removedAt: null,
-                from: 'momo@momo.com',
-                to: 'user@appsus.com',
-                mailStatus: 'inbox'
-            },
-            {
-                id: utilService.makeId(),
-                subject: '',
-                body: '',
-                isRead: false,
-                sentAt: 0,
-                removedAt: null,
-                from: 'momo@momo.com',
+                from: 'Spotify',
                 to: 'user@appsus.com',
                 mailStatus: 'inbox'
             },
@@ -225,139 +212,122 @@ function _creatEmails() {
                 isRead: false,
                 sentAt: 0,
                 removedAt: null,
-                from: 'The Open University',
+                from: 'Open University',
                 to: 'user@appsus.com',
                 mailStatus: 'inbox'
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
-                isRead: false,
+                subject: 'YoungLA, Our V-Day Drop just went LIVE!!',
+                body: utilService.makeLorem(120),
+                isRead: true,
                 sentAt: 0,
                 removedAt: null,
-                from: 'momo@momo.com',
+                from: 'YoungLA',
                 to: 'user@appsus.com',
                 mailStatus: 'inbox'
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
+                subject: 'Pancake Recipe',
+                body: utilService.makeLorem(100),
+                isRead: true,
+                sentAt: 0,
+                removedAt: null,
+                from: 'Me',
+                to: 'user@appsus.com',
+                mailStatus: 'sent'
+            },
+            {
+                id: utilService.makeId(),
+                subject: 'Your invoice from Apple.',
+                body: utilService.makeLorem(120),
                 isRead: false,
                 sentAt: 0,
                 removedAt: null,
-                from: 'momo@momo.com',
+                from: 'Apple',
                 to: 'user@appsus.com',
                 mailStatus: 'inbox'
             },
             {
                 id: utilService.makeId(),
-                subject: '',
+                subject: 'ORDER #YLA2659465',
                 body: '',
-                isRead: false,
+                isRead: true,
                 sentAt: 0,
                 removedAt: null,
-                from: 'momo@momo.com',
+                from: 'Me',
                 to: 'user@appsus.com',
-                mailStatus: 'inbox'
+                mailStatus: 'sent'
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
-                isRead: false,
+                subject: 'My favorite foods',
+                body: utilService.makeLorem(100),
+                isRead: true,
                 sentAt: 0,
                 removedAt: null,
-                from: 'momo@momo.com',
+                from: 'Me',
                 to: 'user@appsus.com',
-                mailStatus: 'inbox'
+                mailStatus: 'sent'
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
-                isRead: false,
+                subject: 'Amit Frid CV',
+                body: utilService.makeLorem(120),
+                isRead: true,
                 sentAt: 0,
                 removedAt: null,
-                from: 'momo@momo.com',
+                from: 'Me',
                 to: 'user@appsus.com',
-                mailStatus: 'inbox'
+                mailStatus: 'sent'
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
+                subject: 'Master Advanced Stack Skills',
+                body: utilService.makeLorem(100),
                 isRead: false,
                 sentAt: 0,
                 removedAt: null,
-                from: 'momo@momo.com',
+                from: 'Simplilearn',
                 to: 'user@appsus.com',
-                mailStatus: 'inbox'
+                mailStatus: 'trash'
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
-                isRead: false,
+                subject: 'Reset password instructions',
+                body: utilService.makeLorem(100),
+                isRead: true,
                 sentAt: 0,
                 removedAt: null,
-                from: 'momo@momo.com',
+                from: 'no-reply',
                 to: 'user@appsus.com',
-                mailStatus: 'inbox'
+                mailStatus: 'trash'
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
+                subject: 'FW: אתר בחירה - תווי שי לחג הפסח',
+                body: utilService.makeLorem(80),
                 isRead: false,
                 sentAt: 0,
                 removedAt: null,
                 from: 'momo@momo.com',
                 to: 'user@appsus.com',
-                mailStatus: 'inbox'
+                mailStatus: 'trash'
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
-                isRead: false,
+                subject: 'Email verification required',
+                body: utilService.makeLorem(120),
+                isRead: true,
                 sentAt: 0,
                 removedAt: null,
-                from: 'momo@momo.com',
+                from: 'Me',
                 to: 'user@appsus.com',
-                mailStatus: 'inbox'
-            },
-            {
-                id: utilService.makeId(),
-                subject: '',
-                body: '',
-                isRead: false,
-                sentAt: 0,
-                removedAt: null,
-                from: 'momo@momo.com',
-                to: 'user@appsus.com',
-                mailStatus: 'inbox'
+                mailStatus: 'sent'
             },
         ]
 
-
-
-
-
-
-
-
-
-
-
-
-        mails.push(_creatEmail())
-        mails.push(_creatEmail())
-        mails.push(_creatEmail())
-        mails.push(_creatEmail())
-        mails.push(_creatEmail())
-        mails.push(_creatEmail())
         mails.push(_creatEmail())
         mails.push(_creatEmail())
         utilService.saveToStorage(MAIL_KEY, mails)

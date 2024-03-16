@@ -30,17 +30,21 @@ export function MailDetails() {
 
     if (isLoading) return <div>Loading...</div>
     return <article className="mail-details-container">
-            <div className="mail-details-title flex space-between">
-                <h1 title="email subject">Subject: {mail.subject}</h1>
-                <div className="mail-actions">
-                    <button className='fa trash' title="delete email"></button>
-                </div>
+        <div className="go-back-button">
+            <Link to="/mails">Back
+            </Link>
+        </div>
+        <div className="mail-details-title flex space-between">
+            <h1>Subject: {mail.subject}</h1>
+            <div className="mail-actions">
+                <button className="fa trash trash-in-mail"></button>
             </div>
-            <div>
-            </div>
-            <div className="mail-details-content" title="email content">
-                <h5>From: {mail.from}</h5>
-                <p>{mail.body}</p>
-            </div>
-        </article>
+        </div>
+        <div>
+        </div>
+        <div className="mail-details-content">
+            <h5>From: {mail.from}</h5>
+            <p>{mail.body}</p>
+        </div>
+    </article>
 }

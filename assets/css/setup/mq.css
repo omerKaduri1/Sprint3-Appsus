@@ -119,6 +119,11 @@
 }
 
 @media (max-width:600px) {
+    
+    html, body {
+        overflow-x: hidden;
+    }
+
     .filter-menu {
         width: 40px;
         transition: 0.8s;

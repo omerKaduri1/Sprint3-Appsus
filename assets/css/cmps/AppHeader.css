@@ -20,11 +20,12 @@ header {
 }
 
 .logo {
-    height: 100px;
+    height: 60px;
+    padding: .3em;
 }
 
 nav a {
-    padding: .6em;
+    padding: .8em;
 }
 
 nav a:hover {

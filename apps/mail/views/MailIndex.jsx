@@ -4,11 +4,11 @@ const { useSearchParams } = ReactRouterDOM
 import { showSuccessMsg, showErrorMsg } from '../../../services/event-bus.service.js'
 import { mailService } from '../services/mail.service.js'
 
+import { Compose } from '../cmps/Compose.jsx'
 import { MailList } from '../cmps/MailList.jsx'
 import { MailFilter } from '../cmps/MailFilter.jsx'
 import { FilterMenu } from '../cmps/FilterMenu.jsx'
 import { UserMsg } from '../../../cmps/UserMsg.jsx'
-import { Compose } from '../cmps/Compose.jsx'
 
 export function MailIndex() {
     const [mail, setMail] = useState({})

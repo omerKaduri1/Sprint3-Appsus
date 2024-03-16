@@ -4,9 +4,7 @@
     height: 100vh;
     width: 80vw;
 
-    right: 50%;
-    transform: translateX(40%) translateY(10%);
-
+    transform: translateX(10%) translateY(10%);
 }
 
 .mail-details-title {

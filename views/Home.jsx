@@ -67,7 +67,7 @@ export function Home() {
           />
           <h3>Omer Kaduri</h3>
           <p>
-            27 years old from Herzliya, israel. <br />
+            27 years old from Herzliya, Israel. <br />
             Fullstack development student in Coding Academy.
           </p>
           <a

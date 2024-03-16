@@ -7,6 +7,10 @@ import { PinnedNotesList } from "../cmps/PinnedNotesList.jsx"
 import { UserMsg } from "../../../cmps/UserMsg.jsx"
 
 import { noteService } from "../services/note.service.js"
+import {
+  showSuccessMsg,
+  showErrorMsg,
+} from "../../../services/event-bus.service.js"
 
 export function NoteIndex() {
   const [notes, setNotes] = useState(null)
@@ -35,9 +39,12 @@ export function NoteIndex() {
   function addNote(note) {
     noteService
       .save(note)
-      .then((savedNote) => setNotes((prevNotes) => [...prevNotes, savedNote]))
+      .then((savedNote) => {
+        setNotes((prevNotes) => [...prevNotes, savedNote])
+        showSuccessMsg(`Note added successfully`)
+      })
       .catch((err) => {
-        console.log("Could not add note")
+        showErrorMsg(`Could not add note`)
       })
   }
 
@@ -63,20 +70,12 @@ export function NoteIndex() {
           }
           return prevPinnedNotes
         })
+        showSuccessMsg(`Note updated successfully`)
       })
       .catch((err) => {
-        console.log("Could not save note", err)
+        showErrorMsg(`Could not update note`)
       })
   }
-
-  // function saveNote(note) {
-  //   const noteId = note.id
-  //   noteService.save(note).then((savedNote) => {
-  //     const noteIdx = notes.findIndex((note) => note.id === noteId)
-  //     notes.splice(noteIdx, 1, savedNote)
-  //     setNotes([...notes])
-  //   })
-  // }
 
   function removeNote(noteId) {
     noteService
@@ -86,9 +85,10 @@ export function NoteIndex() {
         setPinnedNotes((prevPinnedNotes) =>
           prevPinnedNotes.filter((note) => note.id !== noteId)
         )
+        showSuccessMsg(`Note removed successfully`)
       })
       .catch((err) => {
-        console.log(`Could not remove ${noteId}`)
+        showErrorMsg(`Could not remove note`)
       })
   }
 

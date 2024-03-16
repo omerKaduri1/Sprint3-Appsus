@@ -2,8 +2,13 @@ const { useState } = React
 
 import { NotePreviewButtons } from "./NotePreviewButtons.jsx"
 import { NoteEdit } from "./NoteEdit.jsx"
+import { UserMsg } from "../../../cmps/UserMsg.jsx"
 
 import { noteService } from "../services/note.service.js"
+import {
+  showSuccessMsg,
+  showErrorMsg,
+} from "../../../services/event-bus.service.js"
 
 export function NoteVideo({
   note,
@@ -12,7 +17,7 @@ export function NoteVideo({
   setNotes,
   setPinnedNotes,
   openPaletteNoteId,
-  setOpenPaletteNoteId
+  setOpenPaletteNoteId,
 }) {
   const [noteBgColor, setNoteBgColor] = useState(note.style)
   const [isOnEdit, setIsOnEdit] = useState(false)
@@ -21,8 +26,15 @@ export function NoteVideo({
   function changeBackgroundColor(note, color) {
     const style = { backgroundColor: color }
     note = { ...note, style }
-    noteService.save(note)
-    setNoteBgColor({ backgroundColor: color })
+    noteService
+      .save(note)
+      .then((savedNote) => {
+        setNoteBgColor({ backgroundColor: color })
+        showSuccessMsg(`Note's color changed successfully`)
+      })
+      .catch((err) => {
+        showErrorMsg(`Could not change note's color`)
+      })
   }
 
   function getVideoId(url) {
@@ -51,9 +63,15 @@ export function NoteVideo({
 
   function duplicateNote(note) {
     const duplicatedNote = { ...note, id: null }
-    noteService.save(duplicatedNote).then((savedNote) => {
-      setNotes((prevNotes) => [...prevNotes, savedNote])
-    })
+    noteService
+      .save(duplicatedNote)
+      .then((savedNote) => {
+        setNotes((prevNotes) => [...prevNotes, savedNote])
+        showSuccessMsg(`Note duplicated successfully`)
+      })
+      .catch((err) => {
+        showErrorMsg(`Could not duplicate note`)
+      })
   }
 
   const embedUrl = getYoutubeEmbedUrl(note.info.youtubeUrl)
@@ -81,6 +99,7 @@ export function NoteVideo({
       {isOnEdit && (
         <NoteEdit note={note} saveNote={saveNote} onSetEdit={onSetEdit} />
       )}
+      <UserMsg />
     </article>
   )
 }

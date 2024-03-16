@@ -7,7 +7,6 @@ export function NotePreview({
   note,
   removeNote,
   saveNote,
-  changeBackgroundColor,
   setNotes,
   setPinnedNotes,
   openPaletteNoteId,
@@ -21,7 +20,6 @@ export function NotePreview({
             note={note}
             removeNote={removeNote}
             saveNote={saveNote}
-            changeBackgroundColor={changeBackgroundColor}
             setNotes={setNotes}
             setPinnedNotes={setPinnedNotes}
             openPaletteNoteId={openPaletteNoteId}
@@ -34,7 +32,6 @@ export function NotePreview({
             note={note}
             removeNote={removeNote}
             saveNote={saveNote}
-            changeBackgroundColor={changeBackgroundColor}
             setNotes={setNotes}
             setPinnedNotes={setPinnedNotes}
             openPaletteNoteId={openPaletteNoteId}
@@ -47,7 +44,6 @@ export function NotePreview({
             note={note}
             removeNote={removeNote}
             saveNote={saveNote}
-            changeBackgroundColor={changeBackgroundColor}
             setNotes={setNotes}
             setPinnedNotes={setPinnedNotes}
             openPaletteNoteId={openPaletteNoteId}
@@ -60,7 +56,6 @@ export function NotePreview({
             note={note}
             removeNote={removeNote}
             saveNote={saveNote}
-            changeBackgroundColor={changeBackgroundColor}
             setNotes={setNotes}
             setPinnedNotes={setPinnedNotes}
             openPaletteNoteId={openPaletteNoteId}

@@ -2,23 +2,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: absolute;
+    position: fixed;
     text-align: center;
     box-sizing: border-box;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
     background-color: var(--user-msg-color);
     
-    font-size: .7em;
+    font-size: 1em;
     font-weight: 600;
     margin-block-start: 10px;
     
     height: 1em;
     width: max-content;
-    /* bottom: 10px; */
-    /* left: 10px; */
-    bottom: 25vh;
+    bottom: 20px;
     right: 5vw;
-    /* right: 50%; */
 
     color: white;
     padding: 1.1em 1em 1.5em;

@@ -1,12 +1,9 @@
-const { useState } = React
-
 export function ColorButtons({
   note,
   changeBackgroundColor,
   openPaletteNoteId,
   setOpenPaletteNoteId,
 }) {
-  // const [isPaletteOpen, setIsPaletteOpen] = useState(false)
   const colors = [
     "#ffffff",
     "#efeff1",
@@ -18,7 +15,6 @@ export function ColorButtons({
     "#f39f76",
   ]
   const isPaletteOpen = note.id === openPaletteNoteId
-
   function togglePalette() {
     setOpenPaletteNoteId((prevId) => (prevId === note.id ? "" : note.id))
   }

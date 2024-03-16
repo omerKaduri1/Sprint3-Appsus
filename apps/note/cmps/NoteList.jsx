@@ -1,4 +1,3 @@
-const { useState } = React
 import { NotePreview } from "./NotePreview.jsx"
 
 export function NoteList({

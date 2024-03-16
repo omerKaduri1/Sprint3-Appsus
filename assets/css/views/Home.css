@@ -21,6 +21,7 @@
     border: 1px solid var(--border-color);
     padding: 3em;
     gap: 1em;
+    box-shadow: lightgray 0px 0px 9px 0px;
 }
 
 .feature-preview h2 {
@@ -61,6 +62,8 @@
     position: relative;
     border: 1px solid var(--border-color);
     width: 110%;
+    box-shadow: lightgray 0px 9px 0px 0px;
+    box-shadow: lightgray 0px 0px 11px 0px;
 }
 
 .team a {

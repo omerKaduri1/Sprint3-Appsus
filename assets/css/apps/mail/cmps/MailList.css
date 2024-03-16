@@ -8,7 +8,7 @@
 .mail-list > * {
     width: 100%;
     padding: .1em;
-    font-size: .8em;
+    font-size: .875em;
 
     border-bottom: 1px solid lightgray;
 }

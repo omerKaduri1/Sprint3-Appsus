@@ -22,10 +22,12 @@
     font-weight: inherit;
     background-color: transparent;
     color: inherit;
+    letter-spacing: 0.5px;
 }
 
 .add-note form {
-    width: 250px;
+    padding-inline: 25px;
+    width: 190px;
     gap: 10px;
 }
 
@@ -37,6 +39,12 @@
     background-color: transparent;
     border: none;
     border-radius: 200px;
+    padding: .5em;
+}
+
+.add-note button:hover {
+    background-color: var(--button-hover-color);
+    border-radius: 50%;
 }
 
 .note-type-btns {
@@ -53,7 +61,7 @@
     margin-block-end: 1px;
 }
 
-.add-todo{
+.add-todo {
     margin-inline-start: 0;
     padding: 1px;
 }

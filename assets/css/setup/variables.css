@@ -2,5 +2,7 @@
     --main-bg-color: transparent;
 
     --border-color: lightgray;
-    --user-msg-color: black;
+    --user-msg-color: #323232;
+
+    --button-hover-color: rgba(211, 211, 211, 0.378);
 }

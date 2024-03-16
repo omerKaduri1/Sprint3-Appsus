@@ -1,6 +1,5 @@
 const { useState, useEffect } = React
 const { useParams, useNavigate } = ReactRouter
-const { Link, Outlet } = ReactRouterDOM
 
 import { mailService } from "../services/mail.service.js"
 
@@ -38,7 +37,7 @@ export function MailDetails() {
         <div className="mail-details-title flex space-between">
             <h1>Subject: {mail.subject}</h1>
             <div className="mail-actions">
-                <button className="fa trash trash-in-mail"></button>
+                <button className="fa trash trash-in-mail" title="delete email"></button>
             </div>
         </div>
         <div>

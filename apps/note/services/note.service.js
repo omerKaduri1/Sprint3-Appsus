@@ -14,60 +14,6 @@ window.nt = noteService
 
 _createNotes()
 
-// const notes = [
-//   {
-//     id: "n101",
-//     createdAt: 1112222,
-//     type: "NoteTxt",
-//     isPinned: true,
-//     style: {
-//       backgroundColor: "#fff",
-//     },
-//     info: {
-//       txt: "Fullstack Me Baby!",
-//     },
-//   },
-//   {
-//     id: "n102",
-//     type: "NoteImg",
-//     isPinned: false,
-//     info: {
-//       url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/330px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg",
-//       title: "Leo Messi",
-//     },
-//     style: {
-//       backgroundColor: "#fff",
-//     },
-//   },
-//   {
-//     id: "n103",
-//     type: "NoteTodos",
-//     isPinned: false,
-//     info: {
-//       title: "Get my stuff together",
-//       todos: [
-//         { txt: "Driving license", doneAt: null, id: },
-//         { txt: "Coding power", doneAt: 187111111, id: },
-//       ],
-//     },
-//     style: {
-//       backgroundColor: "#fff",
-//     },
-//   },
-//   {
-//     id: "n104",
-//     type: "NoteVideo",
-//     isPinned: false,
-//     info: {
-//       title: "Fav song",
-//       youtubeUrl: "https://www.youtube.com/watch?v=nFjDqwtXdKw",
-//     },
-//     style: {
-//       backgroundColor: "#fff",
-//     },
-//   },
-// ]
-
 function query(filterBy = getDefaultFilter()) {
   return storageService.query(NOTE_KEY).then((notes) => {
     if (filterBy.txt) {
@@ -226,7 +172,7 @@ function _createNotes() {
         type: "NoteTodos",
         isPinned: true,
         info: {
-          title: "Grocery list",
+          title: "Groceries",
           todos: [
             { txt: "Apples", doneAt: 134334564, id: utilService.makeId() },
             {
@@ -252,7 +198,7 @@ function _createNotes() {
           ],
         },
         style: {
-          backgroundColor: "#d3bfdb",
+          backgroundColor: "#efeff1",
         },
       },
       {
@@ -279,6 +225,32 @@ function _createNotes() {
         },
         style: {
           backgroundColor: "#aeccdc",
+        },
+      },
+      {
+        id: "n110",
+        type: "NoteVideo",
+        isPinned: false,
+        info: {
+          youtubeUrl:
+            "https://www.youtube.com/watch?v=uYJQIKAVBw8",
+          title: "",
+        },
+        style: {
+          backgroundColor: "#efeff1",
+        },
+      },
+      {
+        id: "n111",
+        type: "NoteImg",
+        isPinned: false,
+        info: {
+          imgUrl:
+            "https://i.pinimg.com/564x/8d/a4/3d/8da43dde29c98af372c0a2c93307e4a4.jpg",
+          title: "",
+        },
+        style: {
+          backgroundColor: "#efeff1",
         },
       },
     ]

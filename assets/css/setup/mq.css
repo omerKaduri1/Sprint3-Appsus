@@ -72,38 +72,38 @@
     .filter-menu .div-container {
         padding-left: 0;
     }
-    
+
     .menu-layout {
         width: 150px;
         transition: 0.8s;
     }
-    
+
     .mail-subject .subject {
         padding-right: 10px;
     }
-    
+
     .mail-from {
         padding-right: 1em;
     }
-    
+
     .mail-body-preview {
-        content-visibility:hidden;
+        content-visibility: hidden;
     }
-    
+
     .mail-subject {
         width: auto;
     }
-    
+
     .gmail-logo {
         width: 90px;
         transition: 0.8s;
     }
-    
+
     .hamburger {
         width: 20px;
         height: 20px;
     }
-    
+
     .gmail-logo-container {
         width: 150px;
         transition: 0.8s;
@@ -119,57 +119,59 @@
         flex-direction: column;
         transition: 0.8s;
     }
+
     .mail-li {
         justify-content: flex-start;
     }
 }
 
 @media (max-width:760px) {
-    
-    html, body {
+
+    html,
+    body {
         overflow-x: hidden;
     }
-    
+
     .filter-menu {
         width: 35px;
         transition: 0.8s;
     }
-    
+
     .div-content span .fa::before {
         padding: .5em;
     }
-    
+
     .open-modal-btn .open-modal-btn-text {
         display: none;
     }
-    
+
     .open-modal-btn {
         padding: 0;
         width: 50px;
         transition: 0.8s;
     }
-    
+
     .div-content span .filter-menu-text {
         display: none;
     }
-    
+
     .menu-layout {
         width: 50px;
         transition: 0.8s;
     }
-    
+
     .gmail-logo {
         display: none;
     }
-    
+
     .hamburger {
         display: none;
     }
-    
+
     .gmail-logo-container {
         display: none;
     }
-    
+
     .mail-list {
         margin-top: 0;
         padding-left: 1.2em;
@@ -217,31 +219,32 @@
 /* Home MQ */
 
 @media (max-width:600px) {
-    .team{
+    .team {
         width: 80%;
     }
 
-    .feature{
+    .feature {
         margin-inline: 2em;
     }
 
-    .feature-preview{
+    .feature-preview {
         padding-inline: 1em;
     }
 }
 
 /* Home MQ */
 
-@media (max-width:600px) {
-    .team{
+@media (min-width:600px) {
+    .team {
         width: 80%;
     }
 
-    .feature{
-        margin-inline: 2em;
+    .features {
+        flex-direction: row;
     }
 
-    .feature-preview{
-        padding-inline: 1em;
+    .feature-preview {
+        /* padding-inline: 1em; */
+        width: 200px;
     }
 }

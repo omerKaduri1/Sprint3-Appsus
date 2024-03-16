@@ -4,7 +4,7 @@ export function Home() {
   return (
     <section className="home flex column align-center justify-center">
       <h2 className="headline animate__animated animate__backInLeft">
-        Stay Organized and Connected <br />
+        Stay Organized and Connected, <br />
         Your All-in-One Workspace with Appsus.
       </h2>
 
@@ -19,7 +19,7 @@ export function Home() {
             />
           </Link>
           <h2>Appsus emails</h2>
-          <Link to="/mail">
+          <Link to="/mails">
             <button title="go to mails">Try</button>
           </Link>
         </article>

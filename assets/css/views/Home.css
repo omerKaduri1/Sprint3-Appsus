@@ -12,6 +12,8 @@
 }
 
 .features {
+    flex-direction: column;
+    margin-inline: 2em;
     margin-block-start: 2em;
     gap: 1em;
 }
@@ -20,6 +22,8 @@
     border: 1px solid var(--border-color);
     padding: 3em;
     gap: 1em;
+    padding-inline: 1em;
+    width: 100%;
 }
 
 .feature-preview h2 {
@@ -43,7 +47,7 @@
     transition: background-color .3s;
 }
 
-.feature-preview button:hover{
+.feature-preview button:hover {
     background-color: var(--button-hover-color);
 }
 
@@ -52,7 +56,7 @@
     gap: 1.5em;
 }
 
-.team:last-child{
+.team:last-child {
     margin-block-end: 1em;
 }
 
@@ -65,7 +69,7 @@
 .team a {
     position: absolute;
     right: 1em;
-    top:.5em;
+    top: .5em;
     font-size: 1.5em;
 }
 
@@ -76,7 +80,8 @@
     width: 200px;
 }
 
-.animate__animated.animate__backInLeft, .animate__backInRight {
+.animate__animated.animate__backInLeft,
+.animate__backInRight {
     --animate-duration: 2.2s;
     animation-timing-function: ease-in-out
-  }
+}

@@ -172,7 +172,7 @@ function _createNotes() {
         type: "NoteTodos",
         isPinned: true,
         info: {
-          title: "Grocery list",
+          title: "Groceries",
           todos: [
             { txt: "Apples", doneAt: 134334564, id: utilService.makeId() },
             {
@@ -198,7 +198,7 @@ function _createNotes() {
           ],
         },
         style: {
-          backgroundColor: "#d3bfdb",
+          backgroundColor: "#efeff1",
         },
       },
       {
@@ -225,6 +225,32 @@ function _createNotes() {
         },
         style: {
           backgroundColor: "#aeccdc",
+        },
+      },
+      {
+        id: "n110",
+        type: "NoteVideo",
+        isPinned: false,
+        info: {
+          youtubeUrl:
+            "https://www.youtube.com/watch?v=uYJQIKAVBw8",
+          title: "",
+        },
+        style: {
+          backgroundColor: "#efeff1",
+        },
+      },
+      {
+        id: "n111",
+        type: "NoteImg",
+        isPinned: false,
+        info: {
+          imgUrl:
+            "https://i.pinimg.com/564x/8d/a4/3d/8da43dde29c98af372c0a2c93307e4a4.jpg",
+          title: "",
+        },
+        style: {
+          backgroundColor: "#efeff1",
         },
       },
     ]

@@ -5,7 +5,7 @@ export function AppHeader() {
     <header className="app-header">
       <Link to="/">
         <img
-          src="assets/img/logo.png"
+          src="assets/img/Appsus-icon.png"
           alt="logo"
           className="logo"
           title="website-logo"
@@ -14,6 +14,7 @@ export function AppHeader() {
       <nav className = "nav-bar flex">
         <NavLink to="/mail">
             <img
+              className="mail-logo"
               src="assets/img/gmail-icon.png"
               alt="Gmail"
               title="Gmail"
@@ -22,6 +23,7 @@ export function AppHeader() {
         <NavLink to="/note">
 
             <img
+            className="keep-logo"
               src="assets/img/google-keep-icon.webp"
               alt="GoogleKeep"
               title="GoogleKeep"

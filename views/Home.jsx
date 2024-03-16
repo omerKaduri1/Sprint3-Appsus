@@ -8,7 +8,7 @@ export function Home() {
         Your All-in-One Workspace with Appsus.
       </h2>
 
-      <h2>Our Features</h2>
+      <h2 className="animate__animated animate__backInRight">Our Features</h2>
       <section className="features flex align-center animate__animated animate__backInRight">
         <article className="feature-preview flex column align-center">
           <Link to="/mails">

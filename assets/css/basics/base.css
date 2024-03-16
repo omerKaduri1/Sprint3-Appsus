@@ -1,4 +1,4 @@
-html, body {
+body:not(.mail-details-container) {
     overflow-x: hidden;
   }
 

@@ -12,7 +12,7 @@ export function AppHeader() {
         />
       </Link>
       <nav className = "nav-bar flex">
-        <NavLink to="/mail">
+        <NavLink to="/mails">
             <img
               className="mail-logo"
               src="assets/img/gmail-icon.png"

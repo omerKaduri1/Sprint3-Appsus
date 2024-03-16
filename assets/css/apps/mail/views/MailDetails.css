@@ -25,6 +25,17 @@
     border: 1px grey solid;
 }
 
+.trash-in-mail {
+    padding: .5em;
+}
+
+.trash-in-mail:hover {
+    cursor: pointer;
+
+    border-radius: 3em;
+    background-color: rgba(219, 219, 219, 0.485);
+}
+
 .go-back-button {
     font-family: lato-bold;
     font-size: 1em;

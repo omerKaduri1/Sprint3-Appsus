@@ -27,9 +27,8 @@ function query(filterBy = getDefaultFilter()) {
             if (filterBy.mailStatus) {
                 mails = mails.filter(mail => mail.mailStatus === filterBy.mailStatus)
             }
-            if (filterBy.desc) {
-                const regex = new RegExp(filterBy.desc, 'i')
-                mails = mails.filter(mail => regex.test(mail.desc))
+            if (filterBy.isRead) {
+                // mails = mails.filter(mail => mail.isRead)
             }
             return mails
         })

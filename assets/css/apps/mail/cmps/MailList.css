@@ -17,27 +17,10 @@
     min-width: 25%;
 }
 
-.search-container {
-    margin-left: .8em;
-    background-color: #ffffff;
-    height: 64px;
-}
-
-.search-input {
-    display: flex;
-    background-color: #eaf1fb;
-    
-    width: 580px;
-    min-width: 184px; 
-    border-radius: 1em;
-}
-
-
 .nothing-to-show {
     width: 100%;
     padding: 0 .3em;
 }
-
 
 
 /* ICONS */
@@ -108,4 +91,8 @@
 
 .fa.pen-icon::before {
     content: '\f304';
+}
+
+.fa.search::before {
+    content: '\f002';
 }

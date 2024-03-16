@@ -38,9 +38,7 @@ export function MailDetails() {
         <div className="mail-details-title flex space-between">
             <h1>Subject: {mail.subject}</h1>
             <div className="mail-actions">
-                <button className='fa envelope'></button>
-                <button className='fa forward'></button>
-                <button className='fa trash'></button>
+                <button className="fa trash trash-in-mail"></button>
             </div>
         </div>
         <div>

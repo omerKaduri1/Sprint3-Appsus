@@ -11,22 +11,28 @@ export function AppHeader() {
           title="website-logo"
         />
       </Link>
-      <nav>
+      <nav className="flex align-center">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/mail">
-          <img
-            src="assets/img/gmail-icon.png"
-            alt="gmail icon"
-            title="gmail icon"
-          />
+          <div className="img-container">
+            <img
+              className="img-container"
+              src="assets/img/gmail-icon.png"
+              alt="Gmail"
+              title="Gmail"
+            />
+          </div>
         </NavLink>
         <NavLink to="/note">
-          <img
-            src="assets/img/google-keep-icon.webp"
-            alt="google keep icon"
-            title="google keep icon"
-          />
+
+          <div className="img-container">
+            <img
+              src="assets/img/google-keep-icon.webp"
+              alt="GoogleKeep"
+              title="GoogleKeep"
+            />
+          </div>
         </NavLink>
       </nav>
     </header>

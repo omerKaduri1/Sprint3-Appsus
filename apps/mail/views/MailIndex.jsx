@@ -112,12 +112,12 @@ export function MailIndex() {
                 Compose
             </button>
             <div className="search-container flex align-center">
-                <MailFilter filterBy={{ txt, isRead }} onSetFilter={onSetFilter} />
+                <MailFilter filterBy={{ txt, isStared, isRead }} onSetFilter={onSetFilter} getDefaultFilter={mailService.getDefaultFilter} />
             </div>
         </section>
 
         <section className="flex">
-            <FilterMenu filterBy={{ mailStatus, isStared, lables }} onSetFilter={onSetFilter} unreadCount={unreadCount} />
+            <FilterMenu filterBy={{ mailStatus, lables }} onSetFilter={onSetFilter} unreadCount={unreadCount} />
             <MailList
                 mails={mails}
                 onRemoveMail={onRemoveMail}

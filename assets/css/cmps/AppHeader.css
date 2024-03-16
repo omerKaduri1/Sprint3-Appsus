@@ -10,8 +10,11 @@ header {
 }
 
 .app-header img:not(.logo) {
-    width: 60px;
+    cursor: pointer;
+    display: block;
+    height: 30px;
 }
+
 
 .logo {
     margin-left: 1em;

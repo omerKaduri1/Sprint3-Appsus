@@ -13,8 +13,13 @@ export function MailFilter({ onSetFilter, filterBy }) {
     }
 
     function handleChange({ target }) {
-        let { value, name: field } = target
-        setFilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
+        const { value } = target.dataset
+        if (!value) {
+            setFilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, ...{ isStared: null, isRead: null } }))
+        } else {
+            let { name: field } = target
+            setFilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
+        }
     }
 
     return <section className="mail-filter flex align-center">
@@ -22,8 +27,9 @@ export function MailFilter({ onSetFilter, filterBy }) {
             <input type="text"
                 name="txt"
                 id="title"
+                data-value={filterByToEdit.txt}
                 value={filterByToEdit.txt}
-                onChange={handleChange}
+                onClick={handleChange}
                 placeholder="Search..."
                 className="search-input" />
         </form>

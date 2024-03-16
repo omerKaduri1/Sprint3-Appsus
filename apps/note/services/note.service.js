@@ -136,7 +136,7 @@ function _createNotes() {
         type: "NoteTxt",
         isPinned: true,
         style: {
-          backgroundColor: "#fff",
+          backgroundColor: "#f39f76",
         },
         info: {
           txt: "Fullstack Me Baby!",
@@ -145,10 +145,10 @@ function _createNotes() {
       {
         id: "n102",
         type: "NoteImg",
-        isPinned: false,
+        isPinned: true,
         info: {
           imgUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/330px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Lionel_Messi_WC2022.jpg/220px-Lionel_Messi_WC2022.jpg",
           title: "",
         },
         style: {
@@ -156,27 +156,36 @@ function _createNotes() {
         },
       },
       {
-        id: "n104",
+        id: "n103",
         type: "NoteVideo",
         isPinned: true,
         info: {
-          title: "Fav song",
+          title: "",
           youtubeUrl: "https://www.youtube.com/watch?v=nFjDqwtXdKw",
         },
         style: {
-          backgroundColor: "#fff",
+          backgroundColor: "#d3bfdb",
         },
       },
       {
-        id: "n103",
+        id: "n104",
         type: "NoteTodos",
         isPinned: false,
         info: {
-          title: "Get my stuff together",
+          title: "Things to do",
           todos: [
-            { txt: "Driving license", doneAt: null, id: utilService.makeId() },
             {
-              txt: "Coding power",
+              txt: "Grocery shopping",
+              doneAt: 134334564,
+              id: utilService.makeId(),
+            },
+            {
+              txt: "Workout",
+              doneAt: null,
+              id: utilService.makeId(),
+            },
+            {
+              txt: "Coding",
               doneAt: null,
               id: utilService.makeId(),
             },
@@ -184,6 +193,92 @@ function _createNotes() {
         },
         style: {
           backgroundColor: "#efeff1",
+        },
+      },
+      {
+        id: "n105",
+        type: "NoteImg",
+        isPinned: false,
+        info: {
+          imgUrl:
+            "https://i.pinimg.com/564x/fe/04/ec/fe04ecdaed193eeb0c3bb317c01c1c52.jpg",
+          title: "",
+        },
+        style: {
+          backgroundColor: "#fff",
+        },
+      },
+      {
+        id: "n106",
+        type: "NoteImg",
+        isPinned: true,
+        info: {
+          imgUrl:
+            "https://i.pinimg.com/564x/9a/67/11/9a6711f44756b6fe23a7309463afb1bd.jpg",
+          title: "",
+        },
+        style: {
+          backgroundColor: "#b4ddd3",
+        },
+      },
+      {
+        id: "n107",
+        type: "NoteTodos",
+        isPinned: true,
+        info: {
+          title: "Grocery list",
+          todos: [
+            { txt: "Apples", doneAt: 134334564, id: utilService.makeId() },
+            {
+              txt: "Oranges",
+              doneAt: 134334564987,
+              id: utilService.makeId(),
+            },
+            {
+              txt: "Milk",
+              doneAt: null,
+              id: utilService.makeId(),
+            },
+            {
+              txt: "Cereal",
+              doneAt: null,
+              id: utilService.makeId(),
+            },
+            {
+              txt: "Bread",
+              doneAt: null,
+              id: utilService.makeId(),
+            },
+          ],
+        },
+        style: {
+          backgroundColor: "#d3bfdb",
+        },
+      },
+      {
+        id: "n108",
+        type: "NoteImg",
+        isPinned: true,
+        info: {
+          imgUrl:
+            "https://cdn.britannica.com/01/235601-050-895651AA/Friends-cast-television-series-1994.jpg",
+          title: "",
+        },
+        style: {
+          backgroundColor: "#efeff1",
+        },
+      },
+      {
+        id: "n109",
+        type: "NoteImg",
+        isPinned: false,
+        info: {
+          imgUrl:
+            "https://i.pinimg.com/564x/cb/96/c1/cb96c16f1ec3bcd98b6ddf0748dddd6b.jpg",
+          title: "",
+        },
+        style: {
+          backgroundColor: "#aeccdc",
         },
       },
     ]

@@ -1,3 +1,5 @@
+/* Notes MQ */
+
 @media (min-width:320px) {
     .main-layout {
         width: 300px;
@@ -40,7 +42,6 @@
     .add-note {
         width: 400px;
         flex-direction: row;
-        /* flex-direction: column; */
     }
 
     .inner-container {
@@ -60,6 +61,7 @@
     }
 }
 
+/* Mails MQ */
 
 @media (max-width:1000px) {
     .filter-menu {
@@ -167,5 +169,21 @@
     .mail-list {
         margin-top: 0;
         padding-left: 1.2em;
+    }
+}
+
+/* Home MQ */
+
+@media (max-width:600px) {
+    .team{
+        width: 80%;
+    }
+
+    .feature{
+        margin-inline: 2em;
+    }
+
+    .feature-preview{
+        padding-inline: 1em;
     }
 }

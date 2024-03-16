@@ -9,11 +9,11 @@
     background-color: transparent;
     border: none;
     border-radius: 200px;
-    padding: .7em;
+    padding: .6em;
 }
 
 .user-icons-container i {
-    font-size: 1.6em;
+    font-size: 1.7em;
 }
 
 .user-icons-container button:hover {

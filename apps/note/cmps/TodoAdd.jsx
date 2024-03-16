@@ -7,19 +7,25 @@ export function TodoAdd({ todo, onChange, onRemove, onAdd }) {
     onAdd()
   }
 
-  function handleRemoveTodo(){
+  function handleRemoveTodo() {
     onRemove()
   }
 
   return (
     <section className="todo-task flex">
-      <button className="add-todo" type="button" onClick={handleAddTodo}>
+      <button
+        className="add-todo"
+        type="button"
+        onClick={handleAddTodo}
+        title="add another todo"
+      >
         <i className="fa-solid fa-plus"></i>{" "}
       </button>
-      <button onClick={handleRemoveTodo} type="button">
-      <i className="fa-solid fa-trash-can"></i>
+      <button onClick={handleRemoveTodo} type="button" title="remove todo">
+        <i className="fa-solid fa-trash-can"></i>
       </button>
       <input
+        title="add a todo"
         type="text"
         placeholder="Enter todo..."
         name="txt"

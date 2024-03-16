@@ -40,13 +40,13 @@ export function NotePreviewButtons({
 
   return (
     <section className="preview-btns">
-      <button className="remove-btn" onClick={() => onRemoveNote(note.id)}>
+      <button className="remove-btn" onClick={() => onRemoveNote(note.id)} title="remove note">
         <i className="fa-regular fa-trash-can"></i>
       </button>
-      <button onClick={() => togglePin(note)}>
+      <button onClick={() => togglePin(note)} title="pin note">
         <i className="fa-solid fa-thumbtack"></i>
       </button>
-      <button className="edit-btn" onClick={onSetEdit}>
+      <button className="edit-btn" onClick={onSetEdit} title="edit note">
         <i className="fa-regular fa-pen-to-square"></i>
       </button>
       <ColorButtons
@@ -55,7 +55,7 @@ export function NotePreviewButtons({
         openPaletteNoteId={openPaletteNoteId}
         setOpenPaletteNoteId={setOpenPaletteNoteId}
       />
-      <button className="duplicate-btn" onClick={onNoteDuplicate}>
+      <button className="duplicate-btn" onClick={onNoteDuplicate} title="duplicate note">
         <i className="fa-regular fa-copy"></i>
       </button>
     </section>

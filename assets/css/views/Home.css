@@ -1,1 +1,83 @@
- /* home */
+.home {
+    margin-block-start: 2em;
+    text-align: center;
+}
+
+.home h2.headline {
+    font-size: 1.6em;
+    line-height: 1.5em;
+    letter-spacing: 2px;
+    margin-block-end: 2em;
+    font-weight: 800;
+}
+
+.features {
+    margin-block-start: 2em;
+    gap: 1em;
+    /* height: 200px; */
+}
+
+.feature-preview {
+    border: 1px solid var(--border-color);
+    padding: 3em;
+    gap: 1em;
+}
+
+.feature-preview h2 {
+    font-weight: 600;
+}
+
+.feature-preview img {
+    width: 50px;
+    height: 50px;
+    margin-block-end: 1.5em;
+}
+
+.feature-preview button {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: rgb(55, 55, 230);
+    background-color: transparent;
+    border: 1px solid rgb(215, 214, 214);
+    border-radius: 6px;
+    padding: 5px 14px;
+    transition: background-color .3s;
+}
+
+.feature-preview button:hover{
+    background-color: var(--button-hover-color);
+}
+
+.about-us {
+    margin-block-start: 2em;
+    gap: 1.5em;
+}
+
+.team:last-child{
+    margin-block-end: 1em;
+}
+
+.team {
+    position: relative;
+    border: 1px solid var(--border-color);
+    width: 110%;
+}
+
+.team a {
+    position: absolute;
+    right: 1em;
+    top:.5em;
+    font-size: 1.5em;
+}
+
+.team img {
+    margin-block-start: 2em;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+
+.animate__animated.animate__backInLeft, .animate__backInRight {
+    --animate-duration: 2.2s;
+    animation-timing-function: ease-in-out
+  }

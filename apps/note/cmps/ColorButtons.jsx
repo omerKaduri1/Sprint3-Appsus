@@ -27,7 +27,7 @@ export function ColorButtons({
 
   return (
     <section className="color-btn">
-      <button onClick={togglePalette} className="palette-btn">
+      <button onClick={togglePalette} className="palette-btn" title="change note color">
         <i className="fa-solid fa-palette"></i>
         <section
           className={`color-palette ${isPaletteOpen ? "open" : "closed"}`}
@@ -35,6 +35,7 @@ export function ColorButtons({
           {colors.map((color, idx) => (
             <div
               className="color"
+              title={color}
               key={idx}
               onClick={() => onColorClick(color)}
               style={{ backgroundColor: color }}

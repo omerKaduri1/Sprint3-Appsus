@@ -8,7 +8,7 @@ export function AppHeader() {
           src="assets/img/Appsus-icon.png"
           alt="logo"
           className="logo"
-          title="website-logo"
+          title="home"
         />
       </Link>
       <nav className = "nav-bar flex">
@@ -16,8 +16,8 @@ export function AppHeader() {
             <img
               className="mail-logo"
               src="assets/img/gmail-icon.png"
-              alt="Gmail"
-              title="Gmail"
+              alt="mail"
+              title="mail"
             />
         </NavLink>
         <NavLink to="/note">
@@ -25,8 +25,8 @@ export function AppHeader() {
             <img
             className="keep-logo"
               src="assets/img/google-keep-icon.webp"
-              alt="GoogleKeep"
-              title="GoogleKeep"
+              alt="notes"
+              title="notes"
             />
         </NavLink>
       </nav>

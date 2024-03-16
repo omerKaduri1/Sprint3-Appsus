@@ -16,7 +16,7 @@ export function TodoAdd({ todo, onChange, onRemove, onAdd }) {
       <button className="add-todo" type="button" onClick={handleAddTodo}>
         <i className="fa-solid fa-plus"></i>{" "}
       </button>
-      <button onClick={handleRemoveTodo}>
+      <button onClick={handleRemoveTodo} type="button">
       <i className="fa-solid fa-trash-can"></i>
       </button>
       <input

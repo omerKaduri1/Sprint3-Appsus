@@ -1,22 +1,33 @@
 .user-msg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: absolute;
     text-align: center;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
+    background-color: var(--user-msg-color);
     
     font-size: .7em;
     font-weight: 600;
+    margin-block-start: 10px;
     
     height: 1em;
-    width: fit-content;
-    top: 50%;
-    right: 50%;
+    width: max-content;
+    /* bottom: 10px; */
+    /* left: 10px; */
+    bottom: 25vh;
+    right: 5vw;
+    /* right: 50%; */
 
     color: white;
     padding: 1.1em 1em 1.5em;
-    border-radius: 1em;
+    border-radius: 3px;
+    border: 4px solid transparent;
 }
 
 .user-msg.success {
-    background-color: rgba(69, 69, 69, 0.943);
+    background-color: var(--user-msg-color);
 }
 
 .user-msg.error {
@@ -24,13 +35,10 @@
 }
 
 .user-msg button{
-    display: none;
     border: none;
     background-color: rgba(240, 248, 255, 0);
     float: right;
-    margin-inline: 1em;
     border: none;
-    background-color: transparent;
     color: white;
     font-size: 1.2em;
 }

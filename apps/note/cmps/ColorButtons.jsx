@@ -25,6 +25,7 @@ export function ColorButtons({
 
   function onColorClick(color) {
     changeBackgroundColor(note, color)
+    isPaletteOpen = !isPaletteOpen
     setOpenPaletteNoteId("")
   }
 

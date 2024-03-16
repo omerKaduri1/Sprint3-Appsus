@@ -12,7 +12,7 @@ header {
 .app-header img:not(.logo) {
     cursor: pointer;
     display: block;
-    height: 30px;
+    height: 40px;
 }
 
 .nav-bar {
@@ -29,16 +29,6 @@ nav a {
 }
 
 nav a:hover {
-    background-color: rgba(211, 211, 211, 0.378);
+    background-color: var(--button-hover-color);
     border-radius: 50%;
-}
-
-nav a:active {
-    color: purple;
-}
-
-nav a.active {
-    color: darkblue;
-    font-weight: bold;
-    text-decoration: overline;
 }

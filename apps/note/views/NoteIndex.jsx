@@ -4,6 +4,7 @@ import { NoteAdd } from "../cmps/NoteAdd.jsx"
 import { NoteList } from "../cmps/NoteList.jsx"
 import { NoteFilter } from "../cmps/NoteFilter.jsx"
 import { PinnedNotesList } from "../cmps/PinnedNotesList.jsx"
+import { UserMsg } from "../../../cmps/UserMsg.jsx"
 
 import { noteService } from "../services/note.service.js"
 
@@ -120,6 +121,8 @@ export function NoteIndex() {
           setOpenPaletteNoteId={setOpenPaletteNoteId}
         />
       </section>
+
+      <UserMsg />
     </section>
   )
 }

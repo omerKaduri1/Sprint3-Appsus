@@ -1,7 +1,6 @@
 .preview-btns {
     display: flex;
     opacity: 0;
-    max-width: 100%;
 }
 
 .note-preview:hover .preview-btns {
@@ -17,4 +16,10 @@
     background-color: transparent;
     border: none;
     border-radius: 200px;
+    padding: .6em;
+}
+
+.preview-btns button:hover {
+    background-color: var(--button-hover-color);
+    border-radius: 50%;
 }

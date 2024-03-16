@@ -1,11 +1,11 @@
 @media (min-width:320px) {
     .main-layout {
         width: 300px;
-        /* margin-inline: 20px; */
     }
 
     .add-note {
         width: 280px;
+        flex-direction: column;
     }
 }
 
@@ -13,7 +13,11 @@
     .main-layout {
         width: 400px;
         margin: 0 auto;
-        /* margin-inline: 20px; */
+    }
+
+    .inner-container {
+        display: block;
+        columns: 2;
     }
 }
 
@@ -21,11 +25,26 @@
     .main-layout {
         width: 500px;
     }
+
 }
 
 @media (min-width:750px) {
     .main-layout {
         width: 700px;
+    }
+
+    .inner-container {
+        columns: 3;
+    }
+
+    .add-note {
+        width: 400px;
+        flex-direction: row;
+        /* flex-direction: column; */
+    }
+
+    .inner-container {
+        columns: 3;
     }
 }
 

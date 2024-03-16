@@ -3,7 +3,6 @@ const { useState, useEffect } = React
 export function FilterMenu({ filterBy, onSetFilter, unreadCount }) {
     const [selectedFilter, setSelectedFilter] = useState('inbox')
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
-    console.log('filterByToEdit:', filterByToEdit)
 
     useEffect(() => {
         onSetFilter(filterByToEdit)

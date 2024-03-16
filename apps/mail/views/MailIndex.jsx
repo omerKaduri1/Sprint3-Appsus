@@ -108,7 +108,7 @@ export function MailIndex() {
                 <img className="gmail-logo" src="../assets/img/gmail-logo.png" alt="" />
             </div>
             <div className="open-modal-btn-container flex align-center">
-                {openModal && <Compose mail={mail} setMail={setMail} handleSubmit={handleSubmit} handleChange={handleChange} setOpenModal={setOpenModal} />}
+                {openModal && <Compose mail={mail} setMail={setMail} handleSubmit={handleSubmit} handleChange={handleChange} setOpenModal={setOpenModal} showSuccessMsg={showSuccessMsg} />}
                 <button className="open-modal-btn flex align-center"
                     onClick={() => {
                         setOpenModal(true)

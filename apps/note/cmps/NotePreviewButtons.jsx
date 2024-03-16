@@ -49,15 +49,15 @@ export function NotePreviewButtons({
       <button className="edit-btn" onClick={onSetEdit}>
         <i className="fa-regular fa-pen-to-square"></i>
       </button>
-      <button className="duplicate-btn" onClick={onNoteDuplicate}>
-        <i className="fa-regular fa-copy"></i>
-      </button>
       <ColorButtons
         note={note}
         changeBackgroundColor={changeBackgroundColor}
         openPaletteNoteId={openPaletteNoteId}
         setOpenPaletteNoteId={setOpenPaletteNoteId}
       />
+      <button className="duplicate-btn" onClick={onNoteDuplicate}>
+        <i className="fa-regular fa-copy"></i>
+      </button>
     </section>
   )
 }

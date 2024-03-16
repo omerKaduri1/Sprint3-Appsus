@@ -1,4 +1,5 @@
 .main-layout {
-    max-width: 300px;
-    margin-inline: 20px;
+    /* width: 300px; */
+    margin: 0 auto;
+    /* margin-inline: 20px; */
 }

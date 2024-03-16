@@ -31,6 +31,14 @@
     flex-grow: 1;
 }
 
+.mail-sender-and-subject {
+    width: 90%;
+}
+
+.inputs {
+    width: 35%;
+}
+
 .mail-from, .mail-subject .subject {
     padding-right: 3em;
 }

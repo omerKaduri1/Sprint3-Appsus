@@ -61,7 +61,7 @@
 }
 
 
-@media (max-width:1000px) {
+@media (max-width:1040px) {
     .filter-menu {
         width: 150px;
         transition: 0.8s;
@@ -118,14 +118,14 @@
     }
 }
 
-@media (max-width:600px) {
+@media (max-width:760px) {
     
     html, body {
         overflow-x: hidden;
     }
-
+    
     .filter-menu {
-        width: 40px;
+        width: 35px;
         transition: 0.8s;
     }
     
@@ -151,7 +151,7 @@
         width: 50px;
         transition: 0.8s;
     }
-
+    
     .gmail-logo {
         display: none;
     }
@@ -163,9 +163,29 @@
     .gmail-logo-container {
         display: none;
     }
-
+    
     .mail-list {
         margin-top: 0;
         padding-left: 1.2em;
+    }
+
+    .mail-sender-and-subject {
+        width: 70%;
+    }
+
+    .mail-details-container {
+        transform: translateX(10%) translateY(5%);
+    }
+}
+
+@media (max-width:600px) {
+    .mail-sender-and-subject {
+        width: 55%;
+    }
+}
+
+@media (max-width:500px) {
+    .mail-sender-and-subject {
+        width: 40%;
     }
 }

@@ -13,44 +13,25 @@
     border-bottom: 1px solid lightgray;
 }
 
-.mail-subject {
-    width: 60%;
-}
-
-.mails-container {
-    display: flex;
-}
-
-.mail-actions > * {
-    color: rgb(173, 173, 173);
-    font-size: .9em;
-
-    background: none;
-    border: none;
-    outline: none;
-    box-shadow: none;
+.inputs {
+    min-width: 25%;
 }
 
 .search-container {
     margin-left: .8em;
     background-color: #ffffff;
+    height: 64px;
 }
 
 .search-input {
     display: flex;
     background-color: #eaf1fb;
-
-    border-radius: 1em;
+    
     width: 580px;
     min-width: 184px; 
+    border-radius: 1em;
 }
 
-.selected-line {
-    color: rgb(190, 7, 7);
-    background-color: #eaebef;
-    border-top-right-radius: 1.5em;
-    border-bottom-right-radius: 1.5em;
-}
 
 .nothing-to-show {
     width: 100%;

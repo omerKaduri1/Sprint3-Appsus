@@ -102,9 +102,9 @@ export function MailIndex() {
     const { mailStatus, txt, isStared, isRead, lables } = filterBy
     return <section className="mailapp-main-layout flex">
 
-        <section className="flex column">
+        <section className="menu-layout flex column">
             <div className="gmail-logo-container flex align-center">
-                <img className="hamburger" src="../assets/img/hamburger.png" alt="" title="Main Menu" onClick={() => showSuccessMsg('Please update software version')}/>
+                <img className="hamburger" src="../assets/img/hamburger.png" alt="" title="Main Menu" onClick={() => showSuccessMsg('Please update software version')} />
                 <img className="gmail-logo" src="../assets/img/gmail-logo.png" alt="" />
             </div>
             <div className="open-modal-btn-container flex align-center">
@@ -116,7 +116,9 @@ export function MailIndex() {
                     <div className="pen-container flex justify-center align-center">
                         <span className="fa pen-icon"></span>
                     </div>
-                    Compose
+                    <div className="open-modal-btn-text">
+                        Compose
+                    </div>
                 </button>
 
             </div>
@@ -125,7 +127,7 @@ export function MailIndex() {
 
         <section className="flex column">
             <div className="search-container flex align-center">
-                <MailFilter filterBy={{ txt, isStared, isRead }} onSetFilter={onSetFilter} getDefaultFilter={mailService.getDefaultFilter} />
+                <MailFilter filterBy={{ txt }} onSetFilter={onSetFilter} getDefaultFilter={mailService.getDefaultFilter} />
             </div>
             <MailList
                 mails={mails}

@@ -59,3 +59,105 @@
         width: 1100px;
     }
 }
+
+
+@media (max-width:1000px) {
+    .filter-menu {
+        width: 150px;
+        transition: 0.8s;
+    }
+
+    .filter-menu .div-container {
+        padding-left: 0;
+    }
+    
+    .menu-layout {
+        width: 150px;
+        transition: 0.8s;
+    }
+    
+    .mail-subject .subject {
+        padding-right: 10px;
+    }
+    
+    .mail-from {
+        padding-right: 1em;
+    }
+    
+    .mail-body-preview {
+        content-visibility:hidden;
+    }
+    
+    .mail-subject {
+        width: auto;
+    }
+    
+    .gmail-logo {
+        width: 90px;
+        transition: 0.8s;
+    }
+    
+    .hamburger {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .gmail-logo-container {
+        width: 150px;
+        transition: 0.8s;
+    }
+}
+
+@media (max-width:780px) {
+    .mail-sender-and-subject {
+        flex-direction: column;
+        transition: 0.8s;
+    }
+    .mail-li {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width:600px) {
+    .filter-menu {
+        width: 100px;
+        transition: 0.8s;
+    }
+    
+    .open-modal-btn-container {
+    }
+    
+    .open-modal-btn .open-modal-btn-text {
+        display: none;
+    }
+    
+    .open-modal-btn {
+        padding: 0;
+        width: 60px;
+        transition: 0.8s;
+    }
+    
+    .div-content span .filter-menu-text {
+        display: none;
+    }
+    
+    .menu-layout {
+        width: 100px;
+        transition: 0.8s;
+    }
+
+    .gmail-logo {
+        width: 60px;
+        transition: 0.8s;
+    }
+    
+    .hamburger {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .gmail-logo-container {
+        width: 100px;
+        transition: 0.8s;
+    }
+}

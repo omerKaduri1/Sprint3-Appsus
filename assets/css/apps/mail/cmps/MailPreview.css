@@ -3,8 +3,8 @@
     display: inline-flex;
 }
 
-.mail-list li:hover {
-    box-shadow: 0px 1px 0px 0px #bababa;
+.mail-list .mail-li:hover {
+    box-shadow: inset grey 0px -1px 1px 0px;
 }
 
 .mail-list button:hover {
@@ -24,6 +24,25 @@
 .mail-list input:hover {
     background-color: rgba(211, 211, 211, 0.515);
     border-radius: 50%;
+}
+
+.mail-subject {
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.mail-subject .subject {
+    padding-right: 3em;
+}
+
+.mail-actions > * {
+    color: rgb(173, 173, 173);
+    font-size: .9em;
+
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
 
 

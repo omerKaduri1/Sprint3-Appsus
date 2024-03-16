@@ -1,0 +1,8 @@
+.main-footer {
+    margin-block: 2em;
+    border-block-start: 1px solid var(--border-color);
+    padding-block-start: 2em;
+    gap: .5em;
+    font-weight: 600;
+    font-size: 1.2em;
+}

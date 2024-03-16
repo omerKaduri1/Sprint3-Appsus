@@ -1,1 +1,22 @@
- /* note index */
+.user-icons-container {
+    margin-block-start: 1em;
+    align-self: self-end;
+    justify-content: flex-end;
+    margin-inline-end: 2em;
+}
+
+.user-icons-container button {
+    background-color: transparent;
+    border: none;
+    border-radius: 200px;
+    padding: .7em;
+}
+
+.user-icons-container i {
+    font-size: 1.6em;
+}
+
+.user-icons-container button:hover {
+    background-color: var(--button-hover-color);
+    border-radius: 50%;
+}

@@ -1,6 +1,5 @@
 const { useState, useEffect } = React
 const { useParams, useNavigate } = ReactRouter
-const { Link, Outlet } = ReactRouterDOM
 
 import { mailService } from "../services/mail.service.js"
 
@@ -32,16 +31,14 @@ export function MailDetails() {
     if (isLoading) return <div>Loading...</div>
     return <article className="mail-details-container">
             <div className="mail-details-title flex space-between">
-                <h1>Subject: {mail.subject}</h1>
+                <h1 title="email subject">Subject: {mail.subject}</h1>
                 <div className="mail-actions">
-                    <button className='fa envelope'></button>
-                    <button className='fa forward'></button>
-                    <button className='fa trash'></button>
+                    <button className='fa trash' title="delete email"></button>
                 </div>
             </div>
             <div>
             </div>
-            <div className="mail-details-content">
+            <div className="mail-details-content" title="email content">
                 <h5>From: {mail.from}</h5>
                 <p>{mail.body}</p>
             </div>

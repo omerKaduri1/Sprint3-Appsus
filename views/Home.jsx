@@ -43,19 +43,20 @@ export function Home() {
         <h2>Our Team</h2>
 
         <article className="team">
-          <img src="assets/img/amit.jpg" alt="Amit Frid" title="Omer Kaduri" />
+          <img src="assets/img/amit.jpg" alt="Amit Frid" title="Amit Frid" />
           <h3>Amit Frid</h3>
           <p>
             Enthusiastic Industrial engineering & Fullstack development student{" "}
             <br />
             with great problem-solving skills and passion for learning. <br />
           </p>
-
-          <section className="social">
-            <a href="https://github.com/amitfrid7" target="_blank">
-              <i className="fa-brands fa-github"></i>
-            </a>
-          </section>
+          <a
+            href="https://github.com/amitfrid7"
+            target="_blank"
+            title="go to github"
+          >
+            <i className="fa-brands fa-github"></i>
+          </a>
         </article>
 
         <article className="team">
@@ -69,7 +70,11 @@ export function Home() {
             27 years old from Herzliya, israel. <br />
             Fullstack development student in Coding Academy.
           </p>
-          <a href="https://github.com/omerKaduri1" target="_blank">
+          <a
+            href="https://github.com/omerKaduri1"
+            target="_blank"
+            title="go to github"
+          >
             <i className="fa-brands fa-github"></i>
           </a>
         </article>

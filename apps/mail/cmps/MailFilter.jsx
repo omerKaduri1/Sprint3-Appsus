@@ -27,6 +27,7 @@ export function MailFilter({ onSetFilter, filterBy }) {
             <input type="text"
                 name="txt"
                 id="title"
+                title="search an email"
                 data-value={filterByToEdit.txt}
                 value={filterByToEdit.txt}
                 onClick={handleChange}

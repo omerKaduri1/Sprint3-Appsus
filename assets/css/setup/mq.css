@@ -120,11 +120,12 @@
 
 @media (max-width:600px) {
     .filter-menu {
-        width: 100px;
+        width: 40px;
         transition: 0.8s;
     }
     
-    .open-modal-btn-container {
+    .div-content span .fa::before {
+        padding: .5em;
     }
     
     .open-modal-btn .open-modal-btn-text {
@@ -133,7 +134,7 @@
     
     .open-modal-btn {
         padding: 0;
-        width: 60px;
+        width: 50px;
         transition: 0.8s;
     }
     
@@ -142,22 +143,24 @@
     }
     
     .menu-layout {
-        width: 100px;
+        width: 50px;
         transition: 0.8s;
     }
 
     .gmail-logo {
-        width: 60px;
-        transition: 0.8s;
+        display: none;
     }
     
     .hamburger {
-        width: 15px;
-        height: 15px;
+        display: none;
     }
     
     .gmail-logo-container {
-        width: 100px;
-        transition: 0.8s;
+        display: none;
+    }
+
+    .mail-list {
+        margin-top: 0;
+        padding-left: 1.2em;
     }
 }

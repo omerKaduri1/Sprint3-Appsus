@@ -8,7 +8,7 @@
 @import './basics/layout.css';
 
 /* Views */
-@import './views/home.css';
+@import './views/Home.css';
 @import './apps/mail/views/MailIndex.css';
 @import './apps/mail/views/MailDetails.css';
 @import './apps/note/views/NoteIndex.css';

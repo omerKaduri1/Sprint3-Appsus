@@ -27,7 +27,7 @@ export function RootCmp() {
                 
                 
                 {/* AMIT*/}
-                <Route path="/mail" element={<MailIndex />} />
+                <Route path="/mails" element={<MailIndex />} />
                 <Route path="/mails/:mailId" element={<MailDetails />} />
 
             </Routes>

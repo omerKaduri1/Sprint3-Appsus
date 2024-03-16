@@ -159,7 +159,7 @@ function _creatEmails() {
                 isRead: false,
                 sentAt: 0,
                 removedAt: null,
-                from: 'The Movie Database (TMDB)',
+                from: 'The Movie Database',
                 to: 'user@appsus.com',
                 mailStatus: 'inbox'
             },
@@ -198,23 +198,12 @@ function _creatEmails() {
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
+                subject: 'New login to Spotify',
+                body: utilService.makeLorem(120),
                 isRead: false,
                 sentAt: 0,
                 removedAt: null,
-                from: 'momo@momo.com',
-                to: 'user@appsus.com',
-                mailStatus: 'inbox'
-            },
-            {
-                id: utilService.makeId(),
-                subject: '',
-                body: '',
-                isRead: false,
-                sentAt: 0,
-                removedAt: null,
-                from: 'momo@momo.com',
+                from: 'Spotify',
                 to: 'user@appsus.com',
                 mailStatus: 'inbox'
             },
@@ -225,7 +214,7 @@ function _creatEmails() {
                 isRead: false,
                 sentAt: 0,
                 removedAt: null,
-                from: 'The Open University',
+                from: 'Open University',
                 to: 'user@appsus.com',
                 mailStatus: 'inbox'
             },
@@ -242,8 +231,8 @@ function _creatEmails() {
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
+                subject: 'Pancake Recipe',
+                body: utilService.makeLorem(100),
                 isRead: true,
                 sentAt: 0,
                 removedAt: null,
@@ -275,8 +264,8 @@ function _creatEmails() {
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
+                subject: 'My favorite foods',
+                body: utilService.makeLorem(100),
                 isRead: true,
                 sentAt: 0,
                 removedAt: null,
@@ -286,8 +275,8 @@ function _creatEmails() {
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
+                subject: 'Amit Frid CV',
+                body: utilService.makeLorem(120),
                 isRead: true,
                 sentAt: 0,
                 removedAt: null,
@@ -297,23 +286,23 @@ function _creatEmails() {
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
+                subject: 'Master Advanced Stack Skills',
+                body: utilService.makeLorem(100),
                 isRead: false,
                 sentAt: 0,
                 removedAt: null,
-                from: 'momo@momo.com',
+                from: 'Simplilearn',
                 to: 'user@appsus.com',
                 mailStatus: 'trash'
             },
             {
                 id: utilService.makeId(),
-                subject: '',
-                body: '',
+                subject: 'Reset password instructions',
+                body: utilService.makeLorem(100),
                 isRead: true,
                 sentAt: 0,
                 removedAt: null,
-                from: 'momo@momo.com',
+                from: 'no-reply',
                 to: 'user@appsus.com',
                 mailStatus: 'trash'
             },
@@ -341,23 +330,6 @@ function _creatEmails() {
             },
         ]
 
-
-
-
-
-
-
-
-
-
-
-
-        mails.push(_creatEmail())
-        mails.push(_creatEmail())
-        mails.push(_creatEmail())
-        mails.push(_creatEmail())
-        mails.push(_creatEmail())
-        mails.push(_creatEmail())
         mails.push(_creatEmail())
         mails.push(_creatEmail())
         utilService.saveToStorage(MAIL_KEY, mails)

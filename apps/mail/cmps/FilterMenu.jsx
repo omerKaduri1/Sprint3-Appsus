@@ -37,7 +37,7 @@ export function FilterMenu({ filterBy, onSetFilter, unreadCount }) {
         <div className={`div-container ${(selectedFilter === 'trash') ? 'selected-line' : ''}`}>
             <div className="div-content flex space-between align-center"
                 id="trash" onClick={handleStatusChange}>
-                <span><span className="fa trash-icon"></span><span className="filter-menu-text">Trash</span></span><span>0</span></div>
+                <span><span className="fa trash-icon"></span><span className="filter-menu-text">Trash</span></span><span>3</span></div>
         </div>
 
         <div className={`lables-menu div-container ${(selectedFilter === 'lables') ? 'selected-line' : ''}`}>

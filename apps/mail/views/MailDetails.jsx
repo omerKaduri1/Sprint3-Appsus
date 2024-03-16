@@ -30,9 +30,20 @@ export function MailDetails() {
     }
 
     if (isLoading) return <div>Loading...</div>
-    return <section>
-        <h1>Subject: {mail.subject}</h1>
-        <h5>From: {mail.from}</h5>
-        <p>{mail.body}</p>
-    </section>
+    return <article className="mail-details-container">
+            <div className="mail-details-title flex space-between">
+                <h1>Subject: {mail.subject}</h1>
+                <div className="mail-actions">
+                    <button className='fa envelope'></button>
+                    <button className='fa forward'></button>
+                    <button className='fa trash'></button>
+                </div>
+            </div>
+            <div>
+            </div>
+            <div className="mail-details-content">
+                <h5>From: {mail.from}</h5>
+                <p>{mail.body}</p>
+            </div>
+        </article>
 }

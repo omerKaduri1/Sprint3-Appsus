@@ -103,17 +103,23 @@ export function MailIndex() {
     return <section className="mailapp-main-layout flex">
 
         <section className="flex column">
-            <div className="gmail-logo-container">
-                <img className="gmail-logo" src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_rtl_r5.png" alt="" />
+            <div className="gmail-logo-container flex align-center">
+                <img className="hamburger" src="../assets/img/hamburger.png" alt="" title="Main Menu" onClick={() => showSuccessMsg('Please update software version')}/>
+                <img className="gmail-logo" src="../assets/img/gmail-logo.png" alt="" />
             </div>
-            {openModal && <Compose mail={mail} setMail={setMail} handleSubmit={handleSubmit} handleChange={handleChange} setOpenModal={setOpenModal} />}
-            <button className="open-modal-btn"
-                onClick={() => {
-                    setOpenModal(true)
-                }}>
-                <span className="fa pen-icon"></span>
-                Compose
-            </button>
+            <div className="open-modal-btn-container flex align-center">
+                {openModal && <Compose mail={mail} setMail={setMail} handleSubmit={handleSubmit} handleChange={handleChange} setOpenModal={setOpenModal} />}
+                <button className="open-modal-btn flex align-center"
+                    onClick={() => {
+                        setOpenModal(true)
+                    }}>
+                    <div className="pen-container flex justify-center align-center">
+                        <span className="fa pen-icon"></span>
+                    </div>
+                    Compose
+                </button>
+
+            </div>
             <FilterMenu filterBy={{ mailStatus, lables }} onSetFilter={onSetFilter} unreadCount={unreadCount} />
         </section>
 

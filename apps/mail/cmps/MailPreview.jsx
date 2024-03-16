@@ -14,8 +14,8 @@ export function MailPreview({ mail, handleIsRead, onRemoveMail, countUnread, tog
     return (
         <li className={`flex space-between pointer {${(isRead) ? 'read' : ''}`}>
             <div className="inputs flex">
-                <input type="checkbox" className="fa star" />
                 <input type="checkbox" />
+                <input type="checkbox" className="fa star" />
                 <div className={`mail-from ${(isRead) ? '' : 'bold'}`}
             onClick={() => onOpenMail(mail.id)}>
                     <Link to={`/mails/${mail.id}`}>

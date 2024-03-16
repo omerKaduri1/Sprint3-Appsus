@@ -1,4 +1,5 @@
 .mail-list li {
+    font-size: 1em;
     display: inline-flex;
 }
 
@@ -14,6 +15,17 @@
 .mail-list button {
     padding: .4em;
 }
+
+.mail-list input {
+    cursor: pointer;
+    padding: .2em;
+}
+
+.mail-list input:hover {
+    background-color: rgba(211, 211, 211, 0.515);
+    border-radius: 50%;
+}
+
 
 .read {
     background-color: #f2f6fc;

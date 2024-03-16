@@ -1,7 +1,7 @@
 .filter-menu {
     font-family: lato-bold;
     
-    width: 180px;
+    width: 256px;
     height: 100vh;
 
     padding: 0;
@@ -17,9 +17,14 @@
     display: flex;
     justify-content: space-between;
 
-    font-size: .7em;
-    padding: .6em;
+    height: 2.2em;
+
+    font-size: 1em;
     cursor: pointer;
+}
+
+.filter-menu .div-container {
+    padding: 0 0.75em 0 1.625em;
 }
 
 .filter-menu .div-content {

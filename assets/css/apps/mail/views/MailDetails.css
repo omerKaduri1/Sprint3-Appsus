@@ -1,0 +1,24 @@
+.mail-details-container {
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    width: 80vw;
+
+    transform: translateX(10%) translateY(20%);
+
+}
+
+.mail-details-title {
+    background-color: black;
+    color: white;
+    
+    padding: 1em;
+    
+    border-top-left-radius: .5em;
+    border-top-right-radius: .5em;
+}
+
+.mail-details-content {
+    padding: 1em;
+    border: 1px grey solid;
+}

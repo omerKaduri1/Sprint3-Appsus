@@ -16,6 +16,7 @@ export function NoteFilter({ onSetFilterBy, filterBy }) {
   return (
     <section className="filter-search-container">
       <input
+        title="search note"
         type="search"
         name="txt"
         id="txt"

@@ -20,6 +20,7 @@ export function NoteTxtAdd({ addNote, type }) {
   return (
     <form className="add-text flex column" onSubmit={onAddNote}>
       <input
+        title="add note"
         type="text"
         className="txt-input"
         name="txt"

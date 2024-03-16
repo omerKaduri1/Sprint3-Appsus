@@ -29,6 +29,7 @@ export function NoteVideoAdd({ addNote, type }) {
     <React.Fragment>
       <form className="flex column" onSubmit={onAddNote}>
         <input
+          title="add note title"
           className="title-input"
           onChange={handleChange}
           type="text"
@@ -39,6 +40,7 @@ export function NoteVideoAdd({ addNote, type }) {
         />
         <input
           required
+          title="add note youtube url"
           onChange={handleChange}
           type="text"
           className="youtubeUrl"

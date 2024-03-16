@@ -95,17 +95,17 @@ export function NoteIndex() {
   if (!notes) return <div>Loading...</div>
   return (
     <section className="note-index">
-        <section className="user-icons-container flex">
-          <button>
-            <i className="fa-solid fa-gear"></i>
-          </button>
-          <button>
-            <i className="fa-solid fa-circle-info"></i>
-          </button>
-          <button>
-            <i className="fa-regular fa-circle-user"></i>
-          </button>
-        </section>
+      <section className="user-icons-container flex">
+        <button title="settings">
+          <i className="fa-solid fa-gear"></i>
+        </button>
+        <button title="information">
+          <i className="fa-solid fa-circle-info"></i>
+        </button>
+        <button title="user">
+          <i className="fa-regular fa-circle-user"></i>
+        </button>
+      </section>
       <section className="main-notes-container main-layout flex column align-center">
         <NoteFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
         <section className="add-note-container">

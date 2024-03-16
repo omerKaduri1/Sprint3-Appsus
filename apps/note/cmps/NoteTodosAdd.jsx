@@ -65,6 +65,7 @@ export function NoteTodosAdd({ addNote, type }) {
       <form className="flex column" onSubmit={onAddNote}>
         <input
           required
+          title="add note title"
           className="title-input"
           onChange={handleTitleChange}
           type="text"

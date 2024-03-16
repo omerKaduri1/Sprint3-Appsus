@@ -1,6 +1,10 @@
 export function AppFooter() {
-    return <footer className="main-footer flex justify-center align-center">
-        <i className="fa-regular fa-copyright"></i>
-        <h4>All rights reserved - Amit Frid & Omer Kaduri</h4>
+  return (
+    <footer className="main-footer flex column justify-center align-center">
+      <img src="assets/img/Appsus-icon.png" alt="logo" title="apssus logo" />
+      <small title="rights" title="rights">
+        © All rights reserved - Amit Frid & Omer Kaduri
+      </small>
     </footer>
+  )
 }

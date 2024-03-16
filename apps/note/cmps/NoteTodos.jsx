@@ -60,7 +60,7 @@ export function NoteTodos({
       {note.info.todos && note.info.todos.length && (
         <ul className="clean-list">
           {note.info.todos.map((todo) => (
-            <li key={todo.id}>
+            <li key={todo.id}> 
               <span className={todo.doneAt ? "done" : ""}>{todo.txt}</span>
             </li>
           ))}

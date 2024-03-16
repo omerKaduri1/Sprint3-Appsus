@@ -100,9 +100,12 @@ export function MailIndex() {
     }
 
     const { mailStatus, txt, isStared, isRead, lables } = filterBy
-    return <section className="mailapp-main-layout flex column">
+    return <section className="mailapp-main-layout flex">
 
-        <section className="flex">
+        <section className="flex column">
+            <div className="gmail-logo-container">
+                <img className="gmail-logo" src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_rtl_r5.png" alt="" />
+            </div>
             {openModal && <Compose mail={mail} setMail={setMail} handleSubmit={handleSubmit} handleChange={handleChange} setOpenModal={setOpenModal} />}
             <button className="open-modal-btn"
                 onClick={() => {
@@ -111,19 +114,20 @@ export function MailIndex() {
                 <span className="fa pen-icon"></span>
                 Compose
             </button>
+            <FilterMenu filterBy={{ mailStatus, lables }} onSetFilter={onSetFilter} unreadCount={unreadCount} />
+        </section>
+
+        <section className="flex column">
             <div className="search-container flex align-center">
                 <MailFilter filterBy={{ txt, isStared, isRead }} onSetFilter={onSetFilter} getDefaultFilter={mailService.getDefaultFilter} />
             </div>
-        </section>
-
-        <section className="flex">
-            <FilterMenu filterBy={{ mailStatus, lables }} onSetFilter={onSetFilter} unreadCount={unreadCount} />
             <MailList
                 mails={mails}
                 onRemoveMail={onRemoveMail}
                 countUnread={countUnread}
                 onOpenMail={onOpenMail}
-                toggleRead={toggleRead} />
+                toggleRead={toggleRead}
+                showSuccessMsg={showSuccessMsg} />
         </section>
 
         <UserMsg />

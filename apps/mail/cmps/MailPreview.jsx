@@ -1,7 +1,7 @@
 const { Link } = ReactRouterDOM
 const { useState } = React
 
-export function MailPreview({ mail, handleIsRead, onRemoveMail, countUnread, toggleRead, onOpenMail }) {
+export function MailPreview({ mail, handleIsRead, onRemoveMail, countUnread, toggleRead, onOpenMail, showSuccessMsg }) {
     const [isRead, setIsRead] = useState(mail.isRead)
 
     function handleIsRead() {
@@ -36,7 +36,7 @@ export function MailPreview({ mail, handleIsRead, onRemoveMail, countUnread, tog
 
             <div className="mail-actions">
                 <button className='fa envelope' onClick={handleIsRead}></button>
-                <button className='fa forward'></button>
+                <button className='fa forward' onClick={() => showSuccessMsg('Please update software version')}></button>
                 <button className='fa trash' onClick={() => onRemoveMail(mail)}></button>
             </div>
         </li >

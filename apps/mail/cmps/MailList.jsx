@@ -2,7 +2,7 @@ const { Link } = ReactRouterDOM
 
 import { MailPreview } from './MailPreview.jsx'
 
-export function MailList({ mails, isRead, handleIsRead, onRemoveMail, countUnread, toggleRead, onOpenMail }) {
+export function MailList({ mails, isRead, handleIsRead, onRemoveMail, countUnread, toggleRead, onOpenMail, showSuccessMsg }) {
 
     if (!mails || !mails.length) {
         return <div className="nothing-to-show">Nothing to show</div>
@@ -17,7 +17,8 @@ export function MailList({ mails, isRead, handleIsRead, onRemoveMail, countUnrea
             isRead={isRead}
             handleIsRead={handleIsRead}
             countUnread={countUnread}
-            toggleRead={toggleRead}/>
+            toggleRead={toggleRead}
+            showSuccessMsg={showSuccessMsg}/>
         ))}
     </ul>
 }

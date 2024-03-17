@@ -104,8 +104,8 @@ export function MailIndex() {
 
         <section className="menu-layout flex column">
             <div className="gmail-logo-container flex align-center">
-                <img className="hamburger" src="/assets/img/hamburger.png" alt="main menu" title="Main Menu" onClick={() => showSuccessMsg('Please update software version')} />
-                <img className="gmail-logo" src="/assets/img/gmail-logo.png" alt="mail logo" title="mail logo" />
+                <img className="hamburger" src="assets/img/hamburger.png" alt="main menu" title="Main Menu" onClick={() => showSuccessMsg('Please update software version')} />
+                <img className="gmail-logo" src="assets/img/gmail-logo.png" alt="mail logo" title="mail logo" />
             </div>
             <div className="open-modal-btn-container flex align-center">
                 {openModal && <Compose mail={mail} setMail={setMail} handleSubmit={handleSubmit} handleChange={handleChange} setOpenModal={setOpenModal} showSuccessMsg={showSuccessMsg} />}

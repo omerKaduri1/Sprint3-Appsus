@@ -1,9 +1,9 @@
-Appssus is a web application that combines two main functionalities: a Keep (notes) app and a Mail app. It provides users with the ability to create, manage, and organize notes as well as send emails, all within a single platform.
 
+# Appssus
 
-Features
+Appssus is a frontend web application that combines two main functionalities: a Keep (notes) app and a Mail app. It provides users with the ability to create, manage, and organize notes as well as send emails, all within a single platform.
 
-Keep (Notes) App
+# Keep (Notes) App
 
 - Create Notes: Users can create notes containing text, images, videos, or checklists to organize their thoughts and tasks.
 
@@ -13,7 +13,7 @@ Keep (Notes) App
 
 - Search Functionality: The app includes a search feature to quickly find specific notes based on content.
 
-Mail App
+# Mail App
 
 - Send and Receive Emails: Users can compose, send, and then view sent emails through "sent" folder.
 
@@ -21,8 +21,26 @@ Mail App
 
 - Filters: Emails can be filtered based on criteria such as sender or subject for better organization.
 
-Technologies Used
 
-Frontend: React.js for building the user interface and managing state.
+## Tech Stack
 
-Styling: CSS for styling the application components and layouts.
+React.js for building the user interface and managing state.
+
+CSS for styling the application components and layouts.
+
+
+
+## Demo
+Mail app
+
+![](https://i.ibb.co/RDsCh58/appssus-mail.png)
+
+Keep app
+![](https://i.ibb.co/P6LVNBN/2024-05-21-152152.png)
+
+## Authors
+
+- [@omerkaduri1](https://github.com/omerKaduri1)
+- [@amitf11](https://github.com/amitf11)
+
+
